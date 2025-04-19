@@ -70,8 +70,6 @@ class CitationData:
         return referenceSubjects
     
 
- 
-    
     def _createYear2IDs(self):
         # create a dictionary with year as key and publicationID as value
         year2IDs = {}
@@ -100,7 +98,6 @@ class CitationData:
             year2IntroducedSubjects[year].append(subjects)
         return year2IntroducedSubjects
     
-
 
     def _getBaselineSubjects(self):
         # get the subjects that were introduced in the baseline range
@@ -195,10 +192,8 @@ class CitationData:
             isBaseline = [subject in coreSubjects for subject in dfSubjectData["subject"]]
             dfSubjectData["baseline"] = isBaseline
             # Set property IntroductionYear not all subject categories have an introduction year
-            # dfSubjectCategoryData["introductionYear"] = [self.subject2IntroductionYear[subject] if subject in subjectCategory2IntroductionYear else np.NaN for subject in dfSubjectCategoryData["subject"]]
             dfSubjectData["introductionYear"] = [self.subject2IntroductionYear[subject] if subject in self.subject2IntroductionYear else np.NaN for subject in dfSubjectData["subject"]]
             # Set property NoveltyImpact
-            # dfSubjectCategoryData[f"NoveltyImpact_W{impactWindowSize}"] = [subjectCategory2NoveltyImpactByWindow[pioneerNoveltyImpactTimeWindow][subjectCategory] if subjectCategory in subjectCategory2NoveltyImpactByWindow[pioneerNoveltyImpactTimeWindow] else np.NaN for subjectCategory in dfSubjectCategoryData["SubjectCategory"]]
             dfSubjectData["noveltyImpact_W" + str(impactWindowSize)] = [subject2NoveltyImpact[subject] if subject in subject2NoveltyImpact else np.NaN for subject in dfSubjectData["subject"]]
             # order by year
             dfSubjectData["introductionYear"] = dfSubjectData["introductionYear"].fillna(-1)
@@ -208,7 +203,7 @@ class CitationData:
             # reset index
             dfSubjectData.reset_index(drop=True,inplace=True)
             
-
+            # CONTINUE FROM HERE THIS CODE IS NOT FINISHED
             paperUID2PioneerNoveltyImpactByWindow = {}
             paperUID2PioneerNoveltyImpactScoresByWindow = {}
             for pioneerNoveltyImpactTimeWindow in pioneerNoveltyImpactTimeWindows:
@@ -245,7 +240,7 @@ class CitationData:
         return {
             'pioneerScore': paperID2PioneerNoveltyScore,
             'introducedSubjects': paperID2IntroducedSubjectCategories,
-
+            'subjectPioneerImpactTable': subject2NoveltyImpact,
         }
 
 
