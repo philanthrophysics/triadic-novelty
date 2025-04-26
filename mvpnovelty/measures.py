@@ -280,7 +280,7 @@ class CitationData:
     def calculateShortenerNoveltyScores(self, analysisRange: tuple = (-1, -1), backwardWindow: int = 5, forwardWindow: int = 5):
         
         analysisRange = self._checkAnalysisRange(analysisRange)
-        subjectsSet = set([subject for subjects in self.data.loc["subjects"] for subject in subjects])
+        subjectsSet = set([subject for subjects in self.data.loc[:,"subjects"] for subject in subjects])
         if "nan" in subjectsSet:
             subjectsSet.remove("nan")
 
@@ -314,7 +314,7 @@ class CitationData:
                 for paperUID in papers:
                     subjects = self.data.loc[paperUID, 'subjects']
                     if(subjects):
-                        subjectIndices = [subject2Index[subject] for subject in subjectIndices]
+                        subjectIndices = [subject2Index[subject] for subject in subjects]
                         subjectIndices = list(set(subjectIndices))
                         edges = list(combinations(subjectIndices,2))
                         # make edges min(),max()

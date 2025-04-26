@@ -10,8 +10,10 @@ data_path = os.path.join(os.path.dirname(__file__), "..", "dataset", "Artificial
 df = pd.read_csv(data_path)
 
 # instantiate and compute pioneer novelty
-cd = mvm.CitationData(df,useReferencesSubjects=False)
-results = cd.calculatePioneerNoveltyScores()
+cd = mvm.CitationData(df,useReferencesSubjects=True)
+pioneer = cd.calculatePioneerNoveltyScores()
+
+shortener = cd.calculateShortenerNoveltyScores()
 
 # print per‐paper pioneer novelty scores
 print("Pioneer novelty score per paper:")
