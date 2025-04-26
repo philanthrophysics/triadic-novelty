@@ -2,6 +2,11 @@
 import pandas as pd
 from tqdm.auto import tqdm
 import numpy as np
+import igraph as ig
+from collections import Counter
+from itertools import combinations 
+import sys
+epsilon = sys.float_info.epsilon
 
 class CitationData:
     # baselineRange is a tuple
@@ -23,11 +28,17 @@ class CitationData:
         if data['publicationID'].duplicated().any():
             raise ValueError("publicationID column must contain unique values")
         
+        
         self.data = data.copy()
+        # fill NaN values in references and subjects with empty strings
+        self.data['references'] = self.data['references'].fillna('')
+        self.data['subjects'] = self.data['subjects'].fillna('')
+        
         # index by publicationID
         # make sure publicationID is a string
         self.data['publicationID'] = self.data['publicationID'].astype(str)
-        self.data.set_index('publicationID', inplace=True)
+        self.data['publicationID_index'] = self.data['publicationID']
+        self.data.set_index('publicationID_index', inplace=True)
         
         # convert references to list of strings (split by ;) skip empty entries
         self.data['references'] = self.data['references'].apply(lambda x: [ref.strip() for ref in x.split(';') if ref.strip()])
@@ -47,7 +58,11 @@ class CitationData:
         if baselineRange[0] == -1:
             self.baselineRange = (self.data['year'].min(), baselineRange[1])
         if baselineRange[1] == -1:
-            self.baselineRange = (baselineRange[0], self.data['year'].max())
+            # defaults to 5 years after the minimum year in the data
+            if self.data['year'].min() + 5 > self.data['year'].max():
+                self.baselineRange = (self.data['year'].min(), self.data['year'].max())
+            else:
+                self.baselineRange = (self.data['year'].min(), self.data['year'].min() + 5)
         if baselineRange[0] > baselineRange[1]:
             raise ValueError("Baseline range is invalid")
         
@@ -73,18 +88,19 @@ class CitationData:
     def _createYear2IDs(self):
         # create a dictionary with year as key and publicationID as value
         year2IDs = {}
-        for year in self.data['year']:
+        for year, publicationID in zip(tqdm(self.data['year'], desc="Creating year to publicationID mapping"), self.data.index):
             if year not in year2IDs:
                 year2IDs[year] = []
-            year2IDs[year].append(self.data.loc[year, 'publicationID'])
+            year2IDs[year].append(publicationID)
+                
         return year2IDs
     
     def _generateSubject2IntroductionYear(self):
         # generate a dictionary with subject as key and introduction year as value
         subject2IntroductionYear = {}
         for year in self.year2IDs:
-            for publicationID in self.year2IDs[year]:
-                for subject in self.data.loc[publicationID, 'subjects']:
+            for publicationIDs in self.year2IDs[year]:
+                for subject in self.data.loc[publicationIDs, 'subjects']:
                     if subject not in subject2IntroductionYear:
                         subject2IntroductionYear[subject] = year
         return subject2IntroductionYear
@@ -92,10 +108,10 @@ class CitationData:
     def _generateYear2IntroducedSubjects(self):
         # generate a dictionary with year as key and introduced subjects as value
         year2IntroducedSubjects = {}
-        for year, subjects in self.subject2IntroductionYear.items():
-            if year not in year2IntroducedSubjects:
-                year2IntroducedSubjects[year] = []
-            year2IntroducedSubjects[year].append(subjects)
+        for subject, introductionYear in self.subject2IntroductionYear.items():
+            if introductionYear not in year2IntroducedSubjects:
+                year2IntroducedSubjects[introductionYear] = []
+            year2IntroducedSubjects[introductionYear].append(subject)
         return year2IntroducedSubjects
     
 
@@ -106,16 +122,17 @@ class CitationData:
             if year in self.year2IntroducedSubjects:
                 baselineSubjects += self.year2IntroducedSubjects[year]
         return set(baselineSubjects)
+    
 
 
     def _createYear2TotalReferences(self):
         # create a dictionary with year as key and total references as value
         year2TotalReferences = {}
-        for year,referencesList in zip(tqdm(self.data['year']), self.data['references'], desc="Calculating total references per year"):
+        for year,referencesList in zip(tqdm(self.data['year'], desc="Calculating total references per year"),self.data['references']):
             if year not in year2TotalReferences:
                 year2TotalReferences[year] = 0
             if referencesList==referencesList:
-                year2TotalReferences[year] += len(referencesList.split("; "))
+                year2TotalReferences[year] += len(referencesList)
         return year2TotalReferences
     
 
@@ -130,19 +147,30 @@ class CitationData:
         return subject2IDs
 
 
-    def calculatePioneerNoveltyScores(self, analysisRange: tuple = (-1, -1), impactWindowSize: int = 5):
-        # calculate the pioneer novelty score
-        # for each subject in the baseline range, get the number of references that were introduced in the baseline range
-        # and divide by the total number of references
-        # return a dictionary with pioneer novelty score for each paperID and the introduced subject categories
-        paperID2PioneerNoveltyScore = {}
-        paperID2IntroducedSubjectCategories = {}
+    def _checkAnalysisRange(self, analysisRange: tuple):
         if analysisRange[0] == -1:
             analysisRange = (self.baselineRange[1], analysisRange[1])
         if analysisRange[1] == -1:
             analysisRange = (analysisRange[0], self.data['year'].max())
         if analysisRange[0] > analysisRange[1]:
             raise ValueError("Analysis range is invalid")
+        if analysisRange[0] < self.baselineRange[1]:
+            raise ValueError("Analysis range cannot start before the baseline range ends")
+        if analysisRange[1] > self.data['year'].max():
+            raise ValueError("Analysis range cannot end after the last year in the data")
+        # check if analysisRange is within the data range
+        
+        return analysisRange
+
+    def calculatePioneerNoveltyScores(self, analysisRange: tuple = (-1, -1), impactWindowSize: int = 5):
+        # calculate the pioneer novelty score
+        # for each subject in the baseline range, get the number of references that were introduced in the baseline range
+        # and divide by the total number of references
+        # return a dictionary with pioneer novelty score for each paperID and the introduced subject categories
+        paperID2PioneerNoveltyScore = {}
+        paperID2IntroducedSubjects = {}
+
+        analysisRange = self._checkAnalysisRange(analysisRange)
         
         coreSubjects = set()
         # prefill the coreSubjects with subjects introduced before the analysis range
@@ -157,7 +185,7 @@ class CitationData:
                 subjects = self.data.loc[paperID, 'subjects']
                 introducedSubjects = set(subjects) - beforeYearSubjects
                 addedSubjectsOnYear.update(introducedSubjects)
-                paperID2IntroducedSubjectCategories[paperID] = introducedSubjects
+                paperID2IntroducedSubjects[paperID] = introducedSubjects
                 paperID2PioneerNoveltyScore[paperID] = len(introducedSubjects)
             beforeYearSubjects.update(addedSubjectsOnYear)
 
@@ -165,7 +193,7 @@ class CitationData:
         # Pioneer Novelty Impact
         # Subject category Novelty Impact
         subject2NoveltyImpact = {} # PapersReferencing(timewindow,SC1)/TotalPublications(timeWindow)
-        for introducingYear,introducedSubjects in self.year2IntroducedSubjects:
+        for introducingYear,introducedSubjects in self.year2IntroducedSubjects.items():
             for introducedSubject in introducedSubjects:
                 if introducingYear < analysisRange[0]:
                     continue
@@ -194,7 +222,7 @@ class CitationData:
             # Set property IntroductionYear not all subject categories have an introduction year
             dfSubjectData["introductionYear"] = [self.subject2IntroductionYear[subject] if subject in self.subject2IntroductionYear else np.NaN for subject in dfSubjectData["subject"]]
             # Set property NoveltyImpact
-            dfSubjectData["noveltyImpact_W" + str(impactWindowSize)] = [subject2NoveltyImpact[subject] if subject in subject2NoveltyImpact else np.NaN for subject in dfSubjectData["subject"]]
+            dfSubjectData["noveltyImpact"] = [subject2NoveltyImpact[subject] if subject in subject2NoveltyImpact else np.NaN for subject in dfSubjectData["subject"]]
             # order by year
             dfSubjectData["introductionYear"] = dfSubjectData["introductionYear"].fillna(-1)
             dfSubjectData.sort_values(by=["introductionYear"],inplace=True,ascending=True)
@@ -203,27 +231,20 @@ class CitationData:
             # reset index
             dfSubjectData.reset_index(drop=True,inplace=True)
             
-            # CONTINUE FROM HERE THIS CODE IS NOT FINISHED
-            paperUID2PioneerNoveltyImpactByWindow = {}
-            paperUID2PioneerNoveltyImpactScoresByWindow = {}
-            for pioneerNoveltyImpactTimeWindow in pioneerNoveltyImpactTimeWindows:
-                paperUID2PioneerNoveltyImpact = {}
-                paperUID2PioneerNoveltyImpactScores = {}
-                for paperUID in dfPhilanthropy["UT"]:
-                    if paperUID in paperUIDIntroducedSubjectCategories:
-                        introducedSubjectCategories = paperUIDIntroducedSubjectCategories[paperUID]
-                        impactScores = []
-                        for subjectCategory in introducedSubjectCategories:
-                            if subjectCategory in subjectCategory2NoveltyImpactByWindow[pioneerNoveltyImpactTimeWindow]:
-                                impactScores.append(subjectCategory2NoveltyImpactByWindow[pioneerNoveltyImpactTimeWindow][subjectCategory])
-                        if(len(impactScores)):
-                            maxImpact = np.nanmax(impactScores)
-                        else:
-                            maxImpact = np.NaN
-                        paperUID2PioneerNoveltyImpact[paperUID] = maxImpact
-                        paperUID2PioneerNoveltyImpactScores[paperUID] = impactScores
-                paperUID2PioneerNoveltyImpactByWindow[pioneerNoveltyImpactTimeWindow] = paperUID2PioneerNoveltyImpact
-                paperUID2PioneerNoveltyImpactScoresByWindow[pioneerNoveltyImpactTimeWindow] = paperUID2PioneerNoveltyImpactScores
+            
+            paperUID2PioneerNoveltyImpact = {}
+            paperUID2PioneerNoveltyImpactScores = {}
+            for paperUID,introducedSubject in paperID2IntroducedSubjects.items():
+                impactScores = []
+                for subject in introducedSubject:
+                    if subject in subject2NoveltyImpact:
+                        impactScores.append(subject2NoveltyImpact[subject])
+                if(len(impactScores)):
+                    maxImpact = np.nanmax(impactScores)
+                else:
+                    maxImpact = np.NaN
+                paperUID2PioneerNoveltyImpact[paperUID] = maxImpact
+                paperUID2PioneerNoveltyImpactScores[paperUID] = impactScores
 
             
             #             totalPaperCount+=len(year2paperUIDs[year])
@@ -236,12 +257,437 @@ class CitationData:
             # subjectCategory2NoveltyImpactByWindow[pioneerNoveltyImpactTimeWindow] = subjectCategory2NoveltyImpact
 
 
-
+        # create dataframe with publicationID, introducedSubjects, pioneerNoveltyScore, pioneerNoveltyImpact
+        publicationIDsList = list(self.data.index)
+        introducedSubjectsList = [list(paperID2IntroducedSubjects[paperID]) if paperID in paperID2IntroducedSubjects else [] for paperID in publicationIDsList]
+        pioneerNoveltyScoresList = [paperID2PioneerNoveltyScore[paperID] if paperID in paperID2PioneerNoveltyScore else np.nan for paperID in publicationIDsList]
+        pioneerNoveltyImpactList = [paperUID2PioneerNoveltyImpact[paperID] if paperID in paperUID2PioneerNoveltyImpact else np.nan for paperID in publicationIDsList]
+        pioneerNoveltyImpactScoresList = [list(paperUID2PioneerNoveltyImpactScores[paperID]) if paperID in paperUID2PioneerNoveltyImpactScores else [] for paperID in publicationIDsList]
+        dfPioneerNoveltyScores = pd.DataFrame({
+            'publicationID': publicationIDsList,
+            'introducedSubjects': introducedSubjectsList,
+            'pioneerNoveltyScore': pioneerNoveltyScoresList,
+            'pioneerNoveltyImpact': pioneerNoveltyImpactList,
+            'pioneerNoveltyImpactScores': pioneerNoveltyImpactScoresList
+        })
+        
         return {
-            'pioneerScore': paperID2PioneerNoveltyScore,
-            'introducedSubjects': paperID2IntroducedSubjectCategories,
-            'subjectPioneerImpactTable': subject2NoveltyImpact,
+            'subjectPioneerNoveltyTable': dfSubjectData,
+            'paperPioneerNoveltyTable': dfPioneerNoveltyScores
         }
 
 
+    def calculateShortenerNoveltyScores(self, analysisRange: tuple = (-1, -1), backwardWindow: int = 5, forwardWindow: int = 5):
+        
+        analysisRange = self._checkAnalysisRange(analysisRange)
+        subjectsSet = set([subject for subjects in self.data.loc["subjects"] for subject in subjects])
+        if "nan" in subjectsSet:
+            subjectsSet.remove("nan")
 
+        index2Subject = {index:subject for index,subject in enumerate(subjectsSet)}
+        subject2Index = {subject:index for index,subject in enumerate(subjectsSet)}
+
+        previousNetwork = ig.Graph(len(subject2Index),directed=False)
+
+
+        scYearlyNetworks = {}
+        paper2ShortenerNoveltyAverage = {}
+        paper2ShortenerNoveltyMedian = {}
+        paper2ShortenerNoveltyMax = {}
+
+        year2ShortenerNoveltyAverage = {}
+        year2ShortenerNoveltyMedian = {}
+        year2ShortenerNoveltyMax = {}
+
+        paper2ShortenerSubjects = {}
+
+        # add edges to the graph based on the SC pairs in the references
+        yearRange = range(analysisRange[0], analysisRange[1])
+        for year in tqdm(yearRange):
+            newNetwork = previousNetwork.copy()
+            previousNetwork = previousNetwork.simplify(combine_edges={"weight":"sum"})
+            allYearEdge2NoveltyComponent = {}
+            distancesBuffer = {}
+            edgesAndWeights = Counter()
+            if(year in self.year2IDs):
+                papers = self.year2IDs[year]
+                for paperUID in papers:
+                    subjects = self.data.loc[paperUID, 'subjects']
+                    if(subjects):
+                        subjectIndices = [subject2Index[subject] for subject in subjectIndices]
+                        subjectIndices = list(set(subjectIndices))
+                        edges = list(combinations(subjectIndices,2))
+                        # make edges min(),max()
+                        edges = [(min(edge),max(edge)) for edge in edges]
+                        edgesSet = set(edges)
+                        edgesAndWeights.update(edgesSet)
+                        # previous distances between all new edges
+                        noveltyComponents = []
+                        for edge in edgesSet:
+                            if(edge in distancesBuffer):
+                                distance = distancesBuffer[edge]
+                            else:
+                                distance = previousNetwork.distances(source=edge[0],target=edge[1])[0][0]
+                                distancesBuffer[edge] = distance
+                            if(1.0-1.0/distance>epsilon): # check FIX #if(1-1.0/distance>0):
+                                noveltyComponents.append(1-1.0/distance)
+                                allYearEdge2NoveltyComponent[edge] = 1-1.0/distance
+                                if(paperUID not in paper2ShortenerSubjects):
+                                    paper2ShortenerSubjects[paperUID] = []
+                                paper2ShortenerSubjects[paperUID].append((edge[0],edge[1],1-1.0/distance))
+
+                        if(noveltyComponents):
+                            paper2ShortenerNoveltyAverage[paperUID] = np.average(noveltyComponents)
+                            paper2ShortenerNoveltyMedian[paperUID] = np.median(noveltyComponents)
+                            paper2ShortenerNoveltyMax[paperUID] = np.max(noveltyComponents)
+                        else:
+                            paper2ShortenerNoveltyAverage[paperUID] = 0
+                            paper2ShortenerNoveltyMedian[paperUID] = 0
+                            paper2ShortenerNoveltyMax[paperUID] = 0
+            noveltyYearlyComponents = []
+            for edge in edgesAndWeights.keys():
+                if(edge in distancesBuffer):
+                    distance = distancesBuffer[edge]
+                else:
+                    distance = previousNetwork.distances(source=edge[0],target=edge[1])[0][0]
+                    distancesBuffer[edge] = distance
+                if(1.0-1.0/distance>epsilon):
+                    noveltyYearlyComponents.append(1-1.0/distance)
+                    allYearEdge2NoveltyComponent[edge] = 1-1.0/distance
+            if(noveltyYearlyComponents):
+                year2ShortenerNoveltyAverage[year] = np.average(noveltyYearlyComponents)
+                year2ShortenerNoveltyMedian[year] = np.median(noveltyYearlyComponents)
+                year2ShortenerNoveltyMax[year] = np.max(noveltyYearlyComponents)
+            else:
+                year2ShortenerNoveltyAverage[year] = 0
+                year2ShortenerNoveltyMedian[year] = 0
+                year2ShortenerNoveltyMax[year] = 0
+            
+            allYearEdges = list(edgesAndWeights.keys())
+            allYearWeights = [edgesAndWeights[edge] for edge in allYearEdges]
+            newNetwork.add_edges(allYearEdges,attributes={"weight":allYearWeights})
+            previousNetwork = newNetwork
+            scYearlyNetworks[year] = newNetwork
+
+
+
+        # %%
+        # citations received for each pair of subject category over the years
+        citationsReceivedSCPairYear = {}
+        citationsReceivedSCYear = {}
+        citationsReceivedSCPairYearNonNormalized = {}
+        citationsReceivedSCYearNonNormalized = {}
+        totalPublicationsPerYear = {}
+        cumulativeCitationsReceivedSCYear = {}
+        allTimePublications = 0
+
+        # add edges to the graph based on the SC pairs in the references
+        cummulativeNodesAndWeights = Counter()
+        for year in tqdm(yearRange):
+            edgesAndWeights = Counter()
+            nodesAndWeights = Counter()
+            if(year in self.year2IDs):
+                papers = self.year2IDs[year]
+                for paperUID in papers:
+                    subjects = self.data.loc[paperUID, 'subjects']
+                    # subjects = self.data.loc[paperUID, 'referenceSubjects']
+                    if(subjects):
+                        subjectIndices = [subject2Index[subject] for subject in subjects]
+                        subjectIndices = list(set(subjectIndices))
+                        edges = list(combinations(subjectIndices,2))
+                        # make edges min(),max()
+                        edges = [(min(edge),max(edge)) for edge in edges]
+                        edgesAndWeights.update(set(edges))
+                        nodesAndWeights.update(set(subjectIndices))
+            # adjust the weights by the number of publications on that year i.e., / total publications
+            totalPublications = len(papers)
+            totalPublicationsPerYear[year] = totalPublications
+            allTimePublications+=totalPublications
+            cummulativeNodesAndWeights.update(nodesAndWeights)
+            edgesAndCounts = edgesAndWeights.copy()
+            nodesAndCounts = nodesAndWeights.copy()
+            if(totalPublications):
+                for edge,weight in edgesAndWeights.items():
+                    edgesAndWeights[edge] = weight/totalPublications
+                for node,weight in nodesAndWeights.items():
+                    nodesAndWeights[node] = weight/totalPublications
+                
+            citationsReceivedSCPairYear[year] = edgesAndWeights
+            citationsReceivedSCYear[year] = nodesAndWeights
+            
+            citationsReceivedSCPairYearNonNormalized[year] = edgesAndCounts
+            citationsReceivedSCYearNonNormalized[year] = nodesAndCounts
+            
+
+            cumulativeCitationsReceivedSCYear[year] = cummulativeNodesAndWeights.copy()
+            for node,weight in cumulativeCitationsReceivedSCYear[year].items():
+                cumulativeCitationsReceivedSCYear[year][node] = weight/allTimePublications
+
+
+
+        # %%
+        #his measure is not good----drop the idea
+
+        # fit a simple line to the data using least squares
+        # from scipy.optimize import curve_fit
+        # define the true objective function
+        # def objective(x, a, b):
+        #     return a * x + b
+
+        averageChange = {}
+        fitMiddlePointChange = {}
+        # hit = 0
+        averageChangeRatio = {}
+        allPairs = set(list(combinations(subject2Index.values(),2)))
+        allconsideredYears = []
+        for year in tqdm(yearRange):
+            for edge in allPairs:
+                pastCitations = []
+                futureCitations = []
+                pastCitationsNonNormalized = []
+                futureCitationsNonNormalized = []
+                totalPublicationsPast = 0
+                totalPublicationsFuture = 0
+                for windowYear in range(year-backwardWindow,year):
+                    allconsideredYears.append(windowYear)
+                    if(windowYear in citationsReceivedSCPairYear):
+                        totalPublicationsPast += totalPublicationsPerYear[windowYear]
+                    if(windowYear in citationsReceivedSCPairYear):
+                        if(edge in citationsReceivedSCPairYear[windowYear]):
+                            pastCitations.append(citationsReceivedSCPairYear[windowYear][edge])
+                            pastCitationsNonNormalized.append(citationsReceivedSCPairYearNonNormalized[windowYear][edge])
+                        else:
+                            pastCitations.append(0)
+                            pastCitationsNonNormalized.append(0)
+                    else:
+                        pastCitations.append(0)
+                        pastCitationsNonNormalized.append(0)
+                for windowYear in range(year+1,year+forwardWindow+1):
+                    if(windowYear in citationsReceivedSCPairYear):
+                        totalPublicationsFuture += totalPublicationsPerYear[windowYear]
+                    if(windowYear in citationsReceivedSCPairYear):
+                        if(edge in citationsReceivedSCPairYear[windowYear]):
+                            futureCitations.append(citationsReceivedSCPairYear[windowYear][edge])
+                            futureCitationsNonNormalized.append(citationsReceivedSCPairYearNonNormalized[windowYear][edge])
+                        else:
+                            futureCitations.append(0)
+                            futureCitationsNonNormalized.append(0)
+                    else:
+                        futureCitations.append(0) 
+                        futureCitationsNonNormalized.append(0)
+                
+                if(year not in averageChange):
+                    averageChange[year] = {}
+                    averageChangeRatio[year] = {}
+                    fitMiddlePointChange[year] = {}
+                if(futureCitations and pastCitations):
+                    averageChange[year][edge] = np.average(futureCitations)-np.average(pastCitations)
+                    pastLinearFit = np.polyfit(range(len(pastCitations)),pastCitations,1)
+                    futureLinearFit = np.polyfit(range(len(futureCitations)),futureCitations,1)
+                    pastMidPoint = pastLinearFit[0]*len(pastCitations)/2+pastLinearFit[1]
+                    if(totalPublicationsFuture and totalPublicationsPast):
+                        futureMidPoint = futureLinearFit[0]*len(futureCitations)/2+futureLinearFit[1]
+                        fitMiddlePointChange[year][edge] = futureMidPoint/totalPublicationsFuture-pastMidPoint/totalPublicationsPast
+                    
+                if(np.average(pastCitations)):
+                    averageChangeRatio[year][edge] = np.average(futureCitations)/np.average(pastCitations)
+
+
+
+        # get the new neighbors from the  BASED ON THE CHANGE OF THE PROPORTION CHANGE RATE
+        # timeWindow
+
+        shortenerNoveltyEnhancedAverageByYear = {}
+        shortenerNoveltyDiminishAverageByYear = {}
+        shortenerNoveltyImpactAverageByYear = {}
+
+        shortenerNoveltyEnhancedAverageByPaperID = {}
+        shortenerNoveltyDiminishAverageByPaperID = {}
+        shortenerNoveltyImpactAverageByPaperID = {}
+
+        shortenerNoveltyEnhancedMinByYear = {}
+        shortenerNoveltyDiminishMinByYear = {}
+        shortenerNoveltyImpactMinByYear = {}
+
+        shortenerNoveltyEnhancedMinByPaperID = {}
+        shortenerNoveltyDiminishMinByPaperID = {}
+        shortenerNoveltyImpactMinByPaperID = {}
+
+        shortenerNoveltyEnhancedMaxByYear = {}
+        shortenerNoveltyDiminishMaxByYear = {}
+        shortenerNoveltyImpactMaxByYear = {}
+
+        shortenerNoveltyEnhancedMaxByPaperID = {}
+        shortenerNoveltyDiminishMaxByPaperID = {}
+        shortenerNoveltyImpactMaxByPaperID = {}
+
+        shortenerNoveltyEnhancedMedianByYear = {}
+        shortenerNoveltyDiminishMedianByYear = {}
+        shortenerNoveltyImpactMedianByYear = {}
+
+        shortenerNoveltyEnhancedMedianByPaperID = {}
+        shortenerNoveltyDiminishMedianByPaperID = {}
+        shortenerNoveltyImpactMedianByPaperID = {}
+
+        with tqdm(total=len(self.data), desc="Calculating Shortener Novelty Scores") as progressBar:
+            accumulatedEdgesYearBefore = set()
+            for year in yearRange:
+                edgesAndWeights = Counter()
+                previousYearNetwork = scYearlyNetworks[year]
+                if(year in self.year2IDs):
+                    papers = self.year2IDs[year]
+                    for paperUID in papers:
+                        progressBar.update(1)
+                        subjects = self.data.loc[paperUID, 'subjects']
+                        if subjects:
+                            subjectIndices = [subject2Index[subject] for subject in subjects]
+                            subjectIndices = list(set(subjectIndices))
+                            edges = list(combinations(subjectIndices,2))
+                            # make edges min(),max()
+                            edges = set([(min(edge),max(edge)) for edge in edges])
+                            # keep only edges that were not in the previous years network (yearNetwork)
+                            edges = edges - accumulatedEdgesYearBefore
+                            edgesAndWeights.update(edges)
+
+                            neighborEdges = set()
+                            for edge in edges:
+                                neighborsPair = previousYearNetwork.neighborhood(vertices=edge,order=1)
+                                for neighbors in neighborsPair:
+                                    for neighbor in neighbors:
+                                        if(neighbor!=edge[0] and neighbor!=edge[1]):
+                                            neighborEdges.add((min(edge[0],neighbor),max(edge[0],neighbor)))
+                                            neighborEdges.add((min(edge[1],neighbor),max(edge[1],neighbor)))
+                            neighborEdges = neighborEdges - set(edges)
+                            differences = [averageChange[year][edge] if edge in averageChange[year] else 0  for edge in neighborEdges]
+                            if(differences):
+                                shortenerNoveltyImpactAverageByPaperID[paperUID] = np.average(differences)
+                                shortenerNoveltyImpactMinByPaperID[paperUID] = np.min(differences)
+                                shortenerNoveltyImpactMaxByPaperID[paperUID] = np.max(differences)
+                                shortenerNoveltyImpactMedianByPaperID[paperUID] = np.median(differences)
+                            else:
+                                shortenerNoveltyImpactAverageByPaperID[paperUID] = 0
+                                shortenerNoveltyImpactMinByPaperID[paperUID] = 0
+                                shortenerNoveltyImpactMaxByPaperID[paperUID] = 0
+                                shortenerNoveltyImpactMedianByPaperID[paperUID] = 0
+                            
+                            # enhanced novelty for positives
+                            positiveDifferences = [value for value in differences if value>0] # Check if this is correct
+                            if(positiveDifferences):
+                                shortenerNoveltyEnhancedAverageByPaperID[paperUID] = np.average(positiveDifferences)
+                                shortenerNoveltyEnhancedMinByPaperID[paperUID] = np.min(positiveDifferences)
+                                shortenerNoveltyEnhancedMaxByPaperID[paperUID] = np.max(positiveDifferences)
+                                shortenerNoveltyEnhancedMedianByPaperID[paperUID] = np.median(positiveDifferences)
+                            else:
+                                shortenerNoveltyEnhancedAverageByPaperID[paperUID] = 0
+                                shortenerNoveltyEnhancedMinByPaperID[paperUID] = 0
+                                shortenerNoveltyEnhancedMaxByPaperID[paperUID] = 0
+                                shortenerNoveltyEnhancedMedianByPaperID[paperUID] = 0
+                            
+                            # diminished novelty for negatives
+                            negativeDifferences = [value for value in differences if value<0]
+                            if(negativeDifferences):
+                                shortenerNoveltyDiminishAverageByPaperID[paperUID] = np.average(negativeDifferences)
+                                shortenerNoveltyDiminishMinByPaperID[paperUID] = np.min(negativeDifferences)
+                                shortenerNoveltyDiminishMaxByPaperID[paperUID] = np.max(negativeDifferences)
+                                shortenerNoveltyDiminishMedianByPaperID[paperUID] = np.median(negativeDifferences)
+                            else:
+                                shortenerNoveltyDiminishAverageByPaperID[paperUID] = 0
+                                shortenerNoveltyDiminishMinByPaperID[paperUID] = 0
+                                shortenerNoveltyDiminishMaxByPaperID[paperUID] = 0
+                                shortenerNoveltyDiminishMedianByPaperID[paperUID] = 0
+
+                    # get neighbor edges to the source and targets of the edges from the network
+                    neighborEdges = set()
+                    for edge in edgesAndWeights.keys():
+                        neighborsPair = previousYearNetwork.neighborhood(vertices=edge,order=1)
+                        for neighbors in neighborsPair:
+                            for neighbor in neighbors:
+                                if(neighbor!=edge[0] and neighbor!=edge[1]):
+                                    neighborEdges.add((min(edge[0],neighbor),max(edge[0],neighbor)))
+                                    neighborEdges.add((min(edge[1],neighbor),max(edge[1],neighbor)))
+                    # remove original edges
+                    neighborEdges = neighborEdges - set(edgesAndWeights)
+                    differences = [averageChange[year][edge] if edge in averageChange[year] else 0  for edge in neighborEdges]
+                    if(differences):
+                        shortenerNoveltyImpactAverageByYear[year] = np.average(differences)
+                        shortenerNoveltyImpactMinByYear[year] = np.min(differences)
+                        shortenerNoveltyImpactMaxByYear[year] = np.max(differences)
+                        shortenerNoveltyImpactMedianByYear[year] = np.median(differences)
+                    else:
+                        shortenerNoveltyImpactAverageByYear[year] = 0
+                        shortenerNoveltyImpactMinByYear[year] = 0
+                        shortenerNoveltyImpactMaxByYear[year] = 0
+                        shortenerNoveltyImpactMedianByYear[year] = 0
+
+                    # enhanced novelty for positives
+                    positiveDifferences = [value for value in differences if value>=0]
+                    if(positiveDifferences):
+                        shortenerNoveltyEnhancedAverageByYear[year] = np.average(positiveDifferences)
+                        shortenerNoveltyEnhancedMinByYear[year] = np.min(positiveDifferences)
+                        shortenerNoveltyEnhancedMaxByYear[year] = np.max(positiveDifferences)
+                        shortenerNoveltyEnhancedMedianByYear[year] = np.median(positiveDifferences)
+                    else:
+                        shortenerNoveltyEnhancedAverageByYear[year] = 0
+                        shortenerNoveltyEnhancedMinByYear[year] = 0
+                        shortenerNoveltyEnhancedMaxByYear[year] = 0
+                        shortenerNoveltyEnhancedMedianByYear[year] = 0
+                    
+                    # diminished novelty for negatives
+                    negativeDifferences = [value for value in differences if value<0]
+                    if(negativeDifferences):
+                        shortenerNoveltyDiminishAverageByYear[year] = np.average(negativeDifferences)
+                        shortenerNoveltyDiminishMinByYear[year] = np.min(negativeDifferences)
+                        shortenerNoveltyDiminishMaxByYear[year] = np.max(negativeDifferences)
+                        shortenerNoveltyDiminishMedianByYear[year] = np.median(negativeDifferences)
+                    else:
+                        shortenerNoveltyDiminishAverageByYear[year] = 0
+                        shortenerNoveltyDiminishMinByYear[year] = 0
+                        shortenerNoveltyDiminishMaxByYear[year] = 0
+                        shortenerNoveltyDiminishMedianByYear[year] = 0
+                else:
+                    shortenerNoveltyEnhancedAverageByYear[year] = 0
+                    shortenerNoveltyDiminishAverageByYear[year] = 0
+                    shortenerNoveltyEnhancedMinByYear[year] = 0
+                    shortenerNoveltyDiminishMinByYear[year] = 0
+                    shortenerNoveltyEnhancedMaxByYear[year] = 0
+                    shortenerNoveltyDiminishMaxByYear[year] = 0
+                    shortenerNoveltyEnhancedMedianByYear[year] = 0
+                    shortenerNoveltyDiminishMedianByYear[year] = 0
+                    shortenerNoveltyImpactAverageByYear[year] = 0
+                    shortenerNoveltyImpactMinByYear[year] = 0
+                    shortenerNoveltyImpactMaxByYear[year] = 0
+                    shortenerNoveltyImpactMedianByYear[year] = 0
+                    # shortenerNoveltyByYear
+                accumulatedEdgesYearBefore = accumulatedEdgesYearBefore.union(edgesAndWeights.keys())
+        # create tables for paperID
+        publicationIDsList = list(self.data.index)
+        #         paper2ShortenerNoveltyAverage = {}
+        # paper2ShortenerNoveltyMedian = {}
+        # paper2ShortenerNoveltyMax = {}
+
+        # year2ShortenerNoveltyAverage = {}
+        # year2ShortenerNoveltyMedian = {}
+        # year2ShortenerNoveltyMax = {}
+        tableData = {}
+        tableData["publicationID"] = publicationIDsList
+        tableData["shortenerNoveltyAverage"] = [paper2ShortenerNoveltyAverage[paperID] if paperID in paper2ShortenerNoveltyAverage else np.nan for paperID in publicationIDsList]
+        tableData["shortenerNoveltyMedianList"] = [paper2ShortenerNoveltyMedian[paperID] if paperID in paper2ShortenerNoveltyMedian else np.nan for paperID in publicationIDsList]
+        tableData["shortenerNoveltyMaxList"] = [paper2ShortenerNoveltyMax[paperID] if paperID in paper2ShortenerNoveltyMax else np.nan for paperID in publicationIDsList]
+        tableData["shortenerNoveltySubjectsList"] = [list(paper2ShortenerSubjects[paperID]) if paperID in paper2ShortenerSubjects else [] for paperID in publicationIDsList]
+
+        # impacts
+        tableData["shortenerNoveltyEnhancedAverage"] = [shortenerNoveltyEnhancedAverageByPaperID[paperID] if paperID in shortenerNoveltyEnhancedAverageByPaperID else np.nan for paperID in publicationIDsList]
+        tableData["shortenerNoveltyDiminishAverage"] = [shortenerNoveltyDiminishAverageByPaperID[paperID] if paperID in shortenerNoveltyDiminishAverageByPaperID else np.nan for paperID in publicationIDsList]
+        tableData["shortenerNoveltyImpactAverage"] = [shortenerNoveltyImpactAverageByPaperID[paperID] if paperID in shortenerNoveltyImpactAverageByPaperID else np.nan for paperID in publicationIDsList]
+        tableData["shortenerNoveltyEnhancedMin"] = [shortenerNoveltyEnhancedMinByPaperID[paperID] if paperID in shortenerNoveltyEnhancedMinByPaperID else np.nan for paperID in publicationIDsList]
+        tableData["shortenerNoveltyDiminishMin"] = [shortenerNoveltyDiminishMinByPaperID[paperID] if paperID in shortenerNoveltyDiminishMinByPaperID else np.nan for paperID in publicationIDsList]
+        tableData["shortenerNoveltyImpactMin"] = [shortenerNoveltyImpactMinByPaperID[paperID] if paperID in shortenerNoveltyImpactMinByPaperID else np.nan for paperID in publicationIDsList]
+        tableData["shortenerNoveltyEnhancedMax"] = [shortenerNoveltyEnhancedMaxByPaperID[paperID] if paperID in shortenerNoveltyEnhancedMaxByPaperID else np.nan for paperID in publicationIDsList]
+        tableData["shortenerNoveltyDiminishMax"] = [shortenerNoveltyDiminishMaxByPaperID[paperID] if paperID in shortenerNoveltyDiminishMaxByPaperID else np.nan for paperID in publicationIDsList]
+        tableData["shortenerNoveltyImpactMax"] = [shortenerNoveltyImpactMaxByPaperID[paperID] if paperID in shortenerNoveltyImpactMaxByPaperID else np.nan for paperID in publicationIDsList]
+        tableData["shortenerNoveltyEnhancedMedian"] = [shortenerNoveltyEnhancedMedianByPaperID[paperID] if paperID in shortenerNoveltyEnhancedMedianByPaperID else np.nan for paperID in publicationIDsList]
+        tableData["shortenerNoveltyDiminishMedian"] = [shortenerNoveltyDiminishMedianByPaperID[paperID] if paperID in shortenerNoveltyDiminishMedianByPaperID else np.nan for paperID in publicationIDsList]
+        tableData["shortenerNoveltyImpactMedian"] = [shortenerNoveltyImpactMedianByPaperID[paperID] if paperID in shortenerNoveltyImpactMedianByPaperID else np.nan for paperID in publicationIDsList]
+        dfShortenerNoveltyScores = pd.DataFrame(tableData)
+
+        return dfShortenerNoveltyScores

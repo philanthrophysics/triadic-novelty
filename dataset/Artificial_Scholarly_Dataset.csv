@@ -1,0 +1,1001 @@
+publicationID,subjects,references,year
+8db05c21,machine learning models for pandemic forecasting,,1996
+368ac66d,microbiome-host interactions in immunity,8db05c21,1993
+4b17c2cc,genetic epidemiology of rare diseases,8db05c21;368ac66d,2021
+4d03d335,quantum entanglement experiments,4b17c2cc;368ac66d;8db05c21,2015
+eb95d640,evolutionary algorithms for design optimization,368ac66d;8db05c21,2018
+4ebca397,high energy cosmic ray detection,368ac66d;eb95d640,1998
+efce38ff,privacy-preserving machine learning techniques,eb95d640;368ac66d;4ebca397;4d03d335;4b17c2cc,1998
+ed820df6,renewable energy integration into smart grids,eb95d640;368ac66d,2006
+09f4940e,explainable AI for healthcare applications,4b17c2cc;8db05c21;eb95d640,1996
+e74724a2,additive manufacturing of aerospace parts,eb95d640;368ac66d,2003
+80125941,AI models for disaster risk management,4b17c2cc;4ebca397;ed820df6;e74724a2,2004
+18093eb2,carbon sequestration in mangrove ecosystems,e74724a2;09f4940e;80125941;ed820df6,1993
+c8835004,tumor microenvironment modeling,e74724a2;ed820df6;efce38ff;4b17c2cc,2017
+81c489f3,wildfire prediction using satellite imagery,8db05c21;368ac66d;e74724a2;4d03d335,1991
+fa691a07,pollen dispersal modeling in urban environments,4d03d335;8db05c21,2011
+2fdc5672,additive manufacturing of aerospace parts,4ebca397;e74724a2;c8835004,1993
+348620df,symbolic regression using neural networks,8db05c21;c8835004;ed820df6;18093eb2,2023
+554f04a9,cryptocurrency adoption in developing economies,c8835004,2009
+86e265c7,protein folding prediction with AI,e74724a2;fa691a07,1992
+98c4550a,drone-based delivery system optimization,efce38ff;c8835004,1996
+dbba747c,digital humanities text mining methods,348620df;efce38ff;554f04a9;4b17c2cc,2015
+8f513786,wearable biosensors for chronic disease management,98c4550a;80125941,2016
+b2d9df6e,particle physics beyond the standard model,8f513786;dbba747c,2004
+01d738ae,privacy-preserving machine learning techniques,8db05c21;09f4940e,2006
+26b49673,technological innovation in ancient civilizations,4d03d335;b2d9df6e;c8835004;ed820df6;8db05c21,2002
+4e2f76d1,psychological impacts of long-term space travel,8f513786,2011
+055bb072,wildfire prediction using satellite imagery,8db05c21;554f04a9;81c489f3;8f513786,2014
+a926da26,conservation genomics for endangered species,01d738ae,2009
+5aa05050,robotic swarms for agricultural monitoring,e74724a2;26b49673;efce38ff;4d03d335;ed820df6,2000
+5d01df9d,social network analysis in political movements,26b49673,2001
+0ed9aaf4,cyber-physical security for industrial systems,b2d9df6e;554f04a9;5d01df9d;eb95d640;18093eb2,2001
+1adf50fe,gamification strategies in education,4b17c2cc;efce38ff,1996
+756be6f5,deepfake detection algorithms,fa691a07;a926da26;1adf50fe;c8835004;5d01df9d,2013
+cdbceee0,reinforcement learning in robotics,09f4940e;2fdc5672;80125941;efce38ff;4e2f76d1,2022
+651c2283,privacy-preserving machine learning techniques,348620df;26b49673;368ac66d;efce38ff,2007
+2bd13217,protein folding prediction with AI,eb95d640;4d03d335;a926da26,2012
+8ae9a043,philosophy of mind and consciousness,4ebca397;81c489f3,1991
+34792c7d,solar radiation management techniques,554f04a9;86e265c7,1996
+805077b4,synthetic media and misinformation,651c2283;ed820df6;cdbceee0;dbba747c,1997
+af6c54d7,robotic swarms for agricultural monitoring,eb95d640;8ae9a043,2008
+7d761ea5,machine learning models for pandemic forecasting,af6c54d7,2021
+49a82f3d,remote sensing for archaeological site discovery,8ae9a043;26b49673;4b17c2cc,1998
+605fa80e,immunotherapy treatments for melanoma,80125941;5d01df9d;4d03d335;4e2f76d1;b2d9df6e,1998
+4443162d,autonomous ship navigation systems,0ed9aaf4;eb95d640,2012
+04d6af4e,neuroscience of social behavior,4d03d335;cdbceee0;01d738ae,2007
+de381482,permafrost thaw and greenhouse gas emissions,18093eb2;dbba747c,2002
+65100158,symbolic regression using neural networks,49a82f3d;a926da26;34792c7d;80125941;81c489f3,2000
+56e28d2b,economic inequalities in digital access,86e265c7,2014
+a0b13ed3,gravitational wave astronomy with LIGO,98c4550a;4443162d;7d761ea5;ed820df6,1998
+d2474297,VR therapy for PTSD treatment,4b17c2cc;2fdc5672;cdbceee0,1993
+b2040ca8,technological innovation in ancient civilizations,ed820df6;4b17c2cc;8ae9a043;651c2283;805077b4,2008
+4dd834ae,multimodal learning with text and images,554f04a9;56e28d2b;b2d9df6e;01d738ae,2004
+e1d1ca20,hydrological modeling under climate change,4b17c2cc;4443162d,1993
+b1b216d3,graph neural networks in chemistry,7d761ea5;805077b4;a0b13ed3;756be6f5,2020
+87b4f827,single-cell RNA sequencing analysis,af6c54d7,2003
+ff3b173d,economic inequalities in digital access,26b49673,2005
+21e5a8b6,impact of ocean acidification on coral reefs,86e265c7;554f04a9;efce38ff;5aa05050,2011
+5d8be6d7,transformer models for language translation,4b17c2cc;348620df;a0b13ed3;8db05c21,1995
+3e1a0857,wildfire prediction using satellite imagery,2fdc5672;ed820df6;8ae9a043;80125941,1991
+e9dc1055,neuroscience of social behavior,368ac66d,2021
+20e96ae0,advances in superconducting materials,055bb072,1995
+f6a821dd,AI models for disaster risk management,09f4940e,2023
+9ccf0f05,genetic epidemiology of rare diseases,f6a821dd;ed820df6;04d6af4e,2002
+247de265,digital twin technology in manufacturing,3e1a0857;605fa80e;756be6f5,2010
+2ad397ab,cognitive biases in decision making,af6c54d7;651c2283;2fdc5672,1999
+12d531a5,multimodal learning with text and images,8db05c21,2007
+fc53f8f9,wireless power transfer in electric vehicles,c8835004;8ae9a043,2016
+ddee0093,dark energy survey methods,368ac66d;055bb072;21e5a8b6;247de265,1990
+bb637e50,autonomous ship navigation systems,2fdc5672;247de265;348620df;5d8be6d7;de381482,2002
+6c902c70,deepfake detection algorithms,5d8be6d7;a0b13ed3;b2040ca8,1994
+275c4c6f,additive manufacturing of aerospace parts,09f4940e;8f513786;dbba747c,2001
+22db8254,edge computing for smart cities,1adf50fe;2bd13217;12d531a5;247de265;98c4550a,2014
+5cfec4af,advances in superconducting materials,247de265;01d738ae,1997
+7f1a0b84,permafrost thaw and greenhouse gas emissions,5d8be6d7;fc53f8f9;f6a821dd;80125941,2021
+430de0e2,wireless power transfer in electric vehicles,87b4f827;ddee0093;805077b4,2000
+897c0dd5,carbon sequestration in mangrove ecosystems,eb95d640,2000
+dac12876,VR therapy for PTSD treatment,055bb072;34792c7d,1997
+c50b13d9,adversarial attacks on deep learning systems,7f1a0b84,2023
+0ddd3bf7,cognitive biases in decision making,c8835004;81c489f3;275c4c6f;247de265,2015
+ed9c963d,wireless power transfer in electric vehicles,8ae9a043;eb95d640;01d738ae;c50b13d9,2012
+b0257079,blockchain applications in supply chain management,ddee0093,2017
+8886624a,digital twin technology in manufacturing,0ddd3bf7;ed9c963d;81c489f3,1998
+8bafacba,neuroscience of social behavior,7f1a0b84,1998
+901f7c77,particle physics beyond the standard model,430de0e2;c50b13d9;605fa80e;4dd834ae,2011
+68df0b72,personalized nutrition using genomics,368ac66d,2004
+700736fd,migration patterns and urbanization,56e28d2b;901f7c77;2ad397ab,2009
+6bb26ff7,impact of ocean acidification on coral reefs,4e2f76d1;901f7c77;7d761ea5,2009
+975b7b24,microplastics in freshwater systems,6c902c70;4ebca397;348620df,2018
+6dbd40df,nuclear fusion reactor design,756be6f5;68df0b72;897c0dd5;247de265,1997
+22b1fb93,convolutional neural networks for medical imaging,247de265;4ebca397;12d531a5;4443162d,2011
+2e24eb17,federated learning for mobile devices,1adf50fe,1997
+bce5ecd2,renewable energy integration into smart grids,ed820df6;21e5a8b6,1999
+c372cb5e,history of mathematics in Islamic civilizations,98c4550a,2016
+da731080,CRISPR gene drive implications,554f04a9,2004
+e681c1a4,particle physics beyond the standard model,7d761ea5,2021
+4d147e49,nanomaterials for energy storage,430de0e2;5d8be6d7;348620df,2006
+56740307,graph neural networks in chemistry,5d01df9d;01d738ae,2008
+3fed0579,ethics of AI surveillance technologies,4443162d;b1b216d3;e9dc1055;8f513786,2013
+372f1993,viral evolution tracking through genomics,f6a821dd,2008
+451a6c58,surface chemistry in catalysis,c8835004,2010
+94ae86f6,CRISPR gene drive implications,26b49673;e74724a2,1994
+f6e2ef4d,transformer models for language translation,2e24eb17;7f1a0b84;b0257079;368ac66d;3e1a0857,2014
+b982ad22,personalized nutrition using genomics,86e265c7;3e1a0857;bce5ecd2;348620df;6bb26ff7,1996
+3a4eedd5,drone-based delivery system optimization,de381482;09f4940e;805077b4,2019
+623ec2ec,bioinformatics pipelines for metagenomics,a0b13ed3;34792c7d;dbba747c;09f4940e,2010
+7d94f236,convolutional neural networks for medical imaging,20e96ae0;372f1993;2e24eb17;ff3b173d;6dbd40df,1998
+8d3d4618,cyber-physical security for industrial systems,2ad397ab;cdbceee0;368ac66d,2020
+00e9c157,biodegradable materials for packaging,e1d1ca20;430de0e2,2013
+4d60d90e,human-robot interaction in workplace environments,7f1a0b84;975b7b24,2003
+0bbe226b,additive manufacturing of aerospace parts,da731080;055bb072;b1b216d3;0ddd3bf7,2011
+905bc7c2,evolutionary algorithms for design optimization,68df0b72;4d03d335;fa691a07;65100158,2019
+a4233a07,pollen dispersal modeling in urban environments,368ac66d;0bbe226b;3e1a0857,2020
+0336415d,historical linguistics and language evolution,8f513786;98c4550a;897c0dd5;65100158;055bb072,1990
+0575e8a2,citizen science platforms for biodiversity,fc53f8f9;4ebca397;d2474297;5cfec4af,2011
+f200f154,renewable energy integration into smart grids,8d3d4618;e74724a2;a0b13ed3,2022
+9302c5d3,high energy cosmic ray detection,01d738ae;c372cb5e;0ed9aaf4,2015
+bb57f330,renewable energy integration into smart grids,a4233a07,2006
+2b280cb9,wireless power transfer in electric vehicles,94ae86f6;4d60d90e;bb57f330;0bbe226b,2014
+24739bc0,microplastics in freshwater systems,6bb26ff7;01d738ae;22b1fb93,2002
+81921601,high energy cosmic ray detection,4dd834ae;98c4550a,2002
+55aa11e0,protein folding prediction with AI,a0b13ed3;12d531a5;6bb26ff7;055bb072;275c4c6f,1998
+7c883580,genetic epidemiology of rare diseases,12d531a5;451a6c58;80125941;26b49673,2000
+b9343198,dark energy survey methods,21e5a8b6,2010
+406ed93b,few-shot learning for natural language processing,2ad397ab;22b1fb93;26b49673,2020
+1131ecec,astrophysical jets from black holes,2bd13217;24739bc0,2020
+734c4b99,convolutional neural networks for medical imaging,8bafacba,2013
+2ed68e59,adversarial attacks on deep learning systems,e1d1ca20;0ddd3bf7;1adf50fe,1990
+dcde54cb,migration patterns and urbanization,4b17c2cc;7f1a0b84;86e265c7;a4233a07;dbba747c,2005
+6bb5ffac,hydrological modeling under climate change,86e265c7,2001
+2b00017d,CRISPR gene drive implications,8bafacba;905bc7c2;e681c1a4,1995
+615167de,advances in superconducting materials,01d738ae,2007
+942c77c4,viral evolution tracking through genomics,0bbe226b,1997
+5ad96d46,biodegradable materials for packaging,3fed0579;22b1fb93;605fa80e;fa691a07;bb637e50,2001
+bdfb9396,digital humanities text mining methods,430de0e2,1996
+e186bae2,ethnobotany of indigenous medicinal plants,bce5ecd2;8f513786,2001
+f18d3b3b,tumor microenvironment modeling,6bb26ff7;0ddd3bf7;56740307,2004
+4803cce4,AI models for disaster risk management,2fdc5672,2016
+01347ea4,self-supervised learning in vision,24739bc0;22b1fb93,2005
+ca650906,pollen dispersal modeling in urban environments,7f1a0b84;21e5a8b6;26b49673,1990
+3f29e956,digital twin technology in manufacturing,4803cce4;22db8254;451a6c58;a4233a07;de381482,2006
+1943f507,dark energy survey methods,26b49673;bb57f330;ed9c963d;09f4940e,1991
+634c798e,additive manufacturing of aerospace parts,4d147e49;c372cb5e;65100158;09f4940e;d2474297,2000
+90b12253,deepfake detection algorithms,2b280cb9,2015
+266d7c79,3D printed prosthetics for amputees,efce38ff;348620df;ed820df6,2017
+2d9c1b27,digital twin technology in manufacturing,e1d1ca20;734c4b99;8db05c21,2015
+d5adee5d,self-supervised learning in vision,ff3b173d;fa691a07;a926da26,2005
+7a612e7f,viral evolution tracking through genomics,5d8be6d7,1999
+aafd58b2,neuroscience of social behavior,01d738ae,2019
+12aece99,optical lattice clocks for timekeeping,d2474297;c50b13d9;2ed68e59;90b12253,2012
+91555020,adversarial attacks on deep learning systems,81c489f3;8f513786,1997
+34dafa5e,graph neural networks in chemistry,372f1993;c372cb5e;3f29e956,2011
+1bae4da8,reinforcement learning in robotics,68df0b72;554f04a9;81921601;34792c7d,2009
+7e3348c0,wearable biosensors for chronic disease management,2d9c1b27;4443162d;6dbd40df;a926da26,2020
+d863ff28,pollen dispersal modeling in urban environments,4803cce4;c8835004;81c489f3;6c902c70,2002
+4b9f4f7c,immunotherapy treatments for melanoma,7a612e7f;9302c5d3;4dd834ae,2016
+336a7498,cognitive biases in decision making,8d3d4618;734c4b99;5ad96d46;7a612e7f,2018
+54cd77ec,blockchain applications in supply chain management,87b4f827;6dbd40df,2022
+7084879c,advances in superconducting materials,8f513786,1998
+dfdd65fc,solar radiation management techniques,3e1a0857;1131ecec,2000
+2c3f1492,historical linguistics and language evolution,5ad96d46;4d03d335;275c4c6f;901f7c77,2023
+d93ac61b,explainable AI for healthcare applications,055bb072,2005
+994136ca,technological innovation in ancient civilizations,55aa11e0;4dd834ae;54cd77ec,2004
+d9881a74,hydrological modeling under climate change,275c4c6f;56740307;5aa05050;ca650906,2000
+fb852b19,edge computing for smart cities,5ad96d46;1adf50fe,2018
+08b87aa6,viral evolution tracking through genomics,615167de;22db8254;fa691a07;b2d9df6e;c372cb5e,1997
+8cedd540,migration patterns and urbanization,651c2283;8bafacba;3fed0579,2008
+7d3a456f,conservation genomics for endangered species,af6c54d7;1adf50fe;6bb5ffac;901f7c77,2021
+e3c74bb4,blockchain applications in supply chain management,12aece99;1adf50fe,2023
+dd16ad5d,single-cell RNA sequencing analysis,94ae86f6;4443162d;bdfb9396;3e1a0857,2012
+a97fa40e,quantum entanglement experiments,2b280cb9;de381482,1999
+d0d0efb1,few-shot learning for natural language processing,bb637e50;2bd13217;fc53f8f9,2010
+a97805ae,immunotherapy treatments for melanoma,9ccf0f05;de381482;01347ea4,2002
+f3bceb62,AI models for disaster risk management,ed820df6,1990
+dde45ab6,microbiome-host interactions in immunity,451a6c58;d5adee5d,2022
+a98b80b6,nuclear fusion reactor design,86e265c7;8d3d4618;a0b13ed3,2012
+ae140900,tumor microenvironment modeling,aafd58b2,2000
+74fab387,optical lattice clocks for timekeeping,7a612e7f;266d7c79;98c4550a,2005
+5f70623f,microplastics in freshwater systems,8db05c21,2018
+ee56d4a3,wildfire prediction using satellite imagery,4803cce4;8ae9a043;7d3a456f;20e96ae0;734c4b99,2021
+1a772ce9,solar radiation management techniques,bdfb9396;54cd77ec;f6a821dd;4b17c2cc;2d9c1b27,2000
+3ea92530,psychological impacts of long-term space travel,e3c74bb4,2015
+0d07eeb5,remote sensing for archaeological site discovery,dcde54cb;dac12876;98c4550a,2017
+c3c07ffc,drone-based delivery system optimization,09f4940e;d9881a74;2e24eb17;7a612e7f,2012
+760ab120,VR therapy for PTSD treatment,21e5a8b6;0ddd3bf7;651c2283;942c77c4,1990
+1b61e1ee,sparse coding in machine learning,8bafacba;7d3a456f;56740307,1990
+f7775a13,gravitational wave astronomy with LIGO,4d60d90e;451a6c58;ff3b173d,2005
+aa271a6f,wearable biosensors for chronic disease management,eb95d640;7f1a0b84;34dafa5e;b0257079;4e2f76d1,1990
+d33640d6,remote sensing for archaeological site discovery,0bbe226b,2021
+3b5e1a1c,migration patterns and urbanization,d0d0efb1,1997
+e9a780c4,wildfire prediction using satellite imagery,d0d0efb1;22db8254;897c0dd5;6bb5ffac,2010
+ee264175,tumor microenvironment modeling,2d9c1b27;1b61e1ee;49a82f3d;2b280cb9;7d3a456f,2004
+32ae08fa,ethics of AI surveillance technologies,56e28d2b;bce5ecd2;ca650906;aafd58b2;905bc7c2,2006
+4dc3e5f9,multimodal learning with text and images,87b4f827,2004
+50fc55f3,cryptocurrency adoption in developing economies,eb95d640,2013
+eead67d1,optical lattice clocks for timekeeping,0575e8a2;9302c5d3;c50b13d9;bb637e50;ca650906,1993
+e16438f0,deepfake detection algorithms,4443162d;5cfec4af;5d8be6d7,2003
+73bfd4c3,wireless power transfer in electric vehicles,a97805ae;b2d9df6e;01d738ae;0d07eeb5;aafd58b2,1995
+271d7f7b,graph neural networks in chemistry,56740307;942c77c4,2010
+bb6b4abd,immunotherapy treatments for melanoma,80125941;54cd77ec;fa691a07;6c902c70,2008
+1801c3ef,autonomous ship navigation systems,cdbceee0;90b12253;9ccf0f05;b9343198;8bafacba,2007
+e39b8bc7,technological innovation in ancient civilizations,897c0dd5;80125941;50fc55f3;0d07eeb5,2010
+a6d9167d,hydrological modeling under climate change,4e2f76d1,1999
+d999d268,ecosystem services valuation methods,430de0e2;6c902c70;0d07eeb5,2008
+1a2f72ca,sparse coding in machine learning,5cfec4af;ff3b173d,2010
+53f1ad03,few-shot learning for natural language processing,406ed93b,2016
+64c417f5,particle physics beyond the standard model,7d94f236;4d147e49;3a4eedd5,2011
+e28deab4,ecosystem services valuation methods,0575e8a2;bdfb9396;dfdd65fc;2c3f1492,2003
+de61d9c5,graph neural networks in chemistry,bb57f330,2020
+c9ff5a1c,viral evolution tracking through genomics,760ab120;e681c1a4;1131ecec;4dd834ae,2005
+5814a929,surface chemistry in catalysis,26b49673,1999
+dde6cb66,digital twin technology in manufacturing,d0d0efb1;b2040ca8;1bae4da8;8886624a,1992
+4304ea38,nuclear fusion reactor design,2fdc5672;de61d9c5,2017
+952afec9,self-supervised learning in vision,b2d9df6e,2003
+4e20a518,economic inequalities in digital access,8ae9a043;de381482;651c2283;942c77c4,1994
+47d7be89,autonomous ship navigation systems,4ebca397;9ccf0f05;734c4b99;d93ac61b,2005
+421aaabc,VR therapy for PTSD treatment,a0b13ed3;4b9f4f7c;623ec2ec,2007
+a14f0437,social network analysis in political movements,53f1ad03,2000
+6d50784a,ethics of AI surveillance technologies,0575e8a2;e3c74bb4,1992
+f7a7a0e2,advances in superconducting materials,aafd58b2;d9881a74;4b9f4f7c;3fed0579;08b87aa6,2015
+10a161cb,federated learning for mobile devices,368ac66d;f3bceb62;53f1ad03;c9ff5a1c,1994
+58c92211,philosophy of mind and consciousness,47d7be89;e74724a2,2016
+ebfc1887,cognitive biases in decision making,7d94f236;f200f154;00e9c157;0575e8a2,2012
+6449bc70,surface chemistry in catalysis,d93ac61b;a98b80b6;2b00017d,2005
+036f4bcf,particle physics beyond the standard model,8cedd540;cdbceee0;2ed68e59;1bae4da8,2013
+a5e81404,gravitational wave astronomy with LIGO,1b61e1ee;01d738ae;eb95d640;1131ecec,2003
+ca867708,nuclear fusion reactor design,bb57f330,1995
+abe04455,CRISPR gene drive implications,9302c5d3;dde6cb66;7d94f236,2010
+f84e4d97,few-shot learning for natural language processing,3fed0579;a97fa40e;eb95d640,2014
+01931073,wearable biosensors for chronic disease management,e74724a2;975b7b24;d33640d6,2006
+7e5a2168,biodegradable materials for packaging,6d50784a;c50b13d9;7084879c,1991
+b60db20f,convolutional neural networks for medical imaging,ddee0093;d0d0efb1;4d60d90e;1a2f72ca;86e265c7,2010
+830db190,wearable biosensors for chronic disease management,98c4550a,2016
+f3c8217d,digital twin technology in manufacturing,c9ff5a1c,1994
+071c8df1,drone-based delivery system optimization,2d9c1b27,2022
+151b2eda,symbolic regression using neural networks,897c0dd5,1995
+4ddc57b5,nanomaterials for energy storage,dde45ab6;21e5a8b6;c3c07ffc,1997
+c118699b,single-cell RNA sequencing analysis,4d60d90e,2008
+5008fd35,microplastics in freshwater systems,6d50784a;bce5ecd2;08b87aa6;275c4c6f,1993
+85f7fcd0,VR therapy for PTSD treatment,7a612e7f;0336415d,2023
+786e789d,gravitational wave astronomy with LIGO,a4233a07;24739bc0;80125941,1994
+4313cb4d,drone-based delivery system optimization,1bae4da8,2018
+da4dc5b3,symbolic regression using neural networks,1b61e1ee;f18d3b3b;32ae08fa;952afec9;68df0b72,2001
+5567d1c3,ecosystem services valuation methods,8cedd540;554f04a9;b982ad22,1998
+51d6ece3,historical linguistics and language evolution,fa691a07;94ae86f6,2018
+6c09848c,graph neural networks in chemistry,f3c8217d,1998
+77ee2089,genetic epidemiology of rare diseases,10a161cb;942c77c4;eead67d1;bb57f330,1998
+8b8f64ec,ethics of AI surveillance technologies,32ae08fa;7d3a456f;0bbe226b;b1b216d3,2015
+dbe91834,remote sensing for archaeological site discovery,49a82f3d,1995
+c2ff2559,synthetic media and misinformation,74fab387;08b87aa6;a97805ae;dbba747c,2003
+7329d33f,genetic epidemiology of rare diseases,bb6b4abd;aa271a6f;dd16ad5d,1991
+04482ed9,philosophy of mind and consciousness,56740307,1991
+97d796b9,astrophysical jets from black holes,de381482;830db190,1991
+35a28adc,robotic swarms for agricultural monitoring,09f4940e;dde45ab6,2014
+391beb5b,remote sensing for archaeological site discovery,055bb072;2ed68e59;4b17c2cc;2fdc5672;10a161cb,1991
+f9ce8fa9,graph neural networks in chemistry,de61d9c5;1801c3ef;cdbceee0;2e24eb17,1990
+0f9a0c8c,surface chemistry in catalysis,8cedd540;5008fd35;a97fa40e;c8835004;a98b80b6,2018
+dfa5b06d,evolutionary algorithms for design optimization,8d3d4618;7e3348c0,2023
+c7ddbce8,solar radiation management techniques,dd16ad5d,2003
+943e0b6c,gamification strategies in education,da4dc5b3;85f7fcd0;e16438f0;3a4eedd5;81c489f3,2019
+ea195df7,citizen science platforms for biodiversity,6bb5ffac;50fc55f3;8f513786;34dafa5e,1990
+36f2b513,psychological impacts of long-term space travel,87b4f827,1990
+4d3064f0,astrophysical jets from black holes,897c0dd5;f9ce8fa9;a97805ae;8bafacba;ee264175,2004
+831936d1,carbon sequestration in mangrove ecosystems,8f513786;dfdd65fc,1999
+293be96e,immunotherapy treatments for melanoma,9302c5d3;4443162d,1994
+f0cb81e6,personalized nutrition using genomics,35a28adc;634c798e;3a4eedd5;bb6b4abd,2022
+2e53c9d5,personalized nutrition using genomics,8d3d4618;2e24eb17;943e0b6c;abe04455,2023
+6103bcbc,AI models for disaster risk management,5f70623f;2c3f1492;151b2eda;f18d3b3b,2007
+8bfbcf9d,surface chemistry in catalysis,49a82f3d;ee264175;7084879c;f6e2ef4d;651c2283,1992
+7f977e91,personalized nutrition using genomics,2e24eb17;554f04a9,1998
+f6773e87,solar radiation management techniques,f6e2ef4d;8bafacba;80125941,1999
+5838d62b,technological innovation in ancient civilizations,54cd77ec;6d50784a,2016
+efabbdcf,machine learning models for pandemic forecasting,5aa05050;554f04a9,2006
+0b8b67d0,microbiome-host interactions in immunity,5814a929;80125941,1991
+8c2eb87a,digital humanities text mining methods,22b1fb93;dfdd65fc,1995
+477038e9,AI models for disaster risk management,0336415d;74fab387;0ed9aaf4;d33640d6,1993
+7c1f7f2e,surface chemistry in catalysis,4d60d90e;f9ce8fa9;74fab387;53f1ad03,1995
+0189e962,synthetic media and misinformation,81c489f3;7f1a0b84,2000
+cdb1ddd4,advances in superconducting materials,c3c07ffc;391beb5b,2002
+c99d0d5b,CRISPR gene drive implications,e74724a2;b60db20f;8ae9a043;dcde54cb,2020
+600022e2,ethnobotany of indigenous medicinal plants,897c0dd5;975b7b24;f7a7a0e2,2007
+8fea2105,machine learning models for pandemic forecasting,9302c5d3,1997
+24d1db9e,single-cell RNA sequencing analysis,f84e4d97;da731080;1a2f72ca,2012
+25f0d107,advances in superconducting materials,2e24eb17,2000
+cd7e9d85,additive manufacturing of aerospace parts,ddee0093;5aa05050;271d7f7b;651c2283,2003
+a81784a6,autonomous ship navigation systems,975b7b24;b9343198;32ae08fa,2005
+4d93544c,remote sensing for archaeological site discovery,b2040ca8;4d147e49;421aaabc;0f9a0c8c;bdfb9396,2019
+447a7b61,economic inequalities in digital access,4d3064f0;c7ddbce8;4443162d;ee264175;0189e962,2001
+7d8a9e08,carbon sequestration in mangrove ecosystems,09f4940e;8db05c21;1bae4da8;af6c54d7,1998
+95be610f,wildfire prediction using satellite imagery,54cd77ec;1131ecec,2006
+651fb3c1,cognitive biases in decision making,5aa05050;e16438f0;275c4c6f;81921601,2018
+7cd56830,astrophysical jets from black holes,4d03d335;34dafa5e;1131ecec,2005
+1a458d0a,wearable biosensors for chronic disease management,805077b4;275c4c6f;dac12876,2022
+d2c9bcae,historical linguistics and language evolution,f6e2ef4d,2011
+d13f4e24,biodegradable materials for packaging,81921601;d93ac61b;942c77c4,2023
+d9b30735,hydrological modeling under climate change,8c2eb87a;c2ff2559;6bb5ffac;391beb5b;de61d9c5,1999
+d6659df1,edge computing for smart cities,7cd56830;7d3a456f;055bb072,2006
+4f7e0fc1,philosophy of mind and consciousness,85f7fcd0,2020
+5b279175,gamification strategies in education,e74724a2;87b4f827,2018
+5c2f2a9f,viral evolution tracking through genomics,f6a821dd;4dc3e5f9;7e3348c0;055bb072;e3c74bb4,2014
+837eda2e,high energy cosmic ray detection,a0b13ed3;b9343198;4d147e49;4f7e0fc1,1998
+baf3d99d,privacy-preserving machine learning techniques,6103bcbc;56740307,2002
+927f7f21,viral evolution tracking through genomics,d863ff28;8886624a;98c4550a;623ec2ec,2010
+1abcc1d4,few-shot learning for natural language processing,d999d268;8886624a;a4233a07,2012
+d27f7535,permafrost thaw and greenhouse gas emissions,36f2b513;dfa5b06d;98c4550a,2022
+f7f34809,impact of ocean acidification on coral reefs,6103bcbc;4dd834ae;d5adee5d;c50b13d9,1996
+3aa8ac51,blockchain applications in supply chain management,0bbe226b;e16438f0,1991
+c0788731,robotic swarms for agricultural monitoring,97d796b9,2010
+9dd14f4f,self-supervised learning in vision,4b9f4f7c;d9b30735,1998
+6ee28216,evolutionary algorithms for design optimization,0ddd3bf7,2015
+0b3f7860,transformer models for language translation,af6c54d7;d2c9bcae;942c77c4;3e1a0857,2000
+535b22c9,ethics of AI surveillance technologies,c8835004;94ae86f6;f9ce8fa9;4e20a518;ca867708,1997
+4da531d3,ecosystem services valuation methods,605fa80e,2001
+05bf7e33,optical lattice clocks for timekeeping,d9b30735;dd16ad5d;1a458d0a,2021
+9940a7f1,neuroscience of social behavior,6449bc70,1997
+38bc3565,high energy cosmic ray detection,94ae86f6;8d3d4618;b0257079,1999
+63b8ad0c,psychological impacts of long-term space travel,3f29e956;fb852b19;a81784a6;7cd56830,2023
+9c8da83f,visual question answering systems,4dd834ae;bb57f330;8bfbcf9d;554f04a9;7e3348c0,1996
+07d78359,cyber-physical security for industrial systems,4d3064f0;80125941;3aa8ac51,2018
+507b5b48,social network analysis in political movements,12d531a5;47d7be89;20e96ae0,2009
+65899cd9,advances in superconducting materials,734c4b99;0b3f7860;dfdd65fc,2018
+2a177449,wearable biosensors for chronic disease management,5b279175;5814a929;bb57f330,1995
+bd131f6b,migration patterns and urbanization,0d07eeb5;3f29e956;d999d268;85f7fcd0,2002
+71d60c82,multimodal learning with text and images,348620df;22b1fb93;4b17c2cc;e3c74bb4;651c2283,2019
+98b83b14,social network analysis in political movements,1131ecec,1995
+4c87db57,ethnobotany of indigenous medicinal plants,0f9a0c8c;5cfec4af,1996
+f87b4c75,hydrological modeling under climate change,615167de;8fea2105,1991
+a3995b22,microplastics in freshwater systems,34dafa5e;5838d62b;dac12876,2004
+a2fcb390,cognitive biases in decision making,0ed9aaf4;d93ac61b;8886624a;9c8da83f,2012
+f6551253,single-cell RNA sequencing analysis,266d7c79,1993
+158b43a5,surface chemistry in catalysis,d93ac61b,2001
+479f7627,carbon sequestration in mangrove ecosystems,5ad96d46;98b83b14;071c8df1,2009
+7e5fe95f,renewable energy integration into smart grids,d2474297;1adf50fe;897c0dd5;2d9c1b27,2019
+731f38f9,gamification strategies in education,98b83b14,2012
+b2714bb8,economic inequalities in digital access,08b87aa6;942c77c4;905bc7c2;830db190,1994
+7c8de759,protein folding prediction with AI,7e5a2168;f200f154;c118699b;95be610f;f6551253,2002
+2e55d6ba,historical linguistics and language evolution,151b2eda;336a7498;ed820df6,2007
+622a741c,particle physics beyond the standard model,897c0dd5;54cd77ec;c9ff5a1c;cdbceee0;554f04a9,2011
+1b716149,permafrost thaw and greenhouse gas emissions,2b00017d;91555020;3ea92530,2011
+9748884f,federated learning for mobile devices,5b279175;a98b80b6;abe04455;34792c7d;d33640d6,1996
+2bdf6f2e,pollen dispersal modeling in urban environments,1a2f72ca;622a741c,2021
+78f10c96,blockchain applications in supply chain management,837eda2e;336a7498;91555020;a926da26;ff3b173d,2019
+b22b4f54,autonomous ship navigation systems,901f7c77;85f7fcd0;dfa5b06d,2018
+49428ac6,cryptocurrency adoption in developing economies,09f4940e;56740307;623ec2ec;efce38ff;32ae08fa,1990
+71675cd6,single-cell RNA sequencing analysis,d9b30735,2011
+cad19a60,optical lattice clocks for timekeeping,9302c5d3;7cd56830;dfa5b06d;905bc7c2;975b7b24,2009
+98ccbe27,blockchain applications in supply chain management,54cd77ec;a14f0437;d13f4e24;535b22c9,2022
+bae9b666,digital humanities text mining methods,53f1ad03;2fdc5672;3ea92530;ea195df7,1996
+b99307ef,multimodal learning with text and images,ebfc1887;86e265c7;430de0e2;905bc7c2;2bd13217,2007
+9c9c449d,additive manufacturing of aerospace parts,dbba747c;4e2f76d1,2003
+6e110634,CRISPR gene drive implications,d2474297;51d6ece3;0d07eeb5;5567d1c3;f3c8217d,1995
+c8f38c4c,conservation genomics for endangered species,fa691a07;04482ed9;b22b4f54;1a458d0a;f6773e87,2014
+923a657b,digital twin technology in manufacturing,535b22c9;f84e4d97;036f4bcf,2013
+d97c38c2,nuclear fusion reactor design,aafd58b2;994136ca,2023
+53c8a183,ethics of AI surveillance technologies,071c8df1;477038e9;65100158,2021
+7b4f84bc,robotic swarms for agricultural monitoring,5b279175;7e3348c0;266d7c79;6449bc70;dde6cb66,2015
+32e4320c,visual question answering systems,e9a780c4;c8835004,2009
+dc062385,deepfake detection algorithms,e39b8bc7,2016
+87ddfc42,tumor microenvironment modeling,4d03d335;b9343198;6dbd40df,2021
+de446ce8,reinforcement learning in robotics,b9343198;98c4550a;d863ff28;7d8a9e08;bb6b4abd,2009
+5a02dcca,reinforcement learning in robotics,651c2283;85f7fcd0;65100158;d2c9bcae;77ee2089,1993
+310e8c90,optical lattice clocks for timekeeping,d5adee5d,2016
+681cb8cb,impact of ocean acidification on coral reefs,f6a821dd;4ddc57b5,2008
+6792de87,reinforcement learning in robotics,e28deab4;f6551253;80125941;0ed9aaf4;d5adee5d,1990
+31af81b5,digital humanities text mining methods,271d7f7b;0336415d;af6c54d7,1995
+45a1970d,ethics of AI surveillance technologies,5a02dcca;65100158;26b49673,2016
+b79e0c39,migration patterns and urbanization,5814a929;451a6c58;447a7b61;1abcc1d4;8fea2105,2016
+12b9a750,wearable biosensors for chronic disease management,b60db20f;10a161cb;e186bae2;c99d0d5b;2fdc5672,2014
+9927da90,human-robot interaction in workplace environments,554f04a9;bb6b4abd;04d6af4e,1993
+fe0a8d23,few-shot learning for natural language processing,634c798e;8cedd540;01d738ae,2016
+730115e8,nanomaterials for energy storage,975b7b24;336a7498;b79e0c39,1994
+cde5b9d2,federated learning for mobile devices,6449bc70;71d60c82;ca650906,2015
+b08dbef0,biodegradable materials for packaging,4ddc57b5;ed820df6;7e3348c0;4da531d3,2014
+f9bae397,robotic swarms for agricultural monitoring,9302c5d3;1801c3ef,2000
+501b81c6,evolutionary algorithms for design optimization,a926da26;97d796b9,2009
+d7cca12a,genetic epidemiology of rare diseases,abe04455;cad19a60;2fdc5672;293be96e,2022
+4b8d0784,few-shot learning for natural language processing,5c2f2a9f;65100158,2018
+de774324,wildfire prediction using satellite imagery,55aa11e0;90b12253,1999
+474a9e99,economic inequalities in digital access,2b280cb9;3b5e1a1c;7d8a9e08;7f977e91;05bf7e33,1994
+ce43f5d4,synthetic media and misinformation,af6c54d7,2023
+4a876ca6,3D printed prosthetics for amputees,fe0a8d23;34dafa5e,2000
+5756fca1,CRISPR gene drive implications,e1d1ca20;c9ff5a1c;de446ce8,2014
+0f9d8e22,advances in superconducting materials,c7ddbce8;e39b8bc7;151b2eda;1b716149,2011
+17fb9d2d,transformer models for language translation,cdb1ddd4;6e110634,2006
+e7eec0bd,self-supervised learning in vision,474a9e99;4313cb4d;78f10c96,2009
+d6b80b7d,biodegradable materials for packaging,897c0dd5;d2c9bcae;5c2f2a9f;04d6af4e,1995
+3242218c,history of mathematics in Islamic civilizations,4dd834ae;2d9c1b27;1bae4da8;071c8df1;7b4f84bc,1994
+c73a0541,VR therapy for PTSD treatment,e7eec0bd;ee264175;efce38ff;623ec2ec;2ad397ab,2016
+608490f2,social network analysis in political movements,21e5a8b6;605fa80e;47d7be89;d999d268;2b280cb9,2015
+14ac8cc3,conservation genomics for endangered species,275c4c6f;a5e81404;f7a7a0e2;dde6cb66,1995
+4dc9b8d5,history of mathematics in Islamic civilizations,830db190;6e110634;ae140900;b2040ca8;7cd56830,2003
+d7f082bd,technological innovation in ancient civilizations,0b8b67d0;5814a929,2020
+5f15f574,microbiome-host interactions in immunity,901f7c77;554f04a9;ca650906;45a1970d,1995
+5026bee9,wildfire prediction using satellite imagery,fc53f8f9,1992
+24f3f1dc,adversarial attacks on deep learning systems,5a02dcca;47d7be89;5b279175,1999
+f06f2a9f,economic inequalities in digital access,5a02dcca;6e110634;2b00017d;5008fd35,1990
+c8a1e760,nuclear fusion reactor design,5567d1c3;09f4940e,2001
+d6c7e505,privacy-preserving machine learning techniques,3aa8ac51;275c4c6f;ddee0093;6103bcbc;ee264175,2003
+124f3919,ethnobotany of indigenous medicinal plants,f0cb81e6;d0d0efb1,2007
+49606bf2,ethics of AI surveillance technologies,07d78359;e1d1ca20;4304ea38;f6e2ef4d,2000
+97865c43,visual question answering systems,af6c54d7;e1d1ca20;efce38ff;535b22c9,2020
+8ea8eb2c,microplastics in freshwater systems,c50b13d9;8d3d4618;22b1fb93;dfdd65fc;5008fd35,1998
+ca303472,blockchain applications in supply chain management,447a7b61;6ee28216;3fed0579;f7a7a0e2;ea195df7,2021
+f24ca746,additive manufacturing of aerospace parts,7a612e7f;4d93544c;608490f2,1995
+13fabc74,self-supervised learning in vision,3242218c;5d8be6d7;368ac66d,2021
+dfcc01a3,self-supervised learning in vision,975b7b24;d2474297;b1b216d3;2e55d6ba;734c4b99,2001
+9c1b2516,wearable biosensors for chronic disease management,e74724a2;f6e2ef4d;dde45ab6,2019
+fe00397d,philosophy of mind and consciousness,a14f0437;fb852b19;9c1b2516;64c417f5,2004
+949e0235,social network analysis in political movements,aafd58b2;f9bae397;3f29e956;7d94f236,1996
+38833db1,viral evolution tracking through genomics,730115e8,2006
+46aa5797,dark energy survey methods,5d8be6d7,2011
+b995126a,viral evolution tracking through genomics,1a458d0a,2000
+0c208289,pollen dispersal modeling in urban environments,5008fd35;1943f507;923a657b;1a772ce9,2002
+39394a28,digital twin technology in manufacturing,f7775a13;5008fd35;cad19a60,2018
+2bd31928,optical lattice clocks for timekeeping,786e789d;247de265,2016
+f26d9918,gamification strategies in education,651fb3c1;7cd56830;3fed0579;bb6b4abd,1990
+aee4af89,multimodal learning with text and images,eb95d640;dcde54cb,2023
+b705749d,visual question answering systems,ce43f5d4;8ae9a043,2016
+4092b252,reinforcement learning in robotics,1a458d0a;65899cd9;b995126a,2019
+e6f0c66b,surface chemistry in catalysis,74fab387;e74724a2;b982ad22;275c4c6f,2007
+f8786906,autonomous ship navigation systems,406ed93b,1992
+9229b952,economic inequalities in digital access,77ee2089;4dc3e5f9,2000
+1f84dac1,technological innovation in ancient civilizations,b705749d;a98b80b6;8b8f64ec;4e2f76d1;6d50784a,2000
+5fccc521,particle physics beyond the standard model,d6b80b7d;4a876ca6;474a9e99;952afec9,2016
+3d2a8f12,bioinformatics pipelines for metagenomics,aa271a6f,1999
+650337c1,nanomaterials for energy storage,e28deab4;13fabc74;310e8c90;923a657b;d7cca12a,2015
+e672c982,neuroscience of social behavior,9940a7f1;275c4c6f;ca650906;73bfd4c3,2020
+d42f20b2,neuroscience of social behavior,22db8254,1992
+ce28bdf6,evolutionary algorithms for design optimization,f18d3b3b,2021
+cd33670c,protein folding prediction with AI,942c77c4;5f70623f;d7f082bd;3ea92530,2008
+e0f18b9a,wireless power transfer in electric vehicles,22db8254;730115e8,2004
+97d2b82a,pollen dispersal modeling in urban environments,071c8df1,1996
+07fb3646,drone-based delivery system optimization,fc53f8f9;756be6f5,2009
+ecf7575e,transformer models for language translation,f8786906;13fabc74;5008fd35;f3bceb62;406ed93b,2012
+8d8f3f2e,permafrost thaw and greenhouse gas emissions,5a02dcca;786e789d;07d78359,2013
+cd9f8e74,reinforcement learning in robotics,51d6ece3;1abcc1d4;7e5fe95f;5838d62b;b1b216d3,2021
+0625cae5,synthetic media and misinformation,3ea92530;34dafa5e;3d2a8f12;efabbdcf,2013
+3cc3a695,microplastics in freshwater systems,c3c07ffc;de774324;dde45ab6,2006
+521285ab,transformer models for language translation,4443162d,1995
+97bf605c,multimodal learning with text and images,81c489f3;36f2b513;2c3f1492;3cc3a695;0ddd3bf7,2012
+cc2ee3a9,carbon sequestration in mangrove ecosystems,430de0e2;897c0dd5,2006
+7900cdf4,genetic epidemiology of rare diseases,1bae4da8;bd131f6b;ca303472,1994
+d06c8e5a,cryptocurrency adoption in developing economies,a81784a6;479f7627;c8835004,2023
+f2850fcb,bioinformatics pipelines for metagenomics,7e5a2168;e3c74bb4;901f7c77;cd33670c,2003
+fd692724,digital humanities text mining methods,8cedd540;4dc3e5f9;de446ce8;4b9f4f7c,2005
+0551b4f6,quantum entanglement experiments,3ea92530;d13f4e24;036f4bcf,2018
+03642f12,visual question answering systems,b60db20f;9c1b2516;ce28bdf6;2bd13217,1995
+5c54a86d,philosophy of mind and consciousness,6c902c70;56740307;fb852b19;dfa5b06d;1a458d0a,2006
+076b154e,edge computing for smart cities,5c2f2a9f;dbe91834;b2d9df6e,2005
+ad89785a,citizen science platforms for biodiversity,34792c7d;dd16ad5d;13fabc74;905bc7c2;e39b8bc7,1994
+d99cb38e,philosophy of mind and consciousness,cad19a60,2011
+afb47c2d,astrophysical jets from black holes,da4dc5b3;97865c43;24f3f1dc;12d531a5,2001
+38ca74e5,explainable AI for healthcare applications,94ae86f6;5c2f2a9f;a926da26;da4dc5b3;1bae4da8,2012
+22a48a69,reinforcement learning in robotics,dfdd65fc;9c8da83f,2014
+fb2dd69d,explainable AI for healthcare applications,1131ecec;507b5b48;f26d9918,1998
+b0c33574,ethnobotany of indigenous medicinal plants,6bb5ffac;f06f2a9f;1b716149,1996
+f4abbbb6,historical linguistics and language evolution,4dc3e5f9,1997
+c8814381,astrophysical jets from black holes,2e24eb17;0bbe226b;3f29e956,2018
+a62b0b03,history of mathematics in Islamic civilizations,b0c33574;ee56d4a3,2017
+aa4d50bb,3D printed prosthetics for amputees,275c4c6f;1131ecec;e1d1ca20;650337c1;507b5b48,2021
+290bae2f,quantum entanglement experiments,076b154e,2020
+4ebc7c47,autonomous ship navigation systems,de61d9c5;24f3f1dc;ee56d4a3,1996
+c6c8bce6,AI models for disaster risk management,5a02dcca;4d03d335;c9ff5a1c;9940a7f1,2022
+53e469e9,explainable AI for healthcare applications,760ab120;c9ff5a1c;51d6ece3;04d6af4e;08b87aa6,2010
+61448fc7,ethics of AI surveillance technologies,e74724a2;dde45ab6;49a82f3d;b982ad22,2009
+af378720,gamification strategies in education,22a48a69;d97c38c2,2011
+39c50451,CRISPR gene drive implications,0f9a0c8c;4c87db57;90b12253,1996
+eaff58d3,migration patterns and urbanization,3fed0579;e7eec0bd;de61d9c5;ecf7575e,2018
+3481a4b1,ecosystem services valuation methods,efabbdcf;4b8d0784;97bf605c,2007
+617c8acf,psychological impacts of long-term space travel,da4dc5b3;2e53c9d5;b2040ca8;05bf7e33;158b43a5,1991
+b93c658c,convolutional neural networks for medical imaging,071c8df1;eaff58d3;87ddfc42,2016
+5500861c,ecosystem services valuation methods,ae140900;f06f2a9f;4d3064f0;8f513786,1998
+51ed5850,technological innovation in ancient civilizations,c8a1e760,2008
+0272ebe2,wireless power transfer in electric vehicles,3aa8ac51,1994
+0ac8a49c,digital humanities text mining methods,124f3919;51ed5850;e9a780c4;f8786906,2009
+eb357618,microbiome-host interactions in immunity,09f4940e,2001
+0f4aeccb,quantum entanglement experiments,5cfec4af;c8814381;756be6f5,1993
+b9f7b9d5,3D printed prosthetics for amputees,ee264175;8d3d4618;837eda2e;8ae9a043,1996
+31a7a82c,explainable AI for healthcare applications,3e1a0857;14ac8cc3;805077b4,2019
+3cbed8b4,self-supervised learning in vision,47d7be89;2bdf6f2e;8f513786;b60db20f;9229b952,2012
+7eabd67d,sparse coding in machine learning,0d07eeb5;348620df,2006
+d1daa702,carbon sequestration in mangrove ecosystems,b1b216d3;13fabc74;9c1b2516;310e8c90;fa691a07,1997
+278d3936,adversarial attacks on deep learning systems,dde6cb66;09f4940e;430de0e2;bd131f6b;fe00397d,2022
+3ed729ff,neuroscience of social behavior,7900cdf4;554f04a9,2021
+59f02313,additive manufacturing of aerospace parts,32ae08fa;6bb5ffac;f24ca746,2008
+90bfba94,psychological impacts of long-term space travel,ff3b173d;38833db1;f9ce8fa9,2000
+0147f85e,optical lattice clocks for timekeeping,430de0e2;1a458d0a,1992
+e7b6a9b2,adversarial attacks on deep learning systems,1131ecec,1994
+a506665a,social network analysis in political movements,d42f20b2,2017
+59323a45,migration patterns and urbanization,13fabc74;c8814381;fb852b19,2018
+f639d86a,visual question answering systems,ca867708;38ca74e5,1999
+2d43b44c,wearable biosensors for chronic disease management,2b280cb9;158b43a5,1990
+6c47c05f,evolutionary algorithms for design optimization,fe00397d;f7f34809,2009
+ff4e3422,microbiome-host interactions in immunity,ddee0093;51d6ece3;f84e4d97,2023
+476d0c66,microplastics in freshwater systems,e9a780c4;7e3348c0;ad89785a,2009
+3d1024bb,biodegradable materials for packaging,04482ed9,2008
+9cdf5c77,high energy cosmic ray detection,fd692724;ed820df6,2007
+d50749c7,human-robot interaction in workplace environments,4dc3e5f9;151b2eda;10a161cb,2007
+5631cd8f,wildfire prediction using satellite imagery,fe0a8d23,1998
+85c7de99,machine learning models for pandemic forecasting,a2fcb390;ed9c963d;b79e0c39;f9bae397;97bf605c,1993
+bd17e8c1,protein folding prediction with AI,01347ea4;6c09848c;4da531d3;d06c8e5a,2014
+827b4322,symbolic regression using neural networks,d2474297;d6c7e505,2018
+b1e8e6f5,bioinformatics pipelines for metagenomics,479f7627;a6d9167d;8cedd540,1992
+e47a9188,technological innovation in ancient civilizations,85f7fcd0;0575e8a2;d99cb38e;447a7b61;97865c43,2011
+515e194a,immunotherapy treatments for melanoma,98c4550a;4dd834ae,1990
+f4b33f60,human-robot interaction in workplace environments,2fdc5672,2001
+7875dca3,genetic epidemiology of rare diseases,d863ff28;975b7b24;b9343198,1998
+02e5e209,human-robot interaction in workplace environments,036f4bcf;837eda2e;dbba747c;2d9c1b27,2019
+f01fe9d5,microbiome-host interactions in immunity,734c4b99;e1d1ca20;51ed5850,1997
+9d2a9fb7,conservation genomics for endangered species,4313cb4d;ad89785a;f26d9918;5aa05050,1994
+49a54cec,hydrological modeling under climate change,2ad397ab;2bd31928;25f0d107;f4abbbb6;036f4bcf,1996
+3607dddb,particle physics beyond the standard model,0625cae5;98b83b14;6d50784a;dfa5b06d;3b5e1a1c,2006
+0be513c8,impact of ocean acidification on coral reefs,da731080;4d03d335;aa4d50bb;927f7f21,2023
+03fe9991,technological innovation in ancient civilizations,b995126a;5026bee9;4304ea38,2004
+66e5b194,citizen science platforms for biodiversity,01d738ae;97d796b9;9c8da83f;8b8f64ec,2000
+cb85cb10,wireless power transfer in electric vehicles,1b716149,2019
+ae743ef4,ethnobotany of indigenous medicinal plants,49428ac6,2009
+285cb3b9,conservation genomics for endangered species,36f2b513;f24ca746;74fab387;071c8df1;4d147e49,2008
+6e29cb4d,nuclear fusion reactor design,1943f507;c8835004;158b43a5;285cb3b9,2008
+c58f8f70,economic inequalities in digital access,b79e0c39;5026bee9;7d8a9e08,2017
+4cb84bde,symbolic regression using neural networks,81921601,2000
+ce57a5d0,convolutional neural networks for medical imaging,f3c8217d;ca303472;eb357618;266d7c79;f6e2ef4d,2013
+0e426c86,gravitational wave astronomy with LIGO,0be513c8;b79e0c39,2018
+49e4d481,impact of ocean acidification on coral reefs,1b61e1ee;6792de87;1131ecec;831936d1,1999
+cdab69a3,few-shot learning for natural language processing,0625cae5;32ae08fa;56e28d2b,1994
+8c2e7646,nuclear fusion reactor design,98b83b14;8c2eb87a;515e194a,2020
+eeae9bbd,cyber-physical security for industrial systems,5f70623f;65899cd9;451a6c58;e6f0c66b,2002
+dbabd724,tumor microenvironment modeling,77ee2089;58c92211,2019
+ba37b2f9,wildfire prediction using satellite imagery,4ebca397;ee264175,2004
+d0bd6133,CRISPR gene drive implications,ca867708;1131ecec,2015
+70eb2ff2,visual question answering systems,ca650906,2012
+fccd3a78,adversarial attacks on deep learning systems,ecf7575e;90b12253;af6c54d7,2021
+7caa4af5,additive manufacturing of aerospace parts,554f04a9;0ddd3bf7;c372cb5e,2012
+531d9909,optical lattice clocks for timekeeping,ee264175;8d8f3f2e;5008fd35,2018
+5eeb228b,federated learning for mobile devices,4d60d90e;80125941;fa691a07;e47a9188,1992
+40683d5e,protein folding prediction with AI,cb85cb10;cad19a60,2006
+15e8f6d4,edge computing for smart cities,0be513c8;74fab387;c6c8bce6;9302c5d3;3b5e1a1c,2009
+0e7fa6c3,microplastics in freshwater systems,b60db20f;20e96ae0;4b17c2cc;3f29e956,1995
+b20ebd19,multimodal learning with text and images,dbe91834;2ad397ab,1997
+014b8d0f,robotic swarms for agricultural monitoring,2d9c1b27;c372cb5e;d99cb38e;5d8be6d7;827b4322,1992
+fbbe92c3,human-robot interaction in workplace environments,451a6c58,1992
+b39ce61b,sparse coding in machine learning,b2d9df6e,2002
+7872ca62,astrophysical jets from black holes,430de0e2;b39ce61b;ed9c963d;e74724a2;afb47c2d,2017
+347040a5,cryptocurrency adoption in developing economies,8c2eb87a;98c4550a;e6f0c66b,1999
+9de67d22,graph neural networks in chemistry,8c2eb87a;d7cca12a;4d3064f0;baf3d99d;6103bcbc,1993
+01fb19fb,permafrost thaw and greenhouse gas emissions,622a741c;0ddd3bf7;94ae86f6;734c4b99;8d3d4618,2007
+1350a597,philosophy of mind and consciousness,a14f0437;2a177449;da731080,2007
+3ffc0780,blockchain applications in supply chain management,10a161cb;2ed68e59,2016
+3fe43866,explainable AI for healthcare applications,b08dbef0;fbbe92c3,1993
+67341aa8,solar radiation management techniques,ed820df6;756be6f5;d7f082bd;f639d86a,2009
+a2d0046f,ecosystem services valuation methods,0575e8a2,2019
+de070069,high energy cosmic ray detection,f6a821dd,1990
+515eb949,history of mathematics in Islamic civilizations,271d7f7b;40683d5e;f8786906,2008
+5e6b5dd4,federated learning for mobile devices,31af81b5;650337c1;81921601;dbabd724;ca303472,1997
+13ad25c9,privacy-preserving machine learning techniques,d99cb38e;7084879c;6449bc70;7c8de759,2020
+07db0bea,robotic swarms for agricultural monitoring,f6773e87;447a7b61,2017
+d018d708,human-robot interaction in workplace environments,24f3f1dc,1998
+4c1fbf9d,digital humanities text mining methods,827b4322;bb57f330;4b9f4f7c,1995
+57700c90,carbon sequestration in mangrove ecosystems,8c2eb87a,2010
+83e59651,surface chemistry in catalysis,4a876ca6,2013
+8e2fed8f,deepfake detection algorithms,623ec2ec;3481a4b1;a97fa40e;e7eec0bd,2007
+6139bbc9,graph neural networks in chemistry,f26d9918;dcde54cb;6e110634;700736fd,2000
+2e9b99d5,wildfire prediction using satellite imagery,f18d3b3b;d6c7e505;f2850fcb;08b87aa6,2020
+7ea75825,gamification strategies in education,f6773e87;cdab69a3;eb95d640;c58f8f70;a97fa40e,1995
+598404f2,psychological impacts of long-term space travel,afb47c2d,2010
+32845647,synthetic media and misinformation,1943f507;7f977e91,2016
+fef38c51,ethics of AI surveillance technologies,7e5a2168;5631cd8f,1996
+a282389d,impact of ocean acidification on coral reefs,38ca74e5;f2850fcb;8fea2105;b705749d,2016
+7d7be764,visual question answering systems,615167de;4c87db57,2016
+cf680e13,gravitational wave astronomy with LIGO,9302c5d3;e16438f0,2005
+c5f5863e,biodegradable materials for packaging,1a772ce9;3b5e1a1c;de070069;f06f2a9f;293be96e,2022
+0aafd8a5,sparse coding in machine learning,6c902c70;5aa05050;97d796b9;cde5b9d2;0b8b67d0,2006
+74c0e8fe,psychological impacts of long-term space travel,8d3d4618;7f1a0b84;f4abbbb6;de070069,2008
+4e047777,personalized nutrition using genomics,4092b252;0575e8a2;f4abbbb6,2017
+ff21c8ad,drone-based delivery system optimization,61448fc7;39c50451;1943f507,2009
+7b2d0e1a,pollen dispersal modeling in urban environments,65899cd9,2018
+a0b5f912,deepfake detection algorithms,01931073,2015
+d321e5f5,visual question answering systems,4a876ca6;55aa11e0;6dbd40df;3b5e1a1c;923a657b,1999
+9acd0cc8,CRISPR gene drive implications,f4abbbb6;8db05c21;4313cb4d;dde6cb66,2012
+34caa59f,privacy-preserving machine learning techniques,897c0dd5;bd131f6b,1993
+a6abf489,3D printed prosthetics for amputees,ba37b2f9,2002
+2aca9456,hydrological modeling under climate change,837eda2e;a4233a07;e9dc1055,1991
+63b60a2c,self-supervised learning in vision,13fabc74;cc2ee3a9;5838d62b,1999
+13a8cb00,symbolic regression using neural networks,3ea92530;67341aa8;5aa05050,2006
+ec0d21f9,dark energy survey methods,8f513786;ba37b2f9;14ac8cc3;952afec9,2000
+e7ef3a02,self-supervised learning in vision,275c4c6f;4d60d90e;f8786906,1990
+46fa28b2,protein folding prediction with AI,310e8c90;0ed9aaf4;dbabd724;2aca9456;f06f2a9f,2000
+e93067c7,neuroscience of social behavior,fe0a8d23;f01fe9d5;54cd77ec;a4233a07,2016
+814ec0e6,historical linguistics and language evolution,09f4940e;d6b80b7d,2021
+16c6c8e2,digital twin technology in manufacturing,7d7be764;897c0dd5;4e2f76d1;730115e8,2016
+5c84fb61,synthetic media and misinformation,dcde54cb;8bfbcf9d;ed820df6,2001
+00efe146,advances in superconducting materials,975b7b24,1997
+08f92242,dark energy survey methods,3d2a8f12;a4233a07,2001
+77b78d8a,economic inequalities in digital access,02e5e209;b79e0c39,1995
+b360b714,citizen science platforms for biodiversity,3d1024bb;81921601;ce43f5d4;4092b252,1999
+2edf3f86,autonomous ship navigation systems,5f15f574;4dc9b8d5;430de0e2;1943f507,1997
+35f22e70,cyber-physical security for industrial systems,68df0b72;3242218c;6dbd40df;bae9b666,1997
+3207837d,edge computing for smart cities,d6659df1;a98b80b6,2010
+1f4071aa,machine learning models for pandemic forecasting,50fc55f3;9ccf0f05;a98b80b6;35a28adc;fccd3a78,2018
+3ca034c0,AI models for disaster risk management,b982ad22;2edf3f86;b9f7b9d5;0189e962;81c489f3,2006
+a15dde82,permafrost thaw and greenhouse gas emissions,4304ea38,2000
+ca22e496,gamification strategies in education,151b2eda;285cb3b9;80125941;368ac66d;4d93544c,2017
+ea025302,quantum entanglement experiments,9927da90;07fb3646;91555020;3e1a0857;a0b13ed3,2015
+f41c45fb,reinforcement learning in robotics,22db8254,2009
+d45c43ee,migration patterns and urbanization,3d1024bb,2010
+4160aab1,deepfake detection algorithms,a6abf489;ff4e3422;39c50451;f4abbbb6;95be610f,1990
+875f6fdb,nuclear fusion reactor design,61448fc7;07d78359;56e28d2b;f18d3b3b;d6c7e505,2009
+1dd028c0,drone-based delivery system optimization,94ae86f6;57700c90;e0f18b9a;d2474297,2016
+2785c5a1,cyber-physical security for industrial systems,5eeb228b;3d1024bb;c5f5863e;34caa59f,2005
+174e8579,microbiome-host interactions in immunity,f9ce8fa9;5026bee9;814ec0e6;53e469e9,1996
+a2400c9a,cognitive biases in decision making,63b60a2c;1adf50fe;a4233a07;7ea75825;4160aab1,2003
+e18a794f,drone-based delivery system optimization,d06c8e5a;f9ce8fa9;fe0a8d23;9748884f;4b8d0784,2022
+e8a73632,ecosystem services valuation methods,071c8df1;ce57a5d0,2022
+ca5349e6,evolutionary algorithms for design optimization,dcde54cb;aa4d50bb,2010
+dcfe4910,nanomaterials for energy storage,f7775a13;1131ecec;b705749d;a6abf489,2000
+4a03c7cc,astrophysical jets from black holes,d7cca12a;7329d33f;dbabd724;994136ca;5d01df9d,2019
+d42c8a59,astrophysical jets from black holes,5fccc521;00e9c157;31a7a82c;430de0e2,2013
+d91c5ac7,wearable biosensors for chronic disease management,dc062385;7cd56830;3a4eedd5;5814a929;4dc3e5f9,2023
+dab6c718,economic inequalities in digital access,7329d33f;31af81b5;a15dde82;124f3919;501b81c6,2007
+12e58f1b,conservation genomics for endangered species,5fccc521;615167de;071c8df1;5c84fb61;0f9a0c8c,2022
+a7b58cf4,human-robot interaction in workplace environments,3242218c;8ea8eb2c;634c798e;b2040ca8,2023
+e4a205db,high energy cosmic ray detection,2785c5a1,2005
+d4b1f308,hydrological modeling under climate change,174e8579;b79e0c39;12d531a5;39c50451,2004
+52b51505,impact of ocean acidification on coral reefs,e7eec0bd;0f9a0c8c,1991
+7a8df4b5,particle physics beyond the standard model,de381482,2022
+520f6e7a,digital humanities text mining methods,2a177449,2015
+6e68a400,deepfake detection algorithms,32ae08fa;50fc55f3,2014
+8c63d3fb,historical linguistics and language evolution,9748884f;0b8b67d0;a926da26,2004
+86254633,carbon sequestration in mangrove ecosystems,c8814381;98b83b14;4d60d90e;d5adee5d;8c63d3fb,2023
+5be34767,explainable AI for healthcare applications,9c8da83f;77ee2089;275c4c6f,2015
+2c108746,cryptocurrency adoption in developing economies,35f22e70,1992
+d9858c60,machine learning models for pandemic forecasting,a6d9167d,2015
+b11e42ce,CRISPR gene drive implications,521285ab;124f3919;d50749c7;5fccc521;347040a5,2013
+6f08dcef,ecosystem services valuation methods,3cc3a695;476d0c66;ed9c963d,2023
+cb6e6e49,nuclear fusion reactor design,fb852b19;ddee0093;650337c1,2014
+05d997c9,quantum entanglement experiments,86254633;3ed729ff;63b8ad0c;271d7f7b,2018
+c1ea5251,dark energy survey methods,f9ce8fa9;6c09848c;8cedd540;83e59651;3242218c,2022
+fb4c7f14,multimodal learning with text and images,6d50784a;285cb3b9;2ad397ab;d7f082bd;abe04455,1990
+cfbac04d,economic inequalities in digital access,cc2ee3a9;9940a7f1;d7f082bd,2004
+63040d7c,edge computing for smart cities,38bc3565;5c84fb61;d863ff28;52b51505,1999
+9a535d60,privacy-preserving machine learning techniques,f7a7a0e2;b0257079;a3995b22;3ffc0780,1997
+8eb83d27,permafrost thaw and greenhouse gas emissions,eb95d640;87ddfc42;4dd834ae;d0d0efb1;b0257079,1992
+31b005d6,tumor microenvironment modeling,85c7de99;81921601;2c3f1492;1bae4da8,2019
+71be44e9,transformer models for language translation,afb47c2d,1997
+be7a3390,single-cell RNA sequencing analysis,943e0b6c,2016
+76602e25,few-shot learning for natural language processing,3fed0579;5b279175;e9dc1055;ff3b173d,1997
+13a461b0,graph neural networks in chemistry,7e3348c0;bae9b666;9748884f,1998
+46944422,synthetic media and misinformation,0b3f7860;8eb83d27,2000
+cf71f0e1,VR therapy for PTSD treatment,2bdf6f2e;447a7b61;ee56d4a3;7c8de759,1995
+1d783411,quantum entanglement experiments,ad89785a;8ae9a043;7ea75825,2016
+a4cbe7ff,historical linguistics and language evolution,406ed93b;e7b6a9b2;38bc3565,1994
+031f3830,psychological impacts of long-term space travel,87ddfc42;d91c5ac7;39c50451;01347ea4,2014
+abbab5ec,genetic epidemiology of rare diseases,bb6b4abd;ba37b2f9;10a161cb,1990
+0bfeeb43,impact of ocean acidification on coral reefs,d321e5f5;a98b80b6;f639d86a,2002
+63b0f766,adversarial attacks on deep learning systems,a2d0046f;014b8d0f;c2ff2559;03fe9991,2000
+0b5017fd,social network analysis in political movements,ce28bdf6,2004
+637f83d3,dark energy survey methods,0c208289;1801c3ef,2014
+397eb702,deepfake detection algorithms,b79e0c39;b39ce61b;3ed729ff;1b61e1ee,2011
+e5b8863d,cognitive biases in decision making,f01fe9d5;38833db1,2008
+d975af1c,impact of ocean acidification on coral reefs,c2ff2559;77b78d8a;b99307ef;6103bcbc;58c92211,1998
+b36dee0f,tumor microenvironment modeling,b0257079,2012
+af5c8f15,gamification strategies in education,336a7498;f24ca746;e7b6a9b2;4d03d335;4ddc57b5,2004
+9baf16e7,reinforcement learning in robotics,474a9e99;04d6af4e,2017
+31243a1c,digital humanities text mining methods,86254633;731f38f9;8cedd540,2019
+9dbef1eb,gravitational wave astronomy with LIGO,ed820df6;9927da90;46aa5797;b1b216d3;cf71f0e1,1996
+c25c0f92,tumor microenvironment modeling,de070069;9302c5d3;831936d1;4e047777,1999
+c3c12fe7,bioinformatics pipelines for metagenomics,5814a929;7900cdf4,2010
+0f9076ab,cognitive biases in decision making,2e24eb17,2001
+3ca4ec3c,deepfake detection algorithms,3fed0579,2020
+ac29908d,privacy-preserving machine learning techniques,a15dde82;4d03d335;81921601;ce43f5d4;a0b5f912,2004
+72b63b70,cyber-physical security for industrial systems,4d147e49;cd33670c;65899cd9;ca22e496,2020
+8058c3a5,remote sensing for archaeological site discovery,4ebc7c47;ae743ef4;51d6ece3;da4dc5b3;f24ca746,2009
+57f8628b,AI models for disaster risk management,01347ea4;b1b216d3;d13f4e24;01d738ae,2007
+5d5f1c61,optical lattice clocks for timekeeping,827b4322,1997
+97b9b251,historical linguistics and language evolution,d91c5ac7;7e3348c0,2005
+edfdda00,social network analysis in political movements,98ccbe27;b11e42ce;97b9b251,1992
+e5892ce7,privacy-preserving machine learning techniques,a97805ae;49e4d481;d42f20b2;90b12253,2006
+4e499c81,conservation genomics for endangered species,9de67d22;39394a28;5c84fb61;4b17c2cc,2006
+b88c29e9,viral evolution tracking through genomics,3ed729ff;634c798e;ee56d4a3;53f1ad03;32845647,2016
+cfd413e0,explainable AI for healthcare applications,fb4c7f14;63b60a2c,1990
+228c8d6b,renewable energy integration into smart grids,c99d0d5b;38ca74e5,2011
+a57badac,historical linguistics and language evolution,f4abbbb6;01d738ae;2bd13217;5fccc521,2011
+d37189a2,astrophysical jets from black holes,5500861c,2009
+642ffaf8,genetic epidemiology of rare diseases,4ebc7c47;d27f7535;734c4b99,1999
+3049e0e4,edge computing for smart cities,535b22c9;2aca9456;623ec2ec;d5adee5d,1996
+720fee12,3D printed prosthetics for amputees,d42f20b2;09f4940e;fe0a8d23,2000
+d651619e,digital humanities text mining methods,4160aab1;24d1db9e;dfdd65fc;7875dca3,2008
+15d05f71,pollen dispersal modeling in urban environments,ee56d4a3;46944422;831936d1;1bae4da8;397eb702,2002
+55f9ba69,wildfire prediction using satellite imagery,01931073;a5e81404,2022
+cf6c202d,privacy-preserving machine learning techniques,943e0b6c;8d3d4618;bce5ecd2;fa691a07;e4a205db,1991
+46de499e,microplastics in freshwater systems,04d6af4e;bd131f6b;5500861c;a0b13ed3;cf6c202d,2000
+7b45b2dd,privacy-preserving machine learning techniques,c50b13d9;e74724a2;d4b1f308;9d2a9fb7,2020
+766f88b8,pollen dispersal modeling in urban environments,d018d708;eaff58d3;07db0bea;d321e5f5,2010
+fb1fbc0b,astrophysical jets from black holes,1943f507;97b9b251;9d2a9fb7;a5e81404,2004
+bcb42631,dark energy survey methods,2bdf6f2e;6792de87,1992
+6f4066e2,viral evolution tracking through genomics,22a48a69;2bdf6f2e;c118699b;65100158;ebfc1887,2010
+28c16709,philosophy of mind and consciousness,786e789d,1993
+1b7eb74b,gamification strategies in education,24f3f1dc,2003
+e804675d,3D printed prosthetics for amputees,36f2b513;1f84dac1,2004
+b35bcfc6,renewable energy integration into smart grids,dbba747c;d975af1c;c7ddbce8;608490f2,2005
+274c9d9e,pollen dispersal modeling in urban environments,0ddd3bf7,1999
+df283ea2,personalized nutrition using genomics,b0c33574;de61d9c5,2020
+15b65310,single-cell RNA sequencing analysis,d45c43ee;de446ce8,2018
+fb2dd989,self-supervised learning in vision,1abcc1d4;77b78d8a;3ca4ec3c;3242218c,1991
+66757e93,human-robot interaction in workplace environments,5be34767;26b49673;7900cdf4;4d147e49,2012
+4e34edae,CRISPR gene drive implications,3d1024bb;32e4320c;46de499e;4304ea38,2023
+06971029,social network analysis in political movements,476d0c66;ff4e3422;0f9a0c8c;eb357618;95be610f,2000
+cc16eb1a,robotic swarms for agricultural monitoring,52b51505;72b63b70;ca22e496;9baf16e7;e74724a2,2016
+54a17e5f,tumor microenvironment modeling,3242218c;d1daa702;479f7627,2007
+37c20363,federated learning for mobile devices,20e96ae0;c6c8bce6;01347ea4;a81784a6,2021
+1bd04ee1,federated learning for mobile devices,b1b216d3,2005
+5895c6ab,transformer models for language translation,4cb84bde;5814a929;8cedd540;de070069,2023
+5125cbaa,human-robot interaction in workplace environments,c0788731;6f08dcef;12d531a5;09f4940e,2009
+a4af1e06,remote sensing for archaeological site discovery,d99cb38e;b36dee0f;39394a28;8058c3a5;1b716149,2015
+0e46fb76,nanomaterials for energy storage,da4dc5b3,2023
+54a3fab6,edge computing for smart cities,3481a4b1;c3c12fe7;b79e0c39;ce57a5d0;477038e9,1997
+19bdbe4f,cyber-physical security for industrial systems,dbabd724;1f4071aa,1990
+67819ecb,nuclear fusion reactor design,228c8d6b;c3c07ffc;b705749d;de774324,2008
+095c0acc,digital twin technology in manufacturing,12aece99;26b49673;98ccbe27,2003
+7fa487fe,convolutional neural networks for medical imaging,4b8d0784;d4b1f308,1995
+eaae4cb4,machine learning models for pandemic forecasting,54a17e5f;fe0a8d23;90bfba94;814ec0e6;8db05c21,2015
+d713fc05,solar radiation management techniques,81c489f3;310e8c90;01931073;36f2b513,2006
+86702143,autonomous ship navigation systems,285cb3b9;5c54a86d;74c0e8fe;a4cbe7ff;5f15f574,1999
+251d8cbb,neuroscience of social behavior,de774324;8cedd540;03642f12;b93c658c;01d738ae,2010
+c7055615,particle physics beyond the standard model,a6abf489,2018
+e659f364,advances in superconducting materials,5e6b5dd4,2021
+bf9c82d3,history of mathematics in Islamic civilizations,38833db1;e74724a2;0f4aeccb;b2040ca8;766f88b8,2002
+c7392ddc,permafrost thaw and greenhouse gas emissions,d97c38c2;521285ab;0bbe226b;3242218c,1993
+3fddf4cc,evolutionary algorithms for design optimization,eaff58d3;0ddd3bf7,1996
+ee1df264,permafrost thaw and greenhouse gas emissions,293be96e;06971029;952afec9,2023
+b3add5d9,3D printed prosthetics for amputees,5814a929;2ed68e59;b982ad22;9dd14f4f;c7392ddc,2000
+a6b904fe,psychological impacts of long-term space travel,1f4071aa;285cb3b9,2021
+6fee6bb4,carbon sequestration in mangrove ecosystems,397eb702;0f9a0c8c;d2474297;08f92242;5756fca1,2009
+f7819893,multimodal learning with text and images,f7775a13;2bd31928,2007
+d6d1d221,particle physics beyond the standard model,4b8d0784,2000
+83a675da,immunotherapy treatments for melanoma,22db8254;52b51505;650337c1;f01fe9d5;605fa80e,2004
+fd0c3209,quantum entanglement experiments,4d60d90e;d1daa702;4c87db57;cde5b9d2,2013
+637571ab,permafrost thaw and greenhouse gas emissions,014b8d0f;cb6e6e49,2000
+e1b9349c,multimodal learning with text and images,1131ecec;03642f12;6c47c05f,1996
+cd517a00,remote sensing for archaeological site discovery,2d9c1b27,1998
+c31f2f00,nanomaterials for energy storage,97b9b251;e3c74bb4,1992
+6f47482c,impact of ocean acidification on coral reefs,26b49673;e1b9349c,2011
+b4ca8fed,evolutionary algorithms for design optimization,3ea92530,2003
+a719d33a,cyber-physical security for industrial systems,46944422;942c77c4;9940a7f1;66757e93,1996
+ab1e8c54,biodegradable materials for packaging,5631cd8f;a3995b22;7caa4af5,2021
+22bd73d7,protein folding prediction with AI,73bfd4c3;8ea8eb2c;720fee12,2020
+49e5c0ba,single-cell RNA sequencing analysis,4313cb4d;4da531d3;0bfeeb43;f6551253,2017
+4813f4c8,citizen science platforms for biodiversity,64c417f5;53e469e9;4e499c81,2018
+179b0838,cyber-physical security for industrial systems,994136ca;4e499c81;0272ebe2;36f2b513;e47a9188,1999
+4a8e09e1,conservation genomics for endangered species,036f4bcf;d6c7e505;21e5a8b6;dbba747c;34caa59f,2010
+0ac40fe6,VR therapy for PTSD treatment,e659f364,2003
+f90205c0,particle physics beyond the standard model,554f04a9;3ca4ec3c;fe0a8d23;923a657b,2023
+045cf1fc,self-supervised learning in vision,5838d62b;ed9c963d;8fea2105;3d2a8f12;336a7498,2007
+adc93fc0,optical lattice clocks for timekeeping,2bdf6f2e;b79e0c39,2003
+3f6ff6d0,reinforcement learning in robotics,be7a3390;54a3fab6;9baf16e7;d018d708;de446ce8,2005
+51a8149e,microplastics in freshwater systems,0f9076ab;fd692724;de774324;0b8b67d0,2020
+b74c89f2,adversarial attacks on deep learning systems,eaff58d3;8c63d3fb;7084879c;d0d0efb1,2002
+d7744d4b,astrophysical jets from black holes,31b005d6;3fe43866,1990
+01d5b531,impact of ocean acidification on coral reefs,a97fa40e,2001
+ccfce02c,bioinformatics pipelines for metagenomics,03fe9991,1996
+c7791f76,social network analysis in political movements,24f3f1dc;c73a0541;c7ddbce8,2009
+17651f9d,biodegradable materials for packaging,37c20363;ad89785a;ea195df7;285cb3b9;0bbe226b,2010
+f7f36a2c,digital humanities text mining methods,2d9c1b27;7cd56830;36f2b513;15e8f6d4,2005
+f467fe8a,CRISPR gene drive implications,285cb3b9,1991
+09a79f33,single-cell RNA sequencing analysis,61448fc7;507b5b48;1b716149;d6c7e505;5c54a86d,1990
+e30cb998,surface chemistry in catalysis,cf680e13;0f4aeccb,2018
+ae439740,gravitational wave astronomy with LIGO,91555020;0ac8a49c;78f10c96;4e2f76d1,2016
+91086de4,few-shot learning for natural language processing,4d03d335;9c1b2516,1993
+7df8911f,autonomous ship navigation systems,d999d268,2022
+d8446e4f,human-robot interaction in workplace environments,b74c89f2;622a741c,2019
+8cd603fe,history of mathematics in Islamic civilizations,71be44e9;8c2e7646;8cedd540;cc16eb1a,2002
+937fffc9,symbolic regression using neural networks,3cc3a695;014b8d0f;7c1f7f2e;e16438f0;78f10c96,1993
+7fde6c9d,viral evolution tracking through genomics,dcde54cb;f6e2ef4d;e1b9349c;d5adee5d,1993
+92264cfd,microplastics in freshwater systems,58c92211,2003
+19d01cf2,high energy cosmic ray detection,5814a929;0b3f7860;8c2e7646;9dbef1eb;26b49673,1999
+36250b24,microbiome-host interactions in immunity,0147f85e,2011
+d7e1e1bc,cryptocurrency adoption in developing economies,54cd77ec;3f29e956,2008
+6f889e7e,genetic epidemiology of rare diseases,031f3830;bd131f6b,2011
+3daf85f7,graph neural networks in chemistry,63b8ad0c;be7a3390;59323a45,1992
+fc2cb2b9,gamification strategies in education,ea025302;3d1024bb;00efe146;55f9ba69;0147f85e,1993
+059f9450,microplastics in freshwater systems,21e5a8b6;0336415d,1992
+c753b642,VR therapy for PTSD treatment,a282389d;634c798e;53f1ad03,1991
+5281f1c1,renewable energy integration into smart grids,7900cdf4;b9343198;fb852b19;d93ac61b,1994
+5c69431e,sparse coding in machine learning,cdab69a3;a3995b22;9ccf0f05,2023
+70aabc8f,conservation genomics for endangered species,c73a0541;9302c5d3,1992
+f80bfa06,convolutional neural networks for medical imaging,0d07eeb5;97b9b251,2001
+99120667,particle physics beyond the standard model,81921601;535b22c9;0189e962;4b9f4f7c;1f84dac1,2022
+0cb1f249,CRISPR gene drive implications,61448fc7;80125941,2022
+2d44230e,dark energy survey methods,85f7fcd0;372f1993;98ccbe27,2016
+cba3eb2b,robotic swarms for agricultural monitoring,63b0f766;6c47c05f;0d07eeb5,2012
+177e7869,dark energy survey methods,2bd13217;ccfce02c;f7819893;f80bfa06;a14f0437,1997
+cfff22c6,conservation genomics for endangered species,2b280cb9,2022
+89c75d96,biodegradable materials for packaging,c99d0d5b;0f9076ab,1996
+00141faa,particle physics beyond the standard model,e74724a2,1992
+2ea576c1,ethics of AI surveillance technologies,c25c0f92;a282389d;36250b24,2011
+7da47d82,immunotherapy treatments for melanoma,7fa487fe,1992
+f1cbcc61,additive manufacturing of aerospace parts,c58f8f70,1993
+bfec0491,ethics of AI surveillance technologies,f41c45fb;3fed0579;31a7a82c,2010
+6be42d19,convolutional neural networks for medical imaging,e7ef3a02;901f7c77;99120667;5631cd8f,2001
+e10ed12c,hydrological modeling under climate change,53c8a183,1999
+47c605e8,social network analysis in political movements,515e194a;bf9c82d3;8d8f3f2e,2014
+e0f275e9,migration patterns and urbanization,651fb3c1,2015
+2ef41734,pollen dispersal modeling in urban environments,507b5b48;e4a205db,2010
+f9a32c2e,renewable energy integration into smart grids,4ebc7c47,1997
+5fcd9240,social network analysis in political movements,dcde54cb;63b60a2c;55aa11e0;13ad25c9,2000
+6700571f,microbiome-host interactions in immunity,b2d9df6e,1996
+54646e0b,federated learning for mobile devices,5a02dcca;7900cdf4;a62b0b03,2010
+f746f5a7,particle physics beyond the standard model,01d738ae,1995
+58474261,social network analysis in political movements,aa271a6f;d2c9bcae;c2ff2559,2005
+a1df5c2c,wildfire prediction using satellite imagery,5d5f1c61,2014
+0677b0d3,AI models for disaster risk management,8886624a;80125941;b35bcfc6;3b5e1a1c;dcfe4910,1997
+d0283e0d,additive manufacturing of aerospace parts,c3c07ffc;fef38c51;9c8da83f,2010
+7b2ccab5,biodegradable materials for packaging,7b2d0e1a,1994
+dec2f71b,3D printed prosthetics for amputees,5eeb228b;f18d3b3b;b360b714;eaae4cb4,2013
+28a3e2bc,multimodal learning with text and images,1801c3ef,2013
+f65d95be,historical linguistics and language evolution,49606bf2;5fcd9240;a97fa40e;4b9f4f7c,2017
+9eb8f481,surface chemistry in catalysis,16c6c8e2,2004
+13f13a49,ethnobotany of indigenous medicinal plants,dbe91834;e4a205db;eb357618;49428ac6,2014
+c7a605a8,technological innovation in ancient civilizations,a506665a;d91c5ac7,1997
+42e89b11,graph neural networks in chemistry,c0788731;aee4af89,1992
+f3320613,self-supervised learning in vision,be7a3390;df283ea2;177e7869,2003
+79a86a4c,human-robot interaction in workplace environments,81921601;cfd413e0,2008
+336cb2f9,VR therapy for PTSD treatment,8058c3a5,1992
+e7ad81d1,additive manufacturing of aerospace parts,637571ab;d321e5f5;e30cb998;0625cae5;451a6c58,1999
+8a6255bd,permafrost thaw and greenhouse gas emissions,6f08dcef;4a8e09e1;eead67d1;6e110634;66757e93,2000
+d5bda319,visual question answering systems,3481a4b1;2edf3f86;87b4f827,2013
+ba1cb9f0,migration patterns and urbanization,6f08dcef;2b280cb9,2017
+d01787b8,synthetic media and misinformation,fb2dd989;ca867708;fbbe92c3;0677b0d3,1999
+6a1dbf1f,personalized nutrition using genomics,7900cdf4;634c798e;247de265;9baf16e7,2002
+5e392e11,neuroscience of social behavior,e3c74bb4;15b65310;49e4d481,2005
+e6e81fc6,machine learning models for pandemic forecasting,6449bc70;86254633;0f9076ab;0f9a0c8c,2012
+c9766c3e,cryptocurrency adoption in developing economies,08f92242,2022
+88066aa6,wearable biosensors for chronic disease management,952afec9;07fb3646;1bd04ee1;8a6255bd;73bfd4c3,2013
+86f81958,psychological impacts of long-term space travel,02e5e209;53e469e9,2018
+1a93b9b2,machine learning models for pandemic forecasting,eb357618;b35bcfc6;515eb949;076b154e;f24ca746,1997
+4a30fbb9,citizen science platforms for biodiversity,937fffc9;3f29e956;d6b80b7d,1996
+aedb1e2b,tumor microenvironment modeling,8a6255bd;9229b952;ca5349e6;5f15f574,2006
+7cf1c763,gamification strategies in education,1b7eb74b;05bf7e33;7084879c;f80bfa06;7872ca62,2010
+094e51bd,ethnobotany of indigenous medicinal plants,397eb702;ff21c8ad,2023
+677a8893,explainable AI for healthcare applications,97865c43;0625cae5;6139bbc9,2019
+86d35c15,privacy-preserving machine learning techniques,97865c43;e7ad81d1;b1b216d3;720fee12,2005
+17d5ce58,high energy cosmic ray detection,3ed729ff;942c77c4;6e68a400;a97fa40e;827b4322,1993
+77280a99,sparse coding in machine learning,a2fcb390;8c2eb87a,2014
+aeb3adac,biodegradable materials for packaging,f2850fcb;681cb8cb;d5bda319;71675cd6;3ea92530,2017
+f16199a8,multimodal learning with text and images,7b45b2dd;39c50451;7cf1c763;6700571f;5aa05050,2018
+c3779346,machine learning models for pandemic forecasting,6fee6bb4;4ebca397;681cb8cb,2022
+fb1619ce,cognitive biases in decision making,eb357618,2023
+800f0875,VR therapy for PTSD treatment,a2d0046f;cc16eb1a;b0257079,2004
+4a6b6dee,protein folding prediction with AI,7da47d82;278d3936,2007
+911cdf56,ecosystem services valuation methods,901f7c77,2012
+7dcf9a71,microplastics in freshwater systems,4dc3e5f9;63b8ad0c,2004
+dd2ef46c,convolutional neural networks for medical imaging,c9766c3e,2021
+0575027a,bioinformatics pipelines for metagenomics,720fee12;d2474297,2010
+866a2984,biodegradable materials for packaging,7a8df4b5;3207837d;1f4071aa,2008
+23d8aeac,convolutional neural networks for medical imaging,6dbd40df;014b8d0f;35f22e70;e93067c7,2007
+9d1f5c02,migration patterns and urbanization,aafd58b2;923a657b;50fc55f3,2011
+b4ecde3d,personalized nutrition using genomics,7b4f84bc,2006
+bdd2e902,sparse coding in machine learning,d0d0efb1;0e7fa6c3;aa4d50bb,2015
+31af52c6,reinforcement learning in robotics,4dd834ae;dbba747c;54cd77ec;bb57f330,2021
+3f0123c0,solar radiation management techniques,98ccbe27;7d8a9e08,1993
+4095326f,AI models for disaster risk management,d27f7535;7329d33f,1994
+aff65b24,viral evolution tracking through genomics,f90205c0;67341aa8;608490f2;12b9a750;ae743ef4,2003
+c7491767,cognitive biases in decision making,766f88b8;afb47c2d;65899cd9;4095326f,2007
+2b5b392a,symbolic regression using neural networks,e7ef3a02;285cb3b9,2020
+2da21703,cognitive biases in decision making,22bd73d7;85f7fcd0,1997
+39a12856,adversarial attacks on deep learning systems,c7491767,2015
+4129a08a,citizen science platforms for biodiversity,55f9ba69,2019
+a0e71d12,nuclear fusion reactor design,16c6c8e2;d321e5f5;3ed729ff;1350a597,2006
+815d7c6e,neuroscience of social behavior,7c883580;0147f85e,2018
+8e5d7f5b,astrophysical jets from black holes,ae140900;4a30fbb9;89c75d96,2023
+3af3490b,philosophy of mind and consciousness,1943f507,2012
+635756a1,wireless power transfer in electric vehicles,622a741c;4dc3e5f9;97865c43;f9ce8fa9,2019
+81e031ff,conservation genomics for endangered species,35a28adc;2e24eb17;fb4c7f14,1995
+84df947b,adversarial attacks on deep learning systems,2d9c1b27,1993
+c4bff64b,ethics of AI surveillance technologies,31b005d6;036f4bcf,2017
+09fdc805,optical lattice clocks for timekeeping,ca303472;3fed0579;adc93fc0;5fcd9240,2004
+9d6ff4eb,biodegradable materials for packaging,d9881a74;fd0c3209;07fb3646;34caa59f;88066aa6,1996
+70718813,philosophy of mind and consciousness,cf6c202d;01347ea4;814ec0e6;4ebca397;b995126a,1992
+77ee8e35,few-shot learning for natural language processing,97d2b82a;16c6c8e2;397eb702;97b9b251,2022
+2fa218e5,immunotherapy treatments for melanoma,94ae86f6;0625cae5;cad19a60,2021
+7536c204,quantum entanglement experiments,25f0d107;479f7627;866a2984;8e5d7f5b,2014
+8fd2ac19,3D printed prosthetics for amputees,f7775a13;bb6b4abd;901f7c77,2022
+8d9dea56,synthetic media and misinformation,b9f7b9d5,1999
+b8bfe567,genetic epidemiology of rare diseases,2b00017d;3ca4ec3c,1991
+1f2df5c6,wildfire prediction using satellite imagery,aafd58b2;46944422;7b2d0e1a;42e89b11,2006
+2f9c7e3d,high energy cosmic ray detection,9940a7f1;31243a1c,2019
+3c0d112d,visual question answering systems,77ee8e35;177e7869,1992
+80912626,wildfire prediction using satellite imagery,12b9a750;7f977e91,1990
+118a4ac5,bioinformatics pipelines for metagenomics,af5c8f15,2013
+20aee1ec,historical linguistics and language evolution,47c605e8;54a3fab6;f467fe8a;642ffaf8,1990
+72c52d35,immunotherapy treatments for melanoma,eb357618;474a9e99;f6773e87,2016
+b330bba3,historical linguistics and language evolution,3242218c,2000
+fe5b5333,microbiome-host interactions in immunity,ba37b2f9,2002
+fba296e9,cryptocurrency adoption in developing economies,88066aa6;31243a1c;5814a929,2003
+b842fad9,renewable energy integration into smart grids,e18a794f;2d44230e;ea195df7;b39ce61b,2003
+9f89ac4f,single-cell RNA sequencing analysis,0147f85e,2017
+80b89ac9,philosophy of mind and consciousness,90bfba94;efabbdcf;09fdc805,2007
+4bd5137b,blockchain applications in supply chain management,4da531d3;49428ac6;f7f36a2c;6bb5ffac;c8835004,1998
+d50306e9,solar radiation management techniques,368ac66d;38ca74e5;4160aab1;f9bae397;5c84fb61,2023
+6fffc551,protein folding prediction with AI,e9a780c4;3607dddb;d93ac61b,2020
+c574a80d,machine learning models for pandemic forecasting,5eeb228b,1992
+d6be4086,citizen science platforms for biodiversity,32845647;b360b714;dac12876;3d1024bb,2021
+199761b6,economic inequalities in digital access,a15dde82;e9a780c4;32ae08fa,2011
+6269d5b8,robotic swarms for agricultural monitoring,70eb2ff2;2ed68e59,2019
+292ba3f7,wireless power transfer in electric vehicles,34caa59f;8d9dea56,2019
+8a69050c,drone-based delivery system optimization,4dd834ae;a6d9167d,2018
+091e4714,high energy cosmic ray detection,014b8d0f;d4b1f308,1990
+224f57f2,few-shot learning for natural language processing,71675cd6;1abcc1d4,2021
+81b41a79,federated learning for mobile devices,4e047777;7cd56830;12aece99;19d01cf2;2e9b99d5,2002
+4f0e4ca2,history of mathematics in Islamic civilizations,aedb1e2b;90bfba94;eb357618;2b00017d;bce5ecd2,2013
+9b1537ea,sparse coding in machine learning,1bd04ee1,2018
+d7771180,blockchain applications in supply chain management,61448fc7,2020
+4553086d,machine learning models for pandemic forecasting,f6773e87;2d44230e;430de0e2;2ed68e59;cf6c202d,1997
+7e3850aa,digital humanities text mining methods,d37189a2;ebfc1887;650337c1;677a8893,2000
+c649c4cb,ethnobotany of indigenous medicinal plants,fe0a8d23,1994
+f85515b0,wildfire prediction using satellite imagery,b35bcfc6;71d60c82;1b61e1ee;6269d5b8;7329d33f,2013
+ebe60023,hydrological modeling under climate change,730115e8,1994
+da0f9a65,cyber-physical security for industrial systems,28c16709;57700c90;91086de4;f41c45fb;f2850fcb,1993
+b4da4f76,cryptocurrency adoption in developing economies,1bae4da8;49606bf2,2023
+485e2125,remote sensing for archaeological site discovery,228c8d6b;9927da90,2005
+b272be8b,remote sensing for archaeological site discovery,7c883580;5125cbaa;720fee12;f9bae397;293be96e,2008
+ebe378f2,multimodal learning with text and images,3242218c;3ffc0780;0b8b67d0,2010
+3fa33720,single-cell RNA sequencing analysis,b11e42ce;c372cb5e,2021
+2cca1f8a,privacy-preserving machine learning techniques,ed9c963d;b4ca8fed;4092b252;13fabc74,2017
+39d41b71,human-robot interaction in workplace environments,2e53c9d5,2004
+e17880b7,high energy cosmic ray detection,80912626;045cf1fc,1993
+fac1958b,sparse coding in machine learning,8886624a,2010
+c5d2c1ce,quantum entanglement experiments,be7a3390;e3c74bb4,1999
+a30005a8,social network analysis in political movements,7b2d0e1a;ed820df6;a6b904fe,2005
+5eb1595b,dark energy survey methods,5e392e11;786e789d;85f7fcd0,1998
+4938abf0,genetic epidemiology of rare diseases,a5e81404;8c63d3fb;fb852b19;0f9d8e22;e7b6a9b2,2008
+5c2694bd,viral evolution tracking through genomics,ea195df7;2cca1f8a;f2850fcb,2003
+3fc3830a,psychological impacts of long-term space travel,406ed93b;59323a45;3f29e956;9baf16e7,2003
+c4dda09d,solar radiation management techniques,fd692724;9b1537ea;da731080,1990
+9cd080ed,deepfake detection algorithms,cf6c202d;dfdd65fc;5567d1c3,2007
+642fd482,tumor microenvironment modeling,d7cca12a;949e0235,1991
+b07188d9,dark energy survey methods,651fb3c1;5631cd8f,2022
+9a688274,history of mathematics in Islamic civilizations,a97fa40e;ad89785a;49428ac6,1993
+ada9e677,ethics of AI surveillance technologies,d97c38c2;39a12856;13fabc74;0b8b67d0;9ccf0f05,2002
+63b3331f,tumor microenvironment modeling,bf9c82d3,1990
+76c580ff,sparse coding in machine learning,bfec0491;81921601;0f9076ab,2022
+d764fe07,robotic swarms for agricultural monitoring,b22b4f54;5ad96d46;6be42d19,2018
+95f5e232,symbolic regression using neural networks,b2d9df6e;292ba3f7,2005
+1b392895,explainable AI for healthcare applications,2b00017d;ec0d21f9;1b61e1ee;6449bc70,2014
+615cf602,blockchain applications in supply chain management,86f81958;19d01cf2,1995
+f92042a0,ecosystem services valuation methods,12d531a5;a4af1e06;055bb072;7eabd67d;de381482,2017
+4489311d,citizen science platforms for biodiversity,67819ecb,2011
+8ac4d36c,cyber-physical security for industrial systems,5d8be6d7;045cf1fc;77b78d8a,2000
+801bab0e,visual question answering systems,4a8e09e1,1992
+ebd6e120,astrophysical jets from black holes,756be6f5;0f9d8e22;8a6255bd;b8bfe567;23d8aeac,1994
+02d98719,high energy cosmic ray detection,6449bc70;4095326f,1990
+d2c365cd,synthetic media and misinformation,a2d0046f;9baf16e7,2022
+2215a8aa,permafrost thaw and greenhouse gas emissions,520f6e7a,2009
+5d505411,machine learning models for pandemic forecasting,4e499c81;179b0838,2007
+8787bb40,immunotherapy treatments for melanoma,4129a08a;336a7498,2007
+14aa7a50,visual question answering systems,347040a5,2008
+061c0dd1,3D printed prosthetics for amputees,d863ff28;53f1ad03;ee1df264;56e28d2b,2016
+35a9587a,3D printed prosthetics for amputees,c5d2c1ce;f7819893,2008
+be0a794a,psychological impacts of long-term space travel,0b3f7860;7536c204,2010
+7ee6d84c,edge computing for smart cities,03642f12;0b8b67d0;4938abf0,2013
+9f20b5d1,symbolic regression using neural networks,7084879c;05bf7e33,1994
+78e75fae,ethics of AI surveillance technologies,40683d5e;57f8628b,2016
+5c6c27c5,renewable energy integration into smart grids,f7819893;d06c8e5a;32ae08fa;8a6255bd,1992
+9a2ba83a,optical lattice clocks for timekeeping,dcfe4910,2002
+29fbab87,cryptocurrency adoption in developing economies,8e2fed8f;dd16ad5d;49e5c0ba;bae9b666;406ed93b,2004
+9c0922a1,technological innovation in ancient civilizations,2215a8aa;6e29cb4d,1996
+2009f605,CRISPR gene drive implications,d6c7e505;598404f2;2bdf6f2e;abbab5ec;2d44230e,2001
+532eb3e9,3D printed prosthetics for amputees,eeae9bbd;d7e1e1bc;285cb3b9;fef38c51;86702143,1991
+80fd7dfc,renewable energy integration into smart grids,ab1e8c54;2215a8aa;3cc3a695,2022
+8b1c4c7e,nanomaterials for energy storage,e7ad81d1;15b65310,2018
+71434180,bioinformatics pipelines for metagenomics,77ee2089,1996
+4d5a1b79,adversarial attacks on deep learning systems,8cedd540;507b5b48;617c8acf,2000
+6666ab87,self-supervised learning in vision,348620df;80125941;a5e81404;49e5c0ba,1998
+66396616,hydrological modeling under climate change,b88c29e9;17651f9d;ae439740;4f7e0fc1;5f70623f,2010
+caa63ecc,explainable AI for healthcare applications,045cf1fc;4e2f76d1;3f6ff6d0;d91c5ac7,2001
+88e4befa,carbon sequestration in mangrove ecosystems,8f513786;7c1f7f2e;e681c1a4;1f4071aa,1992
+40e6eed6,ethics of AI surveillance technologies,06971029;5fcd9240,2003
+60b94856,cryptocurrency adoption in developing economies,49e5c0ba;f26d9918;13a8cb00;80125941;3ca034c0,2001
+0e2416d9,ethnobotany of indigenous medicinal plants,3481a4b1;9229b952;78f10c96,2019
+a5aee6a9,privacy-preserving machine learning techniques,5895c6ab;65899cd9;7eabd67d;3f29e956;1adf50fe,1999
+e49c338c,personalized nutrition using genomics,0cb1f249;e39b8bc7;3242218c,1991
+74b820be,pollen dispersal modeling in urban environments,a4af1e06;179b0838,2017
+12fc2a44,gravitational wave astronomy with LIGO,2e53c9d5;8c2eb87a,1995
+bc6bb642,tumor microenvironment modeling,fac1958b;d7f082bd;f90205c0;b995126a,2023
+3acbdd58,wearable biosensors for chronic disease management,86e265c7,1998
+297f34fe,graph neural networks in chemistry,63040d7c;5e392e11;34dafa5e;477038e9,2008
+d457ce13,bioinformatics pipelines for metagenomics,98b83b14;c5f5863e;b3add5d9,1991
+7839013f,citizen science platforms for biodiversity,7d7be764;905bc7c2;d2c365cd;d6be4086,2015
+e553166d,solar radiation management techniques,c3c07ffc,2010
+48bb4b73,gravitational wave astronomy with LIGO,7d8a9e08;274c9d9e;a14f0437;2e24eb17;09a79f33,1996
+bc4ebfed,gravitational wave astronomy with LIGO,58474261;12e58f1b;b0c33574;32e4320c;5ad96d46,2023
+d6b21f85,gamification strategies in education,831936d1;4d60d90e;8ea8eb2c,1991
+01d129f7,philosophy of mind and consciousness,5567d1c3;b4da4f76;7839013f;dde45ab6;01347ea4,2000
+c505ba9a,solar radiation management techniques,397eb702;4a30fbb9;38833db1;77b78d8a,2018
+a2e1ebbe,multimodal learning with text and images,e8a73632;031f3830;d91c5ac7;c574a80d;f84e4d97,1990
+0db1c09d,philosophy of mind and consciousness,b79e0c39;266d7c79;2aca9456;b60db20f,1995
+1beb15f5,cryptocurrency adoption in developing economies,199761b6;4cb84bde,1997
+84d10829,digital humanities text mining methods,9baf16e7;9d1f5c02;02d98719,1997
+4d8da61a,single-cell RNA sequencing analysis,80125941;09fdc805;f90205c0;24d1db9e,2014
+d31f1975,digital twin technology in manufacturing,9cdf5c77;e5892ce7;942c77c4,2015
+975a1ed6,ecosystem services valuation methods,9baf16e7,2011
