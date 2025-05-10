@@ -8,9 +8,16 @@ from itertools import combinations
 import sys
 epsilon = sys.float_info.epsilon
 
+# triadic-novelty
+
 class CitationData:
     # baselineRange is a tuple
-    def __init__(self, data: pd.DataFrame, useReferencesSubjects: bool = True, baselineRange: tuple = (-1, -1)):
+    def __init__(self, data: pd.DataFrame,
+                 baselineRange: tuple = (-1, -1),
+                 analysisRange: tuple = (-1, -1),
+                 attractiveness: float = None,
+                 showProgress: bool = True,):
+        self.showProgress = showProgress
         # table with publicationID, references (separated by ;), subjects (separated by ;), year
         if not isinstance(data, pd.DataFrame):
             raise TypeError("Input data must be a pandas DataFrame")
@@ -40,17 +47,18 @@ class CitationData:
         self.data['publicationID_index'] = self.data['publicationID']
         self.data.set_index('publicationID_index', inplace=True)
         
-        # convert references to list of strings (split by ;) skip empty entries
-        self.data['references'] = self.data['references'].apply(lambda x: [ref.strip() for ref in x.split(';') if ref.strip()])
-        #subjects to list of strings (split by ;) skip empty entries
-        self.data['subjects'] = self.data['subjects'].apply(lambda x: [sub.strip() for sub in x.split(';') if sub.strip()])
+        # if references are not already a list, convert to list of strings (split by ;) skip empty entries
+        if(not isinstance(self.data['references'].dropna().iloc[0], list)):
+            # split by ; and remove empty entries
+            self.data['references'] = self.data['references'].apply(lambda x: [ref.strip() for ref in x.split(';') if ref.strip()])
+
+        # if subjects are not already a list, convert to list of strings (split by ;) skip empty entries
+        if(not isinstance(self.data['subjects'].dropna().iloc[0], list)):
+            # split by ; and remove empty entries
+            self.data['subjects'] = self.data['subjects'].apply(lambda x: [sub.strip() for sub in x.split(';') if sub.strip()])
         # year to int
         self.data['year'] = self.data['year'].astype(int)
-        self.data["referenceSubjects"] = self._subjectsFromReferences()
 
-        if(useReferencesSubjects):
-            self.data['subjects'] = self.data['referenceSubjects']
-        
 
         self.year2IDs = self._createYear2IDs()
         self.baselineRange = baselineRange
@@ -66,12 +74,32 @@ class CitationData:
         if baselineRange[0] > baselineRange[1]:
             raise ValueError("Baseline range is invalid")
         
+        self.analysisRange = self._checkAnalysisRange(analysisRange)
+
+        self.data["referenceSubjects"] = self._subjectsFromReferences()
+        self.data['subjects'] = self.data['referenceSubjects']
+
+        if(attractiveness is not None):
+            if not isinstance(attractiveness, (int, float)):
+                raise TypeError("Attractiveness must be a number")
+            if attractiveness <= 0:
+                raise ValueError("Attractiveness must be larger than 0")
+            self.attractiveness = attractiveness
+            self.isModel = True
+            self._shuffleSubjects()
+        else:
+            self.isModel = False
+            self.attractiveness = 0
+
+        # if(useReferencesSubjects):
+        # self.useReferencesSubjects = useReferencesSubjects
+        
         self.subject2IntroductionYear = self._generateSubject2IntroductionYear()
         self.year2IntroducedSubjects = self._generateYear2IntroducedSubjects()
         self.baselineSubjects = self._getBaselineSubjects()
         self.year2TotalReferences = self._createYear2TotalReferences()
         self.referenceSubject2IDs = self._getReferenceSubject2IDs()
-
+        
         
     def _subjectsFromReferences(self):
         # get subjects from references
@@ -88,7 +116,7 @@ class CitationData:
     def _createYear2IDs(self):
         # create a dictionary with year as key and publicationID as value
         year2IDs = {}
-        for year, publicationID in zip(tqdm(self.data['year'], desc="Creating year to publicationID mapping"), self.data.index):
+        for year, publicationID in zip(tqdm(self.data['year'], desc="Creating year to publicationID mapping", disable=not self.showProgress), self.data.index):
             if year not in year2IDs:
                 year2IDs[year] = []
             year2IDs[year].append(publicationID)
@@ -128,7 +156,7 @@ class CitationData:
     def _createYear2TotalReferences(self):
         # create a dictionary with year as key and total references as value
         year2TotalReferences = {}
-        for year,referencesList in zip(tqdm(self.data['year'], desc="Calculating total references per year"),self.data['references']):
+        for year,referencesList in zip(tqdm(self.data['year'], desc="Calculating total references per year", disable=not self.showProgress),self.data['references']):
             if year not in year2TotalReferences:
                 year2TotalReferences[year] = 0
             if referencesList==referencesList:
@@ -139,7 +167,7 @@ class CitationData:
     def _getReferenceSubject2IDs(self):
         # create a dictionary with subject as key and publicationID as value
         subject2IDs = {}
-        for paperID, subjects in zip(tqdm(self.data.index, desc="Processing reference subjects"), self.data['referenceSubjects']):
+        for paperID, subjects in zip(tqdm(self.data.index, desc="Processing reference subjects", disable=not self.showProgress), self.data['referenceSubjects']):
             for subject in subjects:
                 if subject not in subject2IDs:
                     subject2IDs[subject] = []
@@ -162,7 +190,7 @@ class CitationData:
         
         return analysisRange
 
-    def calculatePioneerNoveltyScores(self, analysisRange: tuple = (-1, -1), impactWindowSize: int = 5):
+    def calculatePioneerNoveltyScores(self, impactWindowSize: int = 5, returnSubjectLevel: bool = False):
         # calculate the pioneer novelty score
         # for each subject in the baseline range, get the number of references that were introduced in the baseline range
         # and divide by the total number of references
@@ -170,7 +198,7 @@ class CitationData:
         paperID2PioneerNoveltyScore = {}
         paperID2IntroducedSubjects = {}
 
-        analysisRange = self._checkAnalysisRange(analysisRange)
+        analysisRange = self.analysisRange
         
         coreSubjects = set()
         # prefill the coreSubjects with subjects introduced before the analysis range
@@ -179,7 +207,7 @@ class CitationData:
                 coreSubjects.update(self.year2IntroducedSubjects[year])
 
         beforeYearSubjects = set(coreSubjects)
-        for year in tqdm(range(analysisRange[0], analysisRange[1])):
+        for year in tqdm(range(analysisRange[0], analysisRange[1]), disable=not self.showProgress):
             addedSubjectsOnYear = set()
             for paperID in self.year2IDs[year]:
                 subjects = self.data.loc[paperID, 'subjects']
@@ -271,15 +299,17 @@ class CitationData:
             'pioneerNoveltyImpactScores': pioneerNoveltyImpactScoresList
         })
         
-        return {
-            'subjectPioneerNoveltyTable': dfSubjectData,
-            'paperPioneerNoveltyTable': dfPioneerNoveltyScores
-        }
+        if(returnSubjectLevel):
+            return {
+                'subjectPioneer': dfSubjectData,
+                'paperPioneer': dfPioneerNoveltyScores
+            }
+        else:
+            return dfPioneerNoveltyScores
 
 
-    def calculateShortenerNoveltyScores(self, analysisRange: tuple = (-1, -1), backwardWindow: int = 5, forwardWindow: int = 5):
-        
-        analysisRange = self._checkAnalysisRange(analysisRange)
+    def calculateMaverickNoveltyScores(self, backwardWindow: int = 5, forwardWindow: int = 5):
+        analysisRange = self.analysisRange
         subjectsSet = set([subject for subjects in self.data.loc[:,"subjects"] for subject in subjects])
         if "nan" in subjectsSet:
             subjectsSet.remove("nan")
@@ -291,19 +321,20 @@ class CitationData:
 
 
         scYearlyNetworks = {}
-        paper2ShortenerNoveltyAverage = {}
-        paper2ShortenerNoveltyMedian = {}
-        paper2ShortenerNoveltyMax = {}
+        paper2MaverickNoveltyAverage = {}
+        paper2MaverickNoveltyMedian = {}
+        paper2MaverickNoveltyMax = {}
 
-        year2ShortenerNoveltyAverage = {}
-        year2ShortenerNoveltyMedian = {}
-        year2ShortenerNoveltyMax = {}
+        year2MaverickNoveltyAverage = {}
+        year2MaverickNoveltyMedian = {}
+        year2MaverickNoveltyMax = {}
 
-        paper2ShortenerSubjects = {}
+        paper2MaverickSubjects = {}
 
         # add edges to the graph based on the SC pairs in the references
         yearRange = range(analysisRange[0], analysisRange[1])
-        for year in tqdm(yearRange):
+        allYearRange = range(min(self.year2IDs.keys()), max(self.year2IDs.keys())+1)
+        for year in tqdm(allYearRange, disable=not self.showProgress):
             newNetwork = previousNetwork.copy()
             previousNetwork = previousNetwork.simplify(combine_edges={"weight":"sum"})
             allYearEdge2NoveltyComponent = {}
@@ -323,45 +354,47 @@ class CitationData:
                         edgesAndWeights.update(edgesSet)
                         # previous distances between all new edges
                         noveltyComponents = []
-                        for edge in edgesSet:
-                            if(edge in distancesBuffer):
-                                distance = distancesBuffer[edge]
+                        if(yearRange[0] <= year <= yearRange[-1]):
+                            for edge in edgesSet:
+                                if(edge in distancesBuffer):
+                                    distance = distancesBuffer[edge]
+                                else:
+                                    distance = previousNetwork.distances(source=edge[0],target=edge[1])[0][0]
+                                    distancesBuffer[edge] = distance
+                                if(1.0-1.0/distance>epsilon): # check FIX #if(1-1.0/distance>0):
+                                    noveltyComponents.append(1-1.0/distance)
+                                    allYearEdge2NoveltyComponent[edge] = 1-1.0/distance
+                                    if(paperUID not in paper2MaverickSubjects):
+                                        paper2MaverickSubjects[paperUID] = []
+                                    paper2MaverickSubjects[paperUID].append((edge[0],edge[1],1-1.0/distance))
+                            if(noveltyComponents):
+                                paper2MaverickNoveltyAverage[paperUID] = np.average(noveltyComponents)
+                                paper2MaverickNoveltyMedian[paperUID] = np.median(noveltyComponents)
+                                paper2MaverickNoveltyMax[paperUID] = np.max(noveltyComponents)
                             else:
-                                distance = previousNetwork.distances(source=edge[0],target=edge[1])[0][0]
-                                distancesBuffer[edge] = distance
-                            if(1.0-1.0/distance>epsilon): # check FIX #if(1-1.0/distance>0):
-                                noveltyComponents.append(1-1.0/distance)
-                                allYearEdge2NoveltyComponent[edge] = 1-1.0/distance
-                                if(paperUID not in paper2ShortenerSubjects):
-                                    paper2ShortenerSubjects[paperUID] = []
-                                paper2ShortenerSubjects[paperUID].append((edge[0],edge[1],1-1.0/distance))
-
-                        if(noveltyComponents):
-                            paper2ShortenerNoveltyAverage[paperUID] = np.average(noveltyComponents)
-                            paper2ShortenerNoveltyMedian[paperUID] = np.median(noveltyComponents)
-                            paper2ShortenerNoveltyMax[paperUID] = np.max(noveltyComponents)
-                        else:
-                            paper2ShortenerNoveltyAverage[paperUID] = 0
-                            paper2ShortenerNoveltyMedian[paperUID] = 0
-                            paper2ShortenerNoveltyMax[paperUID] = 0
-            noveltyYearlyComponents = []
-            for edge in edgesAndWeights.keys():
-                if(edge in distancesBuffer):
-                    distance = distancesBuffer[edge]
+                                paper2MaverickNoveltyAverage[paperUID] = 0
+                                paper2MaverickNoveltyMedian[paperUID] = 0
+                                paper2MaverickNoveltyMax[paperUID] = 0
+                            
+            if(yearRange[0] <= year <= yearRange[-1]):
+                noveltyYearlyComponents = []
+                for edge in edgesAndWeights.keys():
+                    if(edge in distancesBuffer):
+                        distance = distancesBuffer[edge]
+                    else:
+                        distance = previousNetwork.distances(source=edge[0],target=edge[1])[0][0]
+                        distancesBuffer[edge] = distance
+                    if(1.0-1.0/distance>epsilon):
+                        noveltyYearlyComponents.append(1-1.0/distance)
+                        allYearEdge2NoveltyComponent[edge] = 1-1.0/distance
+                if(noveltyYearlyComponents):
+                    year2MaverickNoveltyAverage[year] = np.average(noveltyYearlyComponents)
+                    year2MaverickNoveltyMedian[year] = np.median(noveltyYearlyComponents)
+                    year2MaverickNoveltyMax[year] = np.max(noveltyYearlyComponents)
                 else:
-                    distance = previousNetwork.distances(source=edge[0],target=edge[1])[0][0]
-                    distancesBuffer[edge] = distance
-                if(1.0-1.0/distance>epsilon):
-                    noveltyYearlyComponents.append(1-1.0/distance)
-                    allYearEdge2NoveltyComponent[edge] = 1-1.0/distance
-            if(noveltyYearlyComponents):
-                year2ShortenerNoveltyAverage[year] = np.average(noveltyYearlyComponents)
-                year2ShortenerNoveltyMedian[year] = np.median(noveltyYearlyComponents)
-                year2ShortenerNoveltyMax[year] = np.max(noveltyYearlyComponents)
-            else:
-                year2ShortenerNoveltyAverage[year] = 0
-                year2ShortenerNoveltyMedian[year] = 0
-                year2ShortenerNoveltyMax[year] = 0
+                    year2MaverickNoveltyAverage[year] = 0
+                    year2MaverickNoveltyMedian[year] = 0
+                    year2MaverickNoveltyMax[year] = 0
             
             allYearEdges = list(edgesAndWeights.keys())
             allYearWeights = [edgesAndWeights[edge] for edge in allYearEdges]
@@ -383,7 +416,7 @@ class CitationData:
 
         # add edges to the graph based on the SC pairs in the references
         cummulativeNodesAndWeights = Counter()
-        for year in tqdm(yearRange):
+        for year in tqdm(yearRange, disable=not self.showProgress):
             edgesAndWeights = Counter()
             nodesAndWeights = Counter()
             if(year in self.year2IDs):
@@ -440,7 +473,7 @@ class CitationData:
         averageChangeRatio = {}
         allPairs = set(list(combinations(subject2Index.values(),2)))
         allconsideredYears = []
-        for year in tqdm(yearRange):
+        for year in tqdm(yearRange, disable=not self.showProgress):
             for edge in allPairs:
                 pastCitations = []
                 futureCitations = []
@@ -497,39 +530,39 @@ class CitationData:
         # get the new neighbors from the  BASED ON THE CHANGE OF THE PROPORTION CHANGE RATE
         # timeWindow
 
-        shortenerNoveltyEnhancedAverageByYear = {}
-        shortenerNoveltyDiminishAverageByYear = {}
-        shortenerNoveltyImpactAverageByYear = {}
+        MaverickNoveltyEnhancedAverageByYear = {}
+        MaverickNoveltyDiminishAverageByYear = {}
+        MaverickNoveltyImpactAverageByYear = {}
 
-        shortenerNoveltyEnhancedAverageByPaperID = {}
-        shortenerNoveltyDiminishAverageByPaperID = {}
-        shortenerNoveltyImpactAverageByPaperID = {}
+        MaverickNoveltyEnhancedAverageByPaperID = {}
+        MaverickNoveltyDiminishAverageByPaperID = {}
+        MaverickNoveltyImpactAverageByPaperID = {}
 
-        shortenerNoveltyEnhancedMinByYear = {}
-        shortenerNoveltyDiminishMinByYear = {}
-        shortenerNoveltyImpactMinByYear = {}
+        MaverickNoveltyEnhancedMinByYear = {}
+        MaverickNoveltyDiminishMinByYear = {}
+        MaverickNoveltyImpactMinByYear = {}
 
-        shortenerNoveltyEnhancedMinByPaperID = {}
-        shortenerNoveltyDiminishMinByPaperID = {}
-        shortenerNoveltyImpactMinByPaperID = {}
+        MaverickNoveltyEnhancedMinByPaperID = {}
+        MaverickNoveltyDiminishMinByPaperID = {}
+        MaverickNoveltyImpactMinByPaperID = {}
 
-        shortenerNoveltyEnhancedMaxByYear = {}
-        shortenerNoveltyDiminishMaxByYear = {}
-        shortenerNoveltyImpactMaxByYear = {}
+        MaverickNoveltyEnhancedMaxByYear = {}
+        MaverickNoveltyDiminishMaxByYear = {}
+        MaverickNoveltyImpactMaxByYear = {}
 
-        shortenerNoveltyEnhancedMaxByPaperID = {}
-        shortenerNoveltyDiminishMaxByPaperID = {}
-        shortenerNoveltyImpactMaxByPaperID = {}
+        MaverickNoveltyEnhancedMaxByPaperID = {}
+        MaverickNoveltyDiminishMaxByPaperID = {}
+        MaverickNoveltyImpactMaxByPaperID = {}
 
-        shortenerNoveltyEnhancedMedianByYear = {}
-        shortenerNoveltyDiminishMedianByYear = {}
-        shortenerNoveltyImpactMedianByYear = {}
+        MaverickNoveltyEnhancedMedianByYear = {}
+        MaverickNoveltyDiminishMedianByYear = {}
+        MaverickNoveltyImpactMedianByYear = {}
 
-        shortenerNoveltyEnhancedMedianByPaperID = {}
-        shortenerNoveltyDiminishMedianByPaperID = {}
-        shortenerNoveltyImpactMedianByPaperID = {}
+        MaverickNoveltyEnhancedMedianByPaperID = {}
+        MaverickNoveltyDiminishMedianByPaperID = {}
+        MaverickNoveltyImpactMedianByPaperID = {}
 
-        with tqdm(total=len(self.data), desc="Calculating Shortener Novelty Scores") as progressBar:
+        with tqdm(total=len(self.data), desc="Calculating Maverick Novelty Scores", disable=not self.showProgress) as progressBar:
             accumulatedEdgesYearBefore = set()
             for year in yearRange:
                 edgesAndWeights = Counter()
@@ -560,41 +593,41 @@ class CitationData:
                             neighborEdges = neighborEdges - set(edges)
                             differences = [averageChange[year][edge] if edge in averageChange[year] else 0  for edge in neighborEdges]
                             if(differences):
-                                shortenerNoveltyImpactAverageByPaperID[paperUID] = np.average(differences)
-                                shortenerNoveltyImpactMinByPaperID[paperUID] = np.min(differences)
-                                shortenerNoveltyImpactMaxByPaperID[paperUID] = np.max(differences)
-                                shortenerNoveltyImpactMedianByPaperID[paperUID] = np.median(differences)
+                                MaverickNoveltyImpactAverageByPaperID[paperUID] = np.average(differences)
+                                MaverickNoveltyImpactMinByPaperID[paperUID] = np.min(differences)
+                                MaverickNoveltyImpactMaxByPaperID[paperUID] = np.max(differences)
+                                MaverickNoveltyImpactMedianByPaperID[paperUID] = np.median(differences)
                             else:
-                                shortenerNoveltyImpactAverageByPaperID[paperUID] = 0
-                                shortenerNoveltyImpactMinByPaperID[paperUID] = 0
-                                shortenerNoveltyImpactMaxByPaperID[paperUID] = 0
-                                shortenerNoveltyImpactMedianByPaperID[paperUID] = 0
+                                MaverickNoveltyImpactAverageByPaperID[paperUID] = 0
+                                MaverickNoveltyImpactMinByPaperID[paperUID] = 0
+                                MaverickNoveltyImpactMaxByPaperID[paperUID] = 0
+                                MaverickNoveltyImpactMedianByPaperID[paperUID] = 0
                             
                             # enhanced novelty for positives
                             positiveDifferences = [value for value in differences if value>0] # Check if this is correct
                             if(positiveDifferences):
-                                shortenerNoveltyEnhancedAverageByPaperID[paperUID] = np.average(positiveDifferences)
-                                shortenerNoveltyEnhancedMinByPaperID[paperUID] = np.min(positiveDifferences)
-                                shortenerNoveltyEnhancedMaxByPaperID[paperUID] = np.max(positiveDifferences)
-                                shortenerNoveltyEnhancedMedianByPaperID[paperUID] = np.median(positiveDifferences)
+                                MaverickNoveltyEnhancedAverageByPaperID[paperUID] = np.average(positiveDifferences)
+                                MaverickNoveltyEnhancedMinByPaperID[paperUID] = np.min(positiveDifferences)
+                                MaverickNoveltyEnhancedMaxByPaperID[paperUID] = np.max(positiveDifferences)
+                                MaverickNoveltyEnhancedMedianByPaperID[paperUID] = np.median(positiveDifferences)
                             else:
-                                shortenerNoveltyEnhancedAverageByPaperID[paperUID] = 0
-                                shortenerNoveltyEnhancedMinByPaperID[paperUID] = 0
-                                shortenerNoveltyEnhancedMaxByPaperID[paperUID] = 0
-                                shortenerNoveltyEnhancedMedianByPaperID[paperUID] = 0
+                                MaverickNoveltyEnhancedAverageByPaperID[paperUID] = 0
+                                MaverickNoveltyEnhancedMinByPaperID[paperUID] = 0
+                                MaverickNoveltyEnhancedMaxByPaperID[paperUID] = 0
+                                MaverickNoveltyEnhancedMedianByPaperID[paperUID] = 0
                             
                             # diminished novelty for negatives
                             negativeDifferences = [value for value in differences if value<0]
                             if(negativeDifferences):
-                                shortenerNoveltyDiminishAverageByPaperID[paperUID] = np.average(negativeDifferences)
-                                shortenerNoveltyDiminishMinByPaperID[paperUID] = np.min(negativeDifferences)
-                                shortenerNoveltyDiminishMaxByPaperID[paperUID] = np.max(negativeDifferences)
-                                shortenerNoveltyDiminishMedianByPaperID[paperUID] = np.median(negativeDifferences)
+                                MaverickNoveltyDiminishAverageByPaperID[paperUID] = np.average(negativeDifferences)
+                                MaverickNoveltyDiminishMinByPaperID[paperUID] = np.min(negativeDifferences)
+                                MaverickNoveltyDiminishMaxByPaperID[paperUID] = np.max(negativeDifferences)
+                                MaverickNoveltyDiminishMedianByPaperID[paperUID] = np.median(negativeDifferences)
                             else:
-                                shortenerNoveltyDiminishAverageByPaperID[paperUID] = 0
-                                shortenerNoveltyDiminishMinByPaperID[paperUID] = 0
-                                shortenerNoveltyDiminishMaxByPaperID[paperUID] = 0
-                                shortenerNoveltyDiminishMedianByPaperID[paperUID] = 0
+                                MaverickNoveltyDiminishAverageByPaperID[paperUID] = 0
+                                MaverickNoveltyDiminishMinByPaperID[paperUID] = 0
+                                MaverickNoveltyDiminishMaxByPaperID[paperUID] = 0
+                                MaverickNoveltyDiminishMedianByPaperID[paperUID] = 0
 
                     # get neighbor edges to the source and targets of the edges from the network
                     neighborEdges = set()
@@ -609,85 +642,422 @@ class CitationData:
                     neighborEdges = neighborEdges - set(edgesAndWeights)
                     differences = [averageChange[year][edge] if edge in averageChange[year] else 0  for edge in neighborEdges]
                     if(differences):
-                        shortenerNoveltyImpactAverageByYear[year] = np.average(differences)
-                        shortenerNoveltyImpactMinByYear[year] = np.min(differences)
-                        shortenerNoveltyImpactMaxByYear[year] = np.max(differences)
-                        shortenerNoveltyImpactMedianByYear[year] = np.median(differences)
+                        MaverickNoveltyImpactAverageByYear[year] = np.average(differences)
+                        MaverickNoveltyImpactMinByYear[year] = np.min(differences)
+                        MaverickNoveltyImpactMaxByYear[year] = np.max(differences)
+                        MaverickNoveltyImpactMedianByYear[year] = np.median(differences)
                     else:
-                        shortenerNoveltyImpactAverageByYear[year] = 0
-                        shortenerNoveltyImpactMinByYear[year] = 0
-                        shortenerNoveltyImpactMaxByYear[year] = 0
-                        shortenerNoveltyImpactMedianByYear[year] = 0
+                        MaverickNoveltyImpactAverageByYear[year] = 0
+                        MaverickNoveltyImpactMinByYear[year] = 0
+                        MaverickNoveltyImpactMaxByYear[year] = 0
+                        MaverickNoveltyImpactMedianByYear[year] = 0
 
                     # enhanced novelty for positives
                     positiveDifferences = [value for value in differences if value>=0]
                     if(positiveDifferences):
-                        shortenerNoveltyEnhancedAverageByYear[year] = np.average(positiveDifferences)
-                        shortenerNoveltyEnhancedMinByYear[year] = np.min(positiveDifferences)
-                        shortenerNoveltyEnhancedMaxByYear[year] = np.max(positiveDifferences)
-                        shortenerNoveltyEnhancedMedianByYear[year] = np.median(positiveDifferences)
+                        MaverickNoveltyEnhancedAverageByYear[year] = np.average(positiveDifferences)
+                        MaverickNoveltyEnhancedMinByYear[year] = np.min(positiveDifferences)
+                        MaverickNoveltyEnhancedMaxByYear[year] = np.max(positiveDifferences)
+                        MaverickNoveltyEnhancedMedianByYear[year] = np.median(positiveDifferences)
                     else:
-                        shortenerNoveltyEnhancedAverageByYear[year] = 0
-                        shortenerNoveltyEnhancedMinByYear[year] = 0
-                        shortenerNoveltyEnhancedMaxByYear[year] = 0
-                        shortenerNoveltyEnhancedMedianByYear[year] = 0
+                        MaverickNoveltyEnhancedAverageByYear[year] = 0
+                        MaverickNoveltyEnhancedMinByYear[year] = 0
+                        MaverickNoveltyEnhancedMaxByYear[year] = 0
+                        MaverickNoveltyEnhancedMedianByYear[year] = 0
                     
                     # diminished novelty for negatives
                     negativeDifferences = [value for value in differences if value<0]
                     if(negativeDifferences):
-                        shortenerNoveltyDiminishAverageByYear[year] = np.average(negativeDifferences)
-                        shortenerNoveltyDiminishMinByYear[year] = np.min(negativeDifferences)
-                        shortenerNoveltyDiminishMaxByYear[year] = np.max(negativeDifferences)
-                        shortenerNoveltyDiminishMedianByYear[year] = np.median(negativeDifferences)
+                        MaverickNoveltyDiminishAverageByYear[year] = np.average(negativeDifferences)
+                        MaverickNoveltyDiminishMinByYear[year] = np.min(negativeDifferences)
+                        MaverickNoveltyDiminishMaxByYear[year] = np.max(negativeDifferences)
+                        MaverickNoveltyDiminishMedianByYear[year] = np.median(negativeDifferences)
                     else:
-                        shortenerNoveltyDiminishAverageByYear[year] = 0
-                        shortenerNoveltyDiminishMinByYear[year] = 0
-                        shortenerNoveltyDiminishMaxByYear[year] = 0
-                        shortenerNoveltyDiminishMedianByYear[year] = 0
+                        MaverickNoveltyDiminishAverageByYear[year] = 0
+                        MaverickNoveltyDiminishMinByYear[year] = 0
+                        MaverickNoveltyDiminishMaxByYear[year] = 0
+                        MaverickNoveltyDiminishMedianByYear[year] = 0
                 else:
-                    shortenerNoveltyEnhancedAverageByYear[year] = 0
-                    shortenerNoveltyDiminishAverageByYear[year] = 0
-                    shortenerNoveltyEnhancedMinByYear[year] = 0
-                    shortenerNoveltyDiminishMinByYear[year] = 0
-                    shortenerNoveltyEnhancedMaxByYear[year] = 0
-                    shortenerNoveltyDiminishMaxByYear[year] = 0
-                    shortenerNoveltyEnhancedMedianByYear[year] = 0
-                    shortenerNoveltyDiminishMedianByYear[year] = 0
-                    shortenerNoveltyImpactAverageByYear[year] = 0
-                    shortenerNoveltyImpactMinByYear[year] = 0
-                    shortenerNoveltyImpactMaxByYear[year] = 0
-                    shortenerNoveltyImpactMedianByYear[year] = 0
-                    # shortenerNoveltyByYear
+                    MaverickNoveltyEnhancedAverageByYear[year] = 0
+                    MaverickNoveltyDiminishAverageByYear[year] = 0
+                    MaverickNoveltyEnhancedMinByYear[year] = 0
+                    MaverickNoveltyDiminishMinByYear[year] = 0
+                    MaverickNoveltyEnhancedMaxByYear[year] = 0
+                    MaverickNoveltyDiminishMaxByYear[year] = 0
+                    MaverickNoveltyEnhancedMedianByYear[year] = 0
+                    MaverickNoveltyDiminishMedianByYear[year] = 0
+                    MaverickNoveltyImpactAverageByYear[year] = 0
+                    MaverickNoveltyImpactMinByYear[year] = 0
+                    MaverickNoveltyImpactMaxByYear[year] = 0
+                    MaverickNoveltyImpactMedianByYear[year] = 0
+                    # MaverickNoveltyByYear
                 accumulatedEdgesYearBefore = accumulatedEdgesYearBefore.union(edgesAndWeights.keys())
         # create tables for paperID
         publicationIDsList = list(self.data.index)
-        #         paper2ShortenerNoveltyAverage = {}
-        # paper2ShortenerNoveltyMedian = {}
-        # paper2ShortenerNoveltyMax = {}
+        #         paper2MaverickNoveltyAverage = {}
+        # paper2MaverickNoveltyMedian = {}
+        # paper2MaverickNoveltyMax = {}
 
-        # year2ShortenerNoveltyAverage = {}
-        # year2ShortenerNoveltyMedian = {}
-        # year2ShortenerNoveltyMax = {}
+        # year2MaverickNoveltyAverage = {}
+        # year2MaverickNoveltyMedian = {}
+        # year2MaverickNoveltyMax = {}
         tableData = {}
         tableData["publicationID"] = publicationIDsList
-        tableData["shortenerNoveltyAverage"] = [paper2ShortenerNoveltyAverage[paperID] if paperID in paper2ShortenerNoveltyAverage else np.nan for paperID in publicationIDsList]
-        tableData["shortenerNoveltyMedianList"] = [paper2ShortenerNoveltyMedian[paperID] if paperID in paper2ShortenerNoveltyMedian else np.nan for paperID in publicationIDsList]
-        tableData["shortenerNoveltyMaxList"] = [paper2ShortenerNoveltyMax[paperID] if paperID in paper2ShortenerNoveltyMax else np.nan for paperID in publicationIDsList]
-        tableData["shortenerNoveltySubjectsList"] = [list(paper2ShortenerSubjects[paperID]) if paperID in paper2ShortenerSubjects else [] for paperID in publicationIDsList]
+        tableData["MaverickNoveltyAverage"] = [paper2MaverickNoveltyAverage[paperID] if paperID in paper2MaverickNoveltyAverage else np.nan for paperID in publicationIDsList]
+        # tableData["MaverickNoveltyMedianList"] = [paper2MaverickNoveltyMedian[paperID] if paperID in paper2MaverickNoveltyMedian else np.nan for paperID in publicationIDsList]
+        # tableData["MaverickNoveltyMaxList"] = [paper2MaverickNoveltyMax[paperID] if paperID in paper2MaverickNoveltyMax else np.nan for paperID in publicationIDsList]
+        tableData["MaverickNoveltySubjectsList"] = [list(paper2MaverickSubjects[paperID]) if paperID in paper2MaverickSubjects else [] for paperID in publicationIDsList]
 
         # impacts
-        tableData["shortenerNoveltyEnhancedAverage"] = [shortenerNoveltyEnhancedAverageByPaperID[paperID] if paperID in shortenerNoveltyEnhancedAverageByPaperID else np.nan for paperID in publicationIDsList]
-        tableData["shortenerNoveltyDiminishAverage"] = [shortenerNoveltyDiminishAverageByPaperID[paperID] if paperID in shortenerNoveltyDiminishAverageByPaperID else np.nan for paperID in publicationIDsList]
-        tableData["shortenerNoveltyImpactAverage"] = [shortenerNoveltyImpactAverageByPaperID[paperID] if paperID in shortenerNoveltyImpactAverageByPaperID else np.nan for paperID in publicationIDsList]
-        tableData["shortenerNoveltyEnhancedMin"] = [shortenerNoveltyEnhancedMinByPaperID[paperID] if paperID in shortenerNoveltyEnhancedMinByPaperID else np.nan for paperID in publicationIDsList]
-        tableData["shortenerNoveltyDiminishMin"] = [shortenerNoveltyDiminishMinByPaperID[paperID] if paperID in shortenerNoveltyDiminishMinByPaperID else np.nan for paperID in publicationIDsList]
-        tableData["shortenerNoveltyImpactMin"] = [shortenerNoveltyImpactMinByPaperID[paperID] if paperID in shortenerNoveltyImpactMinByPaperID else np.nan for paperID in publicationIDsList]
-        tableData["shortenerNoveltyEnhancedMax"] = [shortenerNoveltyEnhancedMaxByPaperID[paperID] if paperID in shortenerNoveltyEnhancedMaxByPaperID else np.nan for paperID in publicationIDsList]
-        tableData["shortenerNoveltyDiminishMax"] = [shortenerNoveltyDiminishMaxByPaperID[paperID] if paperID in shortenerNoveltyDiminishMaxByPaperID else np.nan for paperID in publicationIDsList]
-        tableData["shortenerNoveltyImpactMax"] = [shortenerNoveltyImpactMaxByPaperID[paperID] if paperID in shortenerNoveltyImpactMaxByPaperID else np.nan for paperID in publicationIDsList]
-        tableData["shortenerNoveltyEnhancedMedian"] = [shortenerNoveltyEnhancedMedianByPaperID[paperID] if paperID in shortenerNoveltyEnhancedMedianByPaperID else np.nan for paperID in publicationIDsList]
-        tableData["shortenerNoveltyDiminishMedian"] = [shortenerNoveltyDiminishMedianByPaperID[paperID] if paperID in shortenerNoveltyDiminishMedianByPaperID else np.nan for paperID in publicationIDsList]
-        tableData["shortenerNoveltyImpactMedian"] = [shortenerNoveltyImpactMedianByPaperID[paperID] if paperID in shortenerNoveltyImpactMedianByPaperID else np.nan for paperID in publicationIDsList]
-        dfShortenerNoveltyScores = pd.DataFrame(tableData)
+        tableData["MaverickNoveltyEnhancementAverage"] = [MaverickNoveltyEnhancedAverageByPaperID[paperID] if paperID in MaverickNoveltyEnhancedAverageByPaperID else np.nan for paperID in publicationIDsList]
+        tableData["MaverickNoveltyDiminishmentAverage"] = [MaverickNoveltyDiminishAverageByPaperID[paperID] if paperID in MaverickNoveltyDiminishAverageByPaperID else np.nan for paperID in publicationIDsList]
+        # tableData["MaverickNoveltyImpactAverage"] = [MaverickNoveltyImpactAverageByPaperID[paperID] if paperID in MaverickNoveltyImpactAverageByPaperID else np.nan for paperID in publicationIDsList]
+        # tableData["MaverickNoveltyEnhancedMin"] = [MaverickNoveltyEnhancedMinByPaperID[paperID] if paperID in MaverickNoveltyEnhancedMinByPaperID else np.nan for paperID in publicationIDsList]
+        # tableData["MaverickNoveltyDiminishMin"] = [MaverickNoveltyDiminishMinByPaperID[paperID] if paperID in MaverickNoveltyDiminishMinByPaperID else np.nan for paperID in publicationIDsList]
+        # tableData["MaverickNoveltyImpactMin"] = [MaverickNoveltyImpactMinByPaperID[paperID] if paperID in MaverickNoveltyImpactMinByPaperID else np.nan for paperID in publicationIDsList]
+        # tableData["MaverickNoveltyEnhancedMax"] = [MaverickNoveltyEnhancedMaxByPaperID[paperID] if paperID in MaverickNoveltyEnhancedMaxByPaperID else np.nan for paperID in publicationIDsList]
+        # tableData["MaverickNoveltyDiminishMax"] = [MaverickNoveltyDiminishMaxByPaperID[paperID] if paperID in MaverickNoveltyDiminishMaxByPaperID else np.nan for paperID in publicationIDsList]
+        # tableData["MaverickNoveltyImpactMax"] = [MaverickNoveltyImpactMaxByPaperID[paperID] if paperID in MaverickNoveltyImpactMaxByPaperID else np.nan for paperID in publicationIDsList]
+        # tableData["MaverickNoveltyEnhancedMedian"] = [MaverickNoveltyEnhancedMedianByPaperID[paperID] if paperID in MaverickNoveltyEnhancedMedianByPaperID else np.nan for paperID in publicationIDsList]
+        # tableData["MaverickNoveltyDiminishMedian"] = [MaverickNoveltyDiminishMedianByPaperID[paperID] if paperID in MaverickNoveltyDiminishMedianByPaperID else np.nan for paperID in publicationIDsList]
+        # tableData["MaverickNoveltyImpactMedian"] = [MaverickNoveltyImpactMedianByPaperID[paperID] if paperID in MaverickNoveltyImpactMedianByPaperID else np.nan for paperID in publicationIDsList]
+        dfMaverickNoveltyScores = pd.DataFrame(tableData)
 
-        return dfShortenerNoveltyScores
+        return dfMaverickNoveltyScores
+
+
+    def calculateVanguardNoveltyScores(self, weightsCount: int = 4):
+        analysisRange = self.analysisRange
+        subjectsSet = set([subject for subjects in self.data.loc[:,"subjects"] for subject in subjects])
+        if "nan" in subjectsSet:
+            subjectsSet.remove("nan")
+
+        index2Subject = {index:subject for index,subject in enumerate(subjectsSet)}
+        subject2Index = {subject:index for index,subject in enumerate(subjectsSet)}
+
+        previousNetwork = ig.Graph(len(subject2Index),directed=False)
+
+
+        scYearlyNetworks = {}
+        # add edges to the graph based on the SC pairs in the references
+        yearRange = range(analysisRange[0], analysisRange[1])
+        allYearRange = range(min(self.year2IDs.keys()), max(self.year2IDs.keys())+1)
+        for year in tqdm(allYearRange, disable=not self.showProgress):
+            newNetwork = previousNetwork.copy()
+            previousNetwork = previousNetwork.simplify(combine_edges={"weight":"sum"})
+            distancesBuffer = {}
+            edgesAndWeights = Counter()
+            if(year in self.year2IDs):
+                papers = self.year2IDs[year]
+                for paperUID in papers:
+                    subjects = self.data.loc[paperUID, 'subjects']
+                    if(subjects):
+                        subjectIndices = [subject2Index[subject] for subject in subjects]
+                        subjectIndices = list(set(subjectIndices))
+                        edges = list(combinations(subjectIndices,2))
+                        # make edges min(),max()
+                        edges = [(min(edge),max(edge)) for edge in edges]
+                        edgesSet = set(edges)
+                        edgesAndWeights.update(edgesSet)
+                        # previous distances between all new edges
+            allYearEdges = list(edgesAndWeights.keys())
+            allYearWeights = [edgesAndWeights[edge] for edge in allYearEdges]
+            newNetwork.add_edges(allYearEdges,attributes={"weight":allYearWeights})
+            previousNetwork = newNetwork
+            scYearlyNetworks[year] = newNetwork
+
+
+        # %%
+        # citations received for each pair of subject category over the years
+        citationsReceivedSCPairYear = {}
+        citationsReceivedSCYear = {}
+        citationsReceivedSCPairYearNonNormalized = {}
+        citationsReceivedSCYearNonNormalized = {}
+        totalPublicationsPerYear = {}
+        cumulativeCitationsReceivedSCYear = {}
+        allTimePublications = 0
+
+        # add edges to the graph based on the SC pairs in the references
+        cummulativeNodesAndWeights = Counter()
+        for year in tqdm(yearRange, disable=not self.showProgress):
+            edgesAndWeights = Counter()
+            nodesAndWeights = Counter()
+            if(year in self.year2IDs):
+                papers = self.year2IDs[year]
+                for paperUID in papers:
+                    subjects = self.data.loc[paperUID, 'subjects']
+                    # subjects = self.data.loc[paperUID, 'referenceSubjects']
+                    if(subjects):
+                        subjectIndices = [subject2Index[subject] for subject in subjects]
+                        subjectIndices = list(set(subjectIndices))
+                        edges = list(combinations(subjectIndices,2))
+                        # make edges min(),max()
+                        edges = [(min(edge),max(edge)) for edge in edges]
+                        edgesAndWeights.update(set(edges))
+                        nodesAndWeights.update(set(subjectIndices))
+            # adjust the weights by the number of publications on that year i.e., / total publications
+            totalPublications = len(papers)
+            totalPublicationsPerYear[year] = totalPublications
+            allTimePublications+=totalPublications
+            cummulativeNodesAndWeights.update(nodesAndWeights)
+            edgesAndCounts = edgesAndWeights.copy()
+            nodesAndCounts = nodesAndWeights.copy()
+            if(totalPublications):
+                for edge,weight in edgesAndWeights.items():
+                    edgesAndWeights[edge] = weight/totalPublications
+                for node,weight in nodesAndWeights.items():
+                    nodesAndWeights[node] = weight/totalPublications
+                
+            citationsReceivedSCPairYear[year] = edgesAndWeights
+            citationsReceivedSCYear[year] = nodesAndWeights
+            
+            citationsReceivedSCPairYearNonNormalized[year] = edgesAndCounts
+            citationsReceivedSCYearNonNormalized[year] = nodesAndCounts
+            
+
+            cumulativeCitationsReceivedSCYear[year] = cummulativeNodesAndWeights.copy()
+            for node,weight in cumulativeCitationsReceivedSCYear[year].items():
+                cumulativeCitationsReceivedSCYear[year][node] = weight/allTimePublications
+
+
+
+        VanguardNoveltyByPaperID = {}
+        VanguardNoveltyByYear = {}
+
+        totalNumberOfPapers = np.sum([len(paperUIDs) for paperUIDs in self.year2IDs.values()])
+        progressBar = tqdm(total=totalNumberOfPapers, disable=not self.showProgress)
+
+        for year in analysisRange:
+            edge2Weight = {}
+            if(year-1 in self.year2IDs):
+                previousYearNetwork = scYearlyNetworks[year-1]
+                # from the network get the weights of the edges
+                for edge in previousYearNetwork.es:
+                    edgeIndices = (edge.source,edge.target)
+                    edgeIndices = (min(edgeIndices),max(edgeIndices))
+                    edge2Weight[edgeIndices] = edge["weight"]
+            if(year in self.year2IDs):
+                papers = self.year2IDs[year]
+                for paperUID in papers:
+                    progressBar.update(1)
+                    subjects = self.data.loc[paperUID, 'subjects']
+                    subjects = [subject2Index[subjectCategory] for subjectCategory in subjects]
+                    subjects = list(set(subjects))
+                    edges = list(combinations(subjects,2))
+                    # make edges min(),max()
+                    edges = set([(min(edge),max(edge)) for edge in edges])
+                    edgesAndWeights.update(edges)
+                    edgeWeights = [edge2Weight[edge]+1 for edge in edges if edge in edge2Weight]
+
+                    VanguardNovelty = list(np.histogram(edgeWeights,bins=range(2,weightsCount+3))[0])
+                    VanguardNoveltyByPaperID[paperUID] = tuple(VanguardNovelty)
+                # year level
+                edgeWeights = [edge2Weight[edge]+1 for edge in edgesAndWeights.keys() if edge in edge2Weight]
+                VanguardNovelty = list(np.histogram(edgeWeights,bins=range(2,weightsCount+3))[0])
+                VanguardNoveltyByYear[year] = tuple(VanguardNovelty)
+            else:
+                VanguardNoveltyByYear[year] = tuple([0]*weightsCount)
+                # MaverickNoveltyByYear
+
+        # sort according to VanguardNoveltyByPaperID via tuple sorting
+
+        VanguardNoveltyByPaperIDSorted = [(k,v) for k, v in sorted(VanguardNoveltyByPaperID.items(), key=lambda item: item[1],reverse=True)]
+        # create a rank for the VanguardNoveltyByPaperID. If there is a tie, the two papers should have the same rank
+        VanguardNoveltyByPaperIDRank = {}
+        currentRank = 0
+        currentRankCount = 0
+        previousVanguardNovelty = None
+        for entryName,VanguardNovelty in VanguardNoveltyByPaperIDSorted:
+            currentRankCount+=1
+            if(previousVanguardNovelty!=VanguardNovelty):
+                currentRank=currentRankCount
+            VanguardNoveltyByPaperIDRank[entryName] = currentRank
+            previousVanguardNovelty = VanguardNovelty
+
+        # VanguardNoveltyByPaperIDRank = {entry[0]:index+1 for index,entry in enumerate(VanguardNoveltyByPaperIDSorted)}
+        # paperUID2ReferencesSubjectCategories["WOS:A1996VL28900004"]
+
+        # VanguardNoveltyByYearIDSorted = [(k,v) for k, v in sorted(VanguardNoveltyByYear.items(), key=lambda item: item[1],reverse=True)]
+        # # create a rank for the VanguardNoveltyByYear. If there is a tie, the two papers should have the same rank
+        # VanguardNoveltyByYearRank = {}
+        # currentRank = 0
+        # currentRankCount = 0
+        # previousVanguardNovelty = None
+        # for entryName,VanguardNovelty in VanguardNoveltyByYearIDSorted:
+        #     currentRankCount+=1
+        #     if(previousVanguardNovelty!=VanguardNovelty):
+        #         currentRank=currentRankCount
+        #     VanguardNoveltyByYearRank[entryName] = currentRank
+        #     previousVanguardNovelty = VanguardNovelty
+        # strengtheneNoveltiyRankByYear = {entry[0]:index+1 for index,entry in enumerate(VanguardNoveltyByYearIDSorted)}
+    
+
+
+
+
+        # %%
+        window = 5
+        progressBar = tqdm(total=totalNumberOfPapers, disable=not self.showProgress)
+        VanguardNoveltyImpactByPaperID = {}
+        VanguardNoveltyImpactByYear = {}
+        for year in yearRange:
+            edge2Weight = {}
+            if(year-1 in self.year2IDs):
+                previousYearNetwork = scYearlyNetworks[year-1]
+                # from the network get the weights of the edges
+                for edge in previousYearNetwork.es:
+                    edgeIndices = (edge.source,edge.target)
+                    edgeIndices = (min(edgeIndices),max(edgeIndices))
+                    edge2Weight[edgeIndices] = edge["weight"]
+            changedSubjectCategories = set()
+            if(year in self.year2IDs):
+                papers = self.year2IDs[year]
+                for paperUID in papers:
+                    progressBar.update(1)
+                    subjects = self.data.loc[paperUID, 'subjects']
+                    subjects = [subject2Index[subject] for subject in subjects]
+                    subjects = list(set(subjects))
+                    edges = list(combinations(subjects,2))
+                    # make edges min(),max()
+                    edges = set([(min(edge),max(edge)) for edge in edges])
+                    edgesAndWeights.update(edges)
+                    allowedEdges=[edge for edge in edges if edge in edge2Weight and edge2Weight[edge]+1<=weightsCount+1]
+                    activatedSubjectCategories = set([subjectCategory for edge in allowedEdges for subjectCategory in edge])
+                    changedSubjectCategories.update(activatedSubjectCategories)
+                    
+                    VanguardNoveltiyImpacts = []
+                    for subjectCategory in activatedSubjectCategories:
+                        yearBeforeCitations = cumulativeCitationsReceivedSCYear[year-1][subjectCategory] if year-1 in cumulativeCitationsReceivedSCYear else 0
+                        windowYearsAfterCitations = cumulativeCitationsReceivedSCYear[year+window][subjectCategory] if year+window in cumulativeCitationsReceivedSCYear else 0
+                        VanguardNoveltiyImpacts.append(windowYearsAfterCitations-yearBeforeCitations)
+                    VanguardNoveltyImpactByPaperID[paperUID] = VanguardNoveltiyImpacts
+                # year level
+                VanguardNoveltiyImpacts = []
+                for subjectCategory in changedSubjectCategories:
+                    yearBeforeCitations = cumulativeCitationsReceivedSCYear[year-1][subjectCategory] if year-1 in cumulativeCitationsReceivedSCYear else 0
+                    windowYearsAfterCitations = cumulativeCitationsReceivedSCYear[year+window][subjectCategory] if year+window in cumulativeCitationsReceivedSCYear else 0
+                    VanguardNoveltiyImpacts.append(windowYearsAfterCitations-yearBeforeCitations)
+                VanguardNoveltyImpactByYear[year] = VanguardNoveltiyImpacts
+            else:
+                VanguardNoveltyImpactByYear[year] = []
+                # MaverickNoveltyByYear
+
+        # VanguardNoveltyImpactByYearAverage = {year:np.average(VanguardNoveltyImpactByYear[year]) if VanguardNoveltyImpactByYear[year] else 0 for year in VanguardNoveltyImpactByYear}
+        # VanguardNoveltyImpactByYearMedian = {year:np.median(VanguardNoveltyImpactByYear[year]) if VanguardNoveltyImpactByYear[year] else 0 for year in VanguardNoveltyImpactByYear}
+        # VanguardNoveltyImpactByYearMax = {year:np.max(VanguardNoveltyImpactByYear[year]) if VanguardNoveltyImpactByYear[year] else 0 for year in VanguardNoveltyImpactByYear}
+        # VanguardNoveltyImpactByYearMin = {year:np.min(VanguardNoveltyImpactByYear[year]) if VanguardNoveltyImpactByYear[year] else 0 for year in VanguardNoveltyImpactByYear}
+
+        # scores by paper
+        VanguardNoveltyImpactByPaperIDAverage = {paperUID:np.average(VanguardNoveltyImpactByPaperID[paperUID]) if VanguardNoveltyImpactByPaperID[paperUID] else 0 for paperUID in VanguardNoveltyImpactByPaperID}
+        # VanguardNoveltyImpactByPaperIDMedian = {paperUID:np.median(VanguardNoveltyImpactByPaperID[paperUID]) if VanguardNoveltyImpactByPaperID[paperUID] else 0 for paperUID in VanguardNoveltyImpactByPaperID}
+        # VanguardNoveltyImpactByPaperIDMax = {paperUID:np.max(VanguardNoveltyImpactByPaperID[paperUID]) if VanguardNoveltyImpactByPaperID[paperUID] else 0 for paperUID in VanguardNoveltyImpactByPaperID}
+        # VanguardNoveltyImpactByPaperIDMin = {paperUID:np.min(VanguardNoveltyImpactByPaperID[paperUID]) if VanguardNoveltyImpactByPaperID[paperUID] else 0 for paperUID in VanguardNoveltyImpactByPaperID}
+
+
+
+        publicationIDsList = list(self.data.index)
+        tableData = {}
+        tableData["publicationID"] = publicationIDsList
+        tableData["VanguardNovelty"] = [VanguardNoveltyByPaperID[paperID] if paperID in VanguardNoveltyByPaperID else np.nan for paperID in publicationIDsList]
+        tableData["VanguardNoveltyRank"] = [VanguardNoveltyByPaperIDRank[paperID] if paperID in VanguardNoveltyByPaperIDRank else np.nan for paperID in publicationIDsList]
+        tableData["VanguardNoveltyImpact"] = [VanguardNoveltyImpactByPaperIDAverage[paperID] if paperID in VanguardNoveltyImpactByPaperIDAverage else np.nan for paperID in publicationIDsList]
+        return pd.DataFrame(tableData)
+
+    # creates a copy but with shuffled subjects
+    def generateBaseModelInstance(self, attractiveness, showProgress=False):
+        # create a new model
+        newModel = CitationData(self.data,
+                                baselineRange=self.baselineRange,
+                                analysisRange=self.analysisRange,
+                                attractiveness=attractiveness,
+                                showProgress=showProgress
+                                )
+                                
+        return newModel
+
+
+
+    def _shuffleSubjects(self):
+        startingYear = self.baselineRange[1]
+        coreSubjectCategories = set()
+        allYears = sorted(list(self.year2IDs.keys()))
+        coreYearRange = range(allYears[0],startingYear)
+        fullYearRange = range(allYears[0],allYears[-1]+1)
+        # first year after the baseline
+        modelStartYear = startingYear
+
+
+        subjectCategoryFrequencyCummulativePerYear = {}
+        previousYearFrequency = Counter()
+        # paperSubjectCategoryCountsForPaperPerYear = {}
+        for year in fullYearRange:
+            subjectCategories = Counter()
+            subjectCategoriesCountsInPaper = []
+            if year in self.year2IDs:
+                paperUIDs = self.year2IDs[year]
+                for paperUID in paperUIDs:
+                    subjects = self.data.loc[paperUID, 'subjects']
+                    subjectCategories.update(subjects)
+                        # subjectCategoriesCountsInPaper.append(len(arrayOfSubjectCategories))
+
+            previousYearFrequency.update(subjectCategories)
+            subjectCategoryFrequencyCummulativePerYear[year] = previousYearFrequency.copy()
+            # paperSubjectCategoryCountsPerYear[year] = subjectCategoriesCountsInPaper
+
+        # %%
+
+
+        # %%
+        allSubjectCategories = list(set(previousYearFrequency.keys()))
+        # convert subjectCategoryFrequencyCummulativePerYear to dictionary of arrays in the same order as allSubjectCategories
+        subjectCategoryFrequencyCummulativePerYearArray = {}
+        for year in fullYearRange:
+            subjectCategoryFrequencyCummulativePerYearArray[year] = np.array([subjectCategoryFrequencyCummulativePerYear[year][subjectCategory] for subjectCategory in allSubjectCategories])
+
+
+        # %%
+
+
+        # %%
+        # Model run
+        totalNumberOfPapers = np.sum([len(paperUIDs) for paperUIDs in self.year2IDs.values()])
+        modelPaperUID2ReferencesSubjectCategories = {}
+        progressBar = tqdm(total=totalNumberOfPapers, disable=not self.showProgress)
+        attractiveness = self.attractiveness
+        for year in fullYearRange:
+            if year in self.year2IDs:
+                paperUIDs = self.year2IDs[year]
+                if(year >= modelStartYear):
+                    # Using subjectCategories
+                    p = subjectCategoryFrequencyCummulativePerYearArray[year-1] + attractiveness
+                    p = p/p.sum()
+                for paperUID in paperUIDs:
+                    progressBar.update(1)
+                    subjects = self.data.loc[paperUID, 'subjects']
+                    if(subjects):
+                        if(year < modelStartYear):
+                            modelArrayOfSubjectCategories = set(subjects)
+                        else:
+                            # run Model
+                            modelArrayOfSubjectCategories = set()
+                            subjectCategoryCount = len(subjects)
+                            # select subjectCategoryCount from allSubjectCategories based on frequency until last year + attractiveness
+                            # normalize
+                            for i in range(subjectCategoryCount):
+                                selectedSubjectCategoryIndex = np.random.choice(len(allSubjectCategories),1,p=p,replace=False)[0]
+                                selectedSubjectCategory = allSubjectCategories[selectedSubjectCategoryIndex]
+                                modelArrayOfSubjectCategories.add(selectedSubjectCategory)
+                        modelPaperUID2ReferencesSubjectCategories[paperUID] = modelArrayOfSubjectCategories
+                    # now we need to update the subjectCategoryFrequencyCummulativePerYearArray
+
+        # %%
+        modelSubjectCategoryReference2PaperUID = {}
+        for philanthropyUID,subjectCategories in tqdm(modelPaperUID2ReferencesSubjectCategories.items(), disable=not self.showProgress):
+            for subjectCategory in subjectCategories:
+                if subjectCategory not in modelSubjectCategoryReference2PaperUID:
+                    modelSubjectCategoryReference2PaperUID[subjectCategory] = set()
+                modelSubjectCategoryReference2PaperUID[subjectCategory].add(philanthropyUID)
+
+        modelSubjects = [list(modelPaperUID2ReferencesSubjectCategories[paperUID]) if paperUID in modelPaperUID2ReferencesSubjectCategories else [] for paperUID in self.data.index]
+        self.data["subjects"] = modelSubjects
+        self.data["referenceSubjects"] = modelSubjects
