@@ -1,0 +1,1001 @@
+publicationID,subjects,references,year
+8db05c21,neural networks,,1996
+368ac66d,environmental modeling,8db05c21,1993
+4b17c2cc,neural networks,8db05c21;368ac66d,2021
+4d03d335,planetary geology,4b17c2cc;368ac66d;8db05c21,2015
+eb95d640,photonic crystals,368ac66d;8db05c21,2018
+4ebca397,material science,368ac66d;eb95d640,1998
+efce38ff,environmental modeling,eb95d640;368ac66d;4ebca397;4d03d335;4b17c2cc,1998
+ed820df6,cryptography,eb95d640;368ac66d,2006
+09f4940e,photonic crystals,4b17c2cc;8db05c21;eb95d640,1996
+e74724a2,evolutionary biology,eb95d640;368ac66d,2003
+80125941,quantum computing,4b17c2cc;4ebca397;ed820df6;e74724a2,2004
+18093eb2,material science,e74724a2;09f4940e;80125941;ed820df6,1993
+c8835004,graph theory,e74724a2;ed820df6;efce38ff;4b17c2cc,2017
+81c489f3,computational linguistics,8db05c21;368ac66d;e74724a2;4d03d335,1991
+fa691a07,computational linguistics,4d03d335;8db05c21,2011
+2fdc5672,environmental modeling,4ebca397;e74724a2;c8835004,1993
+348620df,graph theory,8db05c21;c8835004;ed820df6;18093eb2,2023
+554f04a9,bioinformatics,c8835004,2009
+86e265c7,neural networks,e74724a2;fa691a07,1992
+98c4550a,quantum computing,efce38ff;c8835004,1996
+dbba747c,evolutionary biology,348620df;efce38ff;554f04a9;4b17c2cc,2015
+8f513786,digital humanities,98c4550a;80125941,2016
+b2d9df6e,environmental modeling,8f513786;dbba747c,2004
+01d738ae,graph theory,8db05c21;09f4940e,2006
+26b49673,evolutionary biology,4d03d335;b2d9df6e;c8835004;ed820df6;8db05c21,2002
+4e2f76d1,material science,8f513786,2011
+055bb072,photonic crystals,8db05c21;554f04a9;81c489f3;8f513786,2014
+a926da26,environmental modeling,01d738ae,2009
+5aa05050,computational linguistics,e74724a2;26b49673;efce38ff;4d03d335;ed820df6,2000
+5d01df9d,bioinformatics,26b49673,2001
+0ed9aaf4,evolutionary biology,b2d9df6e;554f04a9;5d01df9d;eb95d640;18093eb2,2001
+1adf50fe,neural networks,4b17c2cc;efce38ff,1996
+756be6f5,quantum computing,fa691a07;a926da26;1adf50fe;c8835004;5d01df9d,2013
+cdbceee0,computational linguistics,09f4940e;2fdc5672;80125941;efce38ff;4e2f76d1,2022
+651c2283,material science,348620df;26b49673;368ac66d;efce38ff,2007
+2bd13217,cryptography,eb95d640;4d03d335;a926da26,2012
+8ae9a043,cryptography,4ebca397;81c489f3,1991
+34792c7d,neural networks,554f04a9;86e265c7,1996
+805077b4,computational linguistics,651c2283;ed820df6;cdbceee0;dbba747c,1997
+af6c54d7,digital humanities,eb95d640;8ae9a043,2008
+7d761ea5,planetary geology,af6c54d7,2021
+49a82f3d,cryptography,8ae9a043;26b49673;4b17c2cc,1998
+605fa80e,bioinformatics,80125941;5d01df9d;4d03d335;4e2f76d1;b2d9df6e,1998
+4443162d,evolutionary biology,0ed9aaf4;eb95d640,2012
+04d6af4e,environmental modeling,4d03d335;cdbceee0;01d738ae,2007
+de381482,material science,18093eb2;dbba747c,2002
+65100158,evolutionary biology,49a82f3d;a926da26;34792c7d;80125941;81c489f3,2000
+56e28d2b,evolutionary biology,86e265c7,2014
+a0b13ed3,material science,98c4550a;4443162d;7d761ea5;ed820df6,1998
+d2474297,material science,4b17c2cc;2fdc5672;cdbceee0,1993
+b2040ca8,digital humanities,ed820df6;4b17c2cc;8ae9a043;651c2283;805077b4,2008
+4dd834ae,quantum computing,554f04a9;56e28d2b;b2d9df6e;01d738ae,2004
+e1d1ca20,photonic crystals,4b17c2cc;4443162d,1993
+b1b216d3,evolutionary biology,7d761ea5;805077b4;a0b13ed3;756be6f5,2020
+87b4f827,neural networks,af6c54d7,2003
+ff3b173d,graph theory,26b49673,2005
+21e5a8b6,evolutionary biology,86e265c7;554f04a9;efce38ff;5aa05050,2011
+5d8be6d7,photonic crystals,4b17c2cc;348620df;a0b13ed3;8db05c21,1995
+3e1a0857,evolutionary biology,2fdc5672;ed820df6;8ae9a043;80125941,1991
+e9dc1055,neural networks,368ac66d,2021
+20e96ae0,computational linguistics,055bb072,1995
+f6a821dd,quantum computing,09f4940e,2023
+9ccf0f05,evolutionary biology,f6a821dd;ed820df6;04d6af4e,2002
+247de265,cryptography,3e1a0857;605fa80e;756be6f5,2010
+2ad397ab,graph theory,af6c54d7;651c2283;2fdc5672,1999
+12d531a5,photonic crystals,8db05c21,2007
+fc53f8f9,cryptography,c8835004;8ae9a043,2016
+ddee0093,planetary geology,368ac66d;055bb072;21e5a8b6;247de265,1990
+bb637e50,material science,2fdc5672;247de265;348620df;5d8be6d7;de381482,2002
+6c902c70,computational linguistics,5d8be6d7;a0b13ed3;b2040ca8,1994
+275c4c6f,cryptography,09f4940e;8f513786;dbba747c,2001
+22db8254,quantum computing,1adf50fe;2bd13217;12d531a5;247de265;98c4550a,2014
+5cfec4af,quantum computing,247de265;01d738ae,1997
+7f1a0b84,material science,5d8be6d7;fc53f8f9;f6a821dd;80125941,2021
+430de0e2,quantum computing,87b4f827;ddee0093;805077b4,2000
+897c0dd5,environmental modeling,eb95d640,2000
+dac12876,material science,055bb072;34792c7d,1997
+c50b13d9,planetary geology,7f1a0b84,2023
+0ddd3bf7,cryptography,c8835004;81c489f3;275c4c6f;247de265,2015
+ed9c963d,evolutionary biology,8ae9a043;eb95d640;01d738ae;c50b13d9,2012
+b0257079,photonic crystals,ddee0093,2017
+8886624a,digital humanities,0ddd3bf7;ed9c963d;81c489f3,1998
+8bafacba,bioinformatics,7f1a0b84,1998
+901f7c77,quantum computing,430de0e2;c50b13d9;605fa80e;4dd834ae,2011
+68df0b72,environmental modeling,368ac66d,2004
+700736fd,evolutionary biology,56e28d2b;901f7c77;2ad397ab,2009
+6bb26ff7,cryptography,4e2f76d1;901f7c77;7d761ea5,2009
+975b7b24,digital humanities,6c902c70;4ebca397;348620df,2018
+6dbd40df,environmental modeling,756be6f5;68df0b72;897c0dd5;247de265,1997
+22b1fb93,evolutionary biology,247de265;4ebca397;12d531a5;4443162d,2011
+2e24eb17,environmental modeling,1adf50fe,1997
+bce5ecd2,planetary geology,ed820df6;21e5a8b6,1999
+c372cb5e,planetary geology,98c4550a,2016
+da731080,material science,554f04a9,2004
+e681c1a4,cryptography,7d761ea5,2021
+4d147e49,evolutionary biology,430de0e2;5d8be6d7;348620df,2006
+56740307,photonic crystals,5d01df9d;01d738ae,2008
+3fed0579,evolutionary biology,4443162d;b1b216d3;e9dc1055;8f513786,2013
+372f1993,environmental modeling,f6a821dd,2008
+451a6c58,neural networks,c8835004,2010
+94ae86f6,environmental modeling,26b49673;e74724a2,1994
+f6e2ef4d,quantum computing,2e24eb17;7f1a0b84;b0257079;368ac66d;3e1a0857,2014
+b982ad22,digital humanities,86e265c7;3e1a0857;bce5ecd2;348620df;6bb26ff7,1996
+3a4eedd5,material science,de381482;09f4940e;805077b4,2019
+623ec2ec,quantum computing,a0b13ed3;34792c7d;dbba747c;09f4940e,2010
+7d94f236,computational linguistics,20e96ae0;372f1993;2e24eb17;ff3b173d;6dbd40df,1998
+8d3d4618,neural networks,2ad397ab;cdbceee0;368ac66d,2020
+00e9c157,environmental modeling,e1d1ca20;430de0e2,2013
+4d60d90e,evolutionary biology,7f1a0b84;975b7b24,2003
+0bbe226b,graph theory,da731080;055bb072;b1b216d3;0ddd3bf7,2011
+905bc7c2,planetary geology,68df0b72;4d03d335;fa691a07;65100158,2019
+a4233a07,evolutionary biology,368ac66d;0bbe226b;3e1a0857,2020
+0336415d,bioinformatics,8f513786;98c4550a;897c0dd5;65100158;055bb072,1990
+0575e8a2,environmental modeling,fc53f8f9;4ebca397;d2474297;5cfec4af,2011
+f200f154,graph theory,8d3d4618;e74724a2;a0b13ed3,2022
+9302c5d3,computational linguistics,01d738ae;c372cb5e;0ed9aaf4,2015
+bb57f330,computational linguistics,a4233a07,2006
+2b280cb9,quantum computing,94ae86f6;4d60d90e;bb57f330;0bbe226b,2014
+24739bc0,quantum computing,6bb26ff7;01d738ae;22b1fb93,2002
+81921601,computational linguistics,4dd834ae;98c4550a,2002
+55aa11e0,cryptography,a0b13ed3;12d531a5;6bb26ff7;055bb072;275c4c6f,1998
+7c883580,graph theory,12d531a5;451a6c58;80125941;26b49673,2000
+b9343198,environmental modeling,21e5a8b6,2010
+406ed93b,neural networks,2ad397ab;22b1fb93;26b49673,2020
+1131ecec,neural networks,2bd13217;24739bc0,2020
+734c4b99,quantum computing,8bafacba,2013
+2ed68e59,evolutionary biology,e1d1ca20;0ddd3bf7;1adf50fe,1990
+dcde54cb,graph theory,4b17c2cc;7f1a0b84;86e265c7;a4233a07;dbba747c,2005
+6bb5ffac,evolutionary biology,86e265c7,2001
+2b00017d,environmental modeling,8bafacba;905bc7c2;e681c1a4,1995
+615167de,neural networks,01d738ae,2007
+942c77c4,environmental modeling,0bbe226b,1997
+5ad96d46,planetary geology,3fed0579;22b1fb93;605fa80e;fa691a07;bb637e50,2001
+bdfb9396,photonic crystals,430de0e2,1996
+e186bae2,graph theory,bce5ecd2;8f513786,2001
+f18d3b3b,computational linguistics,6bb26ff7;0ddd3bf7;56740307,2004
+4803cce4,environmental modeling,2fdc5672,2016
+01347ea4,material science,24739bc0;22b1fb93,2005
+ca650906,material science,7f1a0b84;21e5a8b6;26b49673,1990
+3f29e956,neural networks,4803cce4;22db8254;451a6c58;a4233a07;de381482,2006
+1943f507,neural networks,26b49673;bb57f330;ed9c963d;09f4940e,1991
+634c798e,digital humanities,4d147e49;c372cb5e;65100158;09f4940e;d2474297,2000
+90b12253,planetary geology,2b280cb9,2015
+266d7c79,computational linguistics,efce38ff;348620df;ed820df6,2017
+2d9c1b27,cryptography,e1d1ca20;734c4b99;8db05c21,2015
+d5adee5d,computational linguistics,ff3b173d;fa691a07;a926da26,2005
+7a612e7f,graph theory,5d8be6d7,1999
+aafd58b2,neural networks,01d738ae,2019
+12aece99,quantum computing,d2474297;c50b13d9;2ed68e59;90b12253,2012
+91555020,planetary geology,81c489f3;8f513786,1997
+34dafa5e,evolutionary biology,372f1993;c372cb5e;3f29e956,2011
+1bae4da8,digital humanities,68df0b72;554f04a9;81921601;34792c7d,2009
+7e3348c0,digital humanities,2d9c1b27;4443162d;6dbd40df;a926da26,2020
+d863ff28,photonic crystals,4803cce4;c8835004;81c489f3;6c902c70,2002
+4b9f4f7c,evolutionary biology,7a612e7f;9302c5d3;4dd834ae,2016
+336a7498,quantum computing,8d3d4618;734c4b99;5ad96d46;7a612e7f,2018
+54cd77ec,cryptography,87b4f827;6dbd40df,2022
+7084879c,cryptography,8f513786,1998
+dfdd65fc,graph theory,3e1a0857;1131ecec,2000
+2c3f1492,cryptography,5ad96d46;4d03d335;275c4c6f;901f7c77,2023
+d93ac61b,cryptography,055bb072,2005
+994136ca,photonic crystals,55aa11e0;4dd834ae;54cd77ec,2004
+d9881a74,computational linguistics,275c4c6f;56740307;5aa05050;ca650906,2000
+fb852b19,quantum computing,5ad96d46;1adf50fe,2018
+08b87aa6,evolutionary biology,615167de;22db8254;fa691a07;b2d9df6e;c372cb5e,1997
+8cedd540,evolutionary biology,651c2283;8bafacba;3fed0579,2008
+7d3a456f,material science,af6c54d7;1adf50fe;6bb5ffac;901f7c77,2021
+e3c74bb4,digital humanities,12aece99;1adf50fe,2023
+dd16ad5d,cryptography,94ae86f6;4443162d;bdfb9396;3e1a0857,2012
+a97fa40e,computational linguistics,2b280cb9;de381482,1999
+d0d0efb1,material science,bb637e50;2bd13217;fc53f8f9,2010
+a97805ae,planetary geology,9ccf0f05;de381482;01347ea4,2002
+f3bceb62,evolutionary biology,ed820df6,1990
+dde45ab6,photonic crystals,451a6c58;d5adee5d,2022
+a98b80b6,digital humanities,86e265c7;8d3d4618;a0b13ed3,2012
+ae140900,photonic crystals,aafd58b2,2000
+74fab387,material science,7a612e7f;266d7c79;98c4550a,2005
+5f70623f,environmental modeling,8db05c21,2018
+ee56d4a3,cryptography,4803cce4;8ae9a043;7d3a456f;20e96ae0;734c4b99,2021
+1a772ce9,quantum computing,bdfb9396;54cd77ec;f6a821dd;4b17c2cc;2d9c1b27,2000
+3ea92530,cryptography,e3c74bb4,2015
+0d07eeb5,quantum computing,dcde54cb;dac12876;98c4550a,2017
+c3c07ffc,material science,09f4940e;d9881a74;2e24eb17;7a612e7f,2012
+760ab120,photonic crystals,21e5a8b6;0ddd3bf7;651c2283;942c77c4,1990
+1b61e1ee,cryptography,8bafacba;7d3a456f;56740307,1990
+f7775a13,digital humanities,4d60d90e;451a6c58;ff3b173d,2005
+aa271a6f,neural networks,eb95d640;7f1a0b84;34dafa5e;b0257079;4e2f76d1,1990
+d33640d6,environmental modeling,0bbe226b,2021
+3b5e1a1c,evolutionary biology,d0d0efb1,1997
+e9a780c4,bioinformatics,d0d0efb1;22db8254;897c0dd5;6bb5ffac,2010
+ee264175,photonic crystals,2d9c1b27;1b61e1ee;49a82f3d;2b280cb9;7d3a456f,2004
+32ae08fa,evolutionary biology,56e28d2b;bce5ecd2;ca650906;aafd58b2;905bc7c2,2006
+4dc3e5f9,graph theory,87b4f827,2004
+50fc55f3,photonic crystals,eb95d640,2013
+eead67d1,material science,0575e8a2;9302c5d3;c50b13d9;bb637e50;ca650906,1993
+e16438f0,quantum computing,4443162d;5cfec4af;5d8be6d7,2003
+73bfd4c3,quantum computing,a97805ae;b2d9df6e;01d738ae;0d07eeb5;aafd58b2,1995
+271d7f7b,quantum computing,56740307;942c77c4,2010
+bb6b4abd,bioinformatics,80125941;54cd77ec;fa691a07;6c902c70,2008
+1801c3ef,digital humanities,cdbceee0;90b12253;9ccf0f05;b9343198;8bafacba,2007
+e39b8bc7,bioinformatics,897c0dd5;80125941;50fc55f3;0d07eeb5,2010
+a6d9167d,evolutionary biology,4e2f76d1,1999
+d999d268,material science,430de0e2;6c902c70;0d07eeb5,2008
+1a2f72ca,digital humanities,5cfec4af;ff3b173d,2010
+53f1ad03,neural networks,406ed93b,2016
+64c417f5,neural networks,7d94f236;4d147e49;3a4eedd5,2011
+e28deab4,environmental modeling,0575e8a2;bdfb9396;dfdd65fc;2c3f1492,2003
+de61d9c5,material science,bb57f330,2020
+c9ff5a1c,bioinformatics,760ab120;e681c1a4;1131ecec;4dd834ae,2005
+5814a929,cryptography,26b49673,1999
+dde6cb66,graph theory,d0d0efb1;b2040ca8;1bae4da8;8886624a,1992
+4304ea38,neural networks,2fdc5672;de61d9c5,2017
+952afec9,evolutionary biology,b2d9df6e,2003
+4e20a518,computational linguistics,8ae9a043;de381482;651c2283;942c77c4,1994
+47d7be89,bioinformatics,4ebca397;9ccf0f05;734c4b99;d93ac61b,2005
+421aaabc,digital humanities,a0b13ed3;4b9f4f7c;623ec2ec,2007
+a14f0437,cryptography,53f1ad03,2000
+6d50784a,evolutionary biology,0575e8a2;e3c74bb4,1992
+f7a7a0e2,digital humanities,aafd58b2;d9881a74;4b9f4f7c;3fed0579;08b87aa6,2015
+10a161cb,planetary geology,368ac66d;f3bceb62;53f1ad03;c9ff5a1c,1994
+58c92211,material science,47d7be89;e74724a2,2016
+ebfc1887,cryptography,7d94f236;f200f154;00e9c157;0575e8a2,2012
+6449bc70,cryptography,d93ac61b;a98b80b6;2b00017d,2005
+036f4bcf,material science,8cedd540;cdbceee0;2ed68e59;1bae4da8,2013
+a5e81404,material science,1b61e1ee;01d738ae;eb95d640;1131ecec,2003
+ca867708,graph theory,bb57f330,1995
+abe04455,quantum computing,9302c5d3;dde6cb66;7d94f236,2010
+f84e4d97,environmental modeling,3fed0579;a97fa40e;eb95d640,2014
+01931073,photonic crystals,e74724a2;975b7b24;d33640d6,2006
+7e5a2168,planetary geology,6d50784a;c50b13d9;7084879c,1991
+b60db20f,material science,ddee0093;d0d0efb1;4d60d90e;1a2f72ca;86e265c7,2010
+830db190,environmental modeling,98c4550a,2016
+f3c8217d,quantum computing,c9ff5a1c,1994
+071c8df1,material science,2d9c1b27,2022
+151b2eda,evolutionary biology,897c0dd5,1995
+4ddc57b5,planetary geology,dde45ab6;21e5a8b6;c3c07ffc,1997
+c118699b,material science,4d60d90e,2008
+5008fd35,graph theory,6d50784a;bce5ecd2;08b87aa6;275c4c6f,1993
+85f7fcd0,computational linguistics,7a612e7f;0336415d,2023
+786e789d,evolutionary biology,a4233a07;24739bc0;80125941,1994
+4313cb4d,photonic crystals,1bae4da8,2018
+da4dc5b3,planetary geology,1b61e1ee;f18d3b3b;32ae08fa;952afec9;68df0b72,2001
+5567d1c3,quantum computing,8cedd540;554f04a9;b982ad22,1998
+51d6ece3,quantum computing,fa691a07;94ae86f6,2018
+6c09848c,material science,f3c8217d,1998
+77ee2089,planetary geology,10a161cb;942c77c4;eead67d1;bb57f330,1998
+8b8f64ec,computational linguistics,32ae08fa;7d3a456f;0bbe226b;b1b216d3,2015
+dbe91834,neural networks,49a82f3d,1995
+c2ff2559,neural networks,74fab387;08b87aa6;a97805ae;dbba747c,2003
+7329d33f,cryptography,bb6b4abd;aa271a6f;dd16ad5d,1991
+04482ed9,graph theory,56740307,1991
+97d796b9,neural networks,de381482;830db190,1991
+35a28adc,planetary geology,09f4940e;dde45ab6,2014
+391beb5b,digital humanities,055bb072;2ed68e59;4b17c2cc;2fdc5672;10a161cb,1991
+f9ce8fa9,evolutionary biology,de61d9c5;1801c3ef;cdbceee0;2e24eb17,1990
+0f9a0c8c,neural networks,8cedd540;5008fd35;a97fa40e;c8835004;a98b80b6,2018
+dfa5b06d,photonic crystals,8d3d4618;7e3348c0,2023
+c7ddbce8,bioinformatics,dd16ad5d,2003
+943e0b6c,quantum computing,da4dc5b3;85f7fcd0;e16438f0;3a4eedd5;81c489f3,2019
+ea195df7,graph theory,6bb5ffac;50fc55f3;8f513786;34dafa5e,1990
+36f2b513,photonic crystals,87b4f827,1990
+4d3064f0,computational linguistics,897c0dd5;f9ce8fa9;a97805ae;8bafacba;ee264175,2004
+831936d1,computational linguistics,8f513786;dfdd65fc,1999
+293be96e,graph theory,9302c5d3;4443162d,1994
+f0cb81e6,photonic crystals,35a28adc;634c798e;3a4eedd5;bb6b4abd,2022
+2e53c9d5,digital humanities,8d3d4618;2e24eb17;943e0b6c;abe04455,2023
+6103bcbc,evolutionary biology,5f70623f;2c3f1492;151b2eda;f18d3b3b,2007
+8bfbcf9d,quantum computing,49a82f3d;ee264175;7084879c;f6e2ef4d;651c2283,1992
+7f977e91,planetary geology,2e24eb17;554f04a9,1998
+f6773e87,photonic crystals,f6e2ef4d;8bafacba;80125941,1999
+5838d62b,material science,54cd77ec;6d50784a,2016
+efabbdcf,digital humanities,5aa05050;554f04a9,2006
+0b8b67d0,computational linguistics,5814a929;80125941,1991
+8c2eb87a,evolutionary biology,22b1fb93;dfdd65fc,1995
+477038e9,environmental modeling,0336415d;74fab387;0ed9aaf4;d33640d6,1993
+7c1f7f2e,digital humanities,4d60d90e;f9ce8fa9;74fab387;53f1ad03,1995
+0189e962,neural networks,81c489f3;7f1a0b84,2000
+cdb1ddd4,neural networks,c3c07ffc;391beb5b,2002
+c99d0d5b,photonic crystals,e74724a2;b60db20f;8ae9a043;dcde54cb,2020
+600022e2,cryptography,897c0dd5;975b7b24;f7a7a0e2,2007
+8fea2105,cryptography,9302c5d3,1997
+24d1db9e,digital humanities,f84e4d97;da731080;1a2f72ca,2012
+25f0d107,computational linguistics,2e24eb17,2000
+cd7e9d85,computational linguistics,ddee0093;5aa05050;271d7f7b;651c2283,2003
+a81784a6,material science,975b7b24;b9343198;32ae08fa,2005
+4d93544c,photonic crystals,b2040ca8;4d147e49;421aaabc;0f9a0c8c;bdfb9396,2019
+447a7b61,environmental modeling,4d3064f0;c7ddbce8;4443162d;ee264175;0189e962,2001
+7d8a9e08,quantum computing,09f4940e;8db05c21;1bae4da8;af6c54d7,1998
+95be610f,graph theory,54cd77ec;1131ecec,2006
+651fb3c1,planetary geology,5aa05050;e16438f0;275c4c6f;81921601,2018
+7cd56830,material science,4d03d335;34dafa5e;1131ecec,2005
+1a458d0a,planetary geology,805077b4;275c4c6f;dac12876,2022
+d2c9bcae,evolutionary biology,f6e2ef4d,2011
+d13f4e24,evolutionary biology,81921601;d93ac61b;942c77c4,2023
+d9b30735,quantum computing,8c2eb87a;c2ff2559;6bb5ffac;391beb5b;de61d9c5,1999
+d6659df1,environmental modeling,7cd56830;7d3a456f;055bb072,2006
+4f7e0fc1,graph theory,85f7fcd0,2020
+5b279175,photonic crystals,e74724a2;87b4f827,2018
+5c2f2a9f,photonic crystals,f6a821dd;4dc3e5f9;7e3348c0;055bb072;e3c74bb4,2014
+837eda2e,photonic crystals,a0b13ed3;b9343198;4d147e49;4f7e0fc1,1998
+baf3d99d,cryptography,6103bcbc;56740307,2002
+927f7f21,photonic crystals,d863ff28;8886624a;98c4550a;623ec2ec,2010
+1abcc1d4,cryptography,d999d268;8886624a;a4233a07,2012
+d27f7535,digital humanities,36f2b513;dfa5b06d;98c4550a,2022
+f7f34809,computational linguistics,6103bcbc;4dd834ae;d5adee5d;c50b13d9,1996
+3aa8ac51,evolutionary biology,0bbe226b;e16438f0,1991
+c0788731,photonic crystals,97d796b9,2010
+9dd14f4f,bioinformatics,4b9f4f7c;d9b30735,1998
+6ee28216,graph theory,0ddd3bf7,2015
+0b3f7860,graph theory,af6c54d7;d2c9bcae;942c77c4;3e1a0857,2000
+535b22c9,planetary geology,c8835004;94ae86f6;f9ce8fa9;4e20a518;ca867708,1997
+4da531d3,cryptography,605fa80e,2001
+05bf7e33,cryptography,d9b30735;dd16ad5d;1a458d0a,2021
+9940a7f1,graph theory,6449bc70,1997
+38bc3565,bioinformatics,94ae86f6;8d3d4618;b0257079,1999
+63b8ad0c,evolutionary biology,3f29e956;fb852b19;a81784a6;7cd56830,2023
+9c8da83f,neural networks,4dd834ae;bb57f330;8bfbcf9d;554f04a9;7e3348c0,1996
+07d78359,environmental modeling,4d3064f0;80125941;3aa8ac51,2018
+507b5b48,digital humanities,12d531a5;47d7be89;20e96ae0,2009
+65899cd9,computational linguistics,734c4b99;0b3f7860;dfdd65fc,2018
+2a177449,photonic crystals,5b279175;5814a929;bb57f330,1995
+bd131f6b,evolutionary biology,0d07eeb5;3f29e956;d999d268;85f7fcd0,2002
+71d60c82,environmental modeling,348620df;22b1fb93;4b17c2cc;e3c74bb4;651c2283,2019
+98b83b14,evolutionary biology,1131ecec,1995
+4c87db57,quantum computing,0f9a0c8c;5cfec4af,1996
+f87b4c75,environmental modeling,615167de;8fea2105,1991
+a3995b22,cryptography,34dafa5e;5838d62b;dac12876,2004
+a2fcb390,digital humanities,0ed9aaf4;d93ac61b;8886624a;9c8da83f,2012
+f6551253,material science,266d7c79,1993
+158b43a5,neural networks,d93ac61b,2001
+479f7627,digital humanities,5ad96d46;98b83b14;071c8df1,2009
+7e5fe95f,planetary geology,d2474297;1adf50fe;897c0dd5;2d9c1b27,2019
+731f38f9,planetary geology,98b83b14,2012
+b2714bb8,photonic crystals,08b87aa6;942c77c4;905bc7c2;830db190,1994
+7c8de759,photonic crystals,7e5a2168;f200f154;c118699b;95be610f;f6551253,2002
+2e55d6ba,environmental modeling,151b2eda;336a7498;ed820df6,2007
+622a741c,evolutionary biology,897c0dd5;54cd77ec;c9ff5a1c;cdbceee0;554f04a9,2011
+1b716149,graph theory,2b00017d;91555020;3ea92530,2011
+9748884f,evolutionary biology,5b279175;a98b80b6;abe04455;34792c7d;d33640d6,1996
+2bdf6f2e,quantum computing,1a2f72ca;622a741c,2021
+78f10c96,quantum computing,837eda2e;336a7498;91555020;a926da26;ff3b173d,2019
+b22b4f54,neural networks,901f7c77;85f7fcd0;dfa5b06d,2018
+49428ac6,evolutionary biology,09f4940e;56740307;623ec2ec;efce38ff;32ae08fa,1990
+71675cd6,photonic crystals,d9b30735,2011
+cad19a60,environmental modeling,9302c5d3;7cd56830;dfa5b06d;905bc7c2;975b7b24,2009
+98ccbe27,neural networks,54cd77ec;a14f0437;d13f4e24;535b22c9,2022
+bae9b666,bioinformatics,53f1ad03;2fdc5672;3ea92530;ea195df7,1996
+b99307ef,neural networks,ebfc1887;86e265c7;430de0e2;905bc7c2;2bd13217,2007
+9c9c449d,material science,dbba747c;4e2f76d1,2003
+6e110634,evolutionary biology,d2474297;51d6ece3;0d07eeb5;5567d1c3;f3c8217d,1995
+c8f38c4c,graph theory,fa691a07;04482ed9;b22b4f54;1a458d0a;f6773e87,2014
+923a657b,planetary geology,535b22c9;f84e4d97;036f4bcf,2013
+d97c38c2,graph theory,aafd58b2;994136ca,2023
+53c8a183,neural networks,071c8df1;477038e9;65100158,2021
+7b4f84bc,digital humanities,5b279175;7e3348c0;266d7c79;6449bc70;dde6cb66,2015
+32e4320c,digital humanities,e9a780c4;c8835004,2009
+dc062385,quantum computing,e39b8bc7,2016
+87ddfc42,bioinformatics,4d03d335;b9343198;6dbd40df,2021
+de446ce8,graph theory,b9343198;98c4550a;d863ff28;7d8a9e08;bb6b4abd,2009
+5a02dcca,neural networks,651c2283;85f7fcd0;65100158;d2c9bcae;77ee2089,1993
+310e8c90,neural networks,d5adee5d,2016
+681cb8cb,digital humanities,f6a821dd;4ddc57b5,2008
+6792de87,planetary geology,e28deab4;f6551253;80125941;0ed9aaf4;d5adee5d,1990
+31af81b5,quantum computing,271d7f7b;0336415d;af6c54d7,1995
+45a1970d,computational linguistics,5a02dcca;65100158;26b49673,2016
+b79e0c39,cryptography,5814a929;451a6c58;447a7b61;1abcc1d4;8fea2105,2016
+12b9a750,planetary geology,b60db20f;10a161cb;e186bae2;c99d0d5b;2fdc5672,2014
+9927da90,bioinformatics,554f04a9;bb6b4abd;04d6af4e,1993
+fe0a8d23,cryptography,634c798e;8cedd540;01d738ae,2016
+730115e8,material science,975b7b24;336a7498;b79e0c39,1994
+cde5b9d2,photonic crystals,6449bc70;71d60c82;ca650906,2015
+b08dbef0,bioinformatics,4ddc57b5;ed820df6;7e3348c0;4da531d3,2014
+f9bae397,photonic crystals,9302c5d3;1801c3ef,2000
+501b81c6,evolutionary biology,a926da26;97d796b9,2009
+d7cca12a,material science,abe04455;cad19a60;2fdc5672;293be96e,2022
+4b8d0784,environmental modeling,5c2f2a9f;65100158,2018
+de774324,evolutionary biology,55aa11e0;90b12253,1999
+474a9e99,graph theory,2b280cb9;3b5e1a1c;7d8a9e08;7f977e91;05bf7e33,1994
+ce43f5d4,photonic crystals,af6c54d7,2023
+4a876ca6,photonic crystals,fe0a8d23;34dafa5e,2000
+5756fca1,photonic crystals,e1d1ca20;c9ff5a1c;de446ce8,2014
+0f9d8e22,evolutionary biology,c7ddbce8;e39b8bc7;151b2eda;1b716149,2011
+17fb9d2d,digital humanities,cdb1ddd4;6e110634,2006
+e7eec0bd,computational linguistics,474a9e99;4313cb4d;78f10c96,2009
+d6b80b7d,photonic crystals,897c0dd5;d2c9bcae;5c2f2a9f;04d6af4e,1995
+3242218c,planetary geology,4dd834ae;2d9c1b27;1bae4da8;071c8df1;7b4f84bc,1994
+c73a0541,graph theory,e7eec0bd;ee264175;efce38ff;623ec2ec;2ad397ab,2016
+608490f2,quantum computing,21e5a8b6;605fa80e;47d7be89;d999d268;2b280cb9,2015
+14ac8cc3,material science,275c4c6f;a5e81404;f7a7a0e2;dde6cb66,1995
+4dc9b8d5,photonic crystals,830db190;6e110634;ae140900;b2040ca8;7cd56830,2003
+d7f082bd,computational linguistics,0b8b67d0;5814a929,2020
+5f15f574,digital humanities,901f7c77;554f04a9;ca650906;45a1970d,1995
+5026bee9,digital humanities,fc53f8f9,1992
+24f3f1dc,cryptography,5a02dcca;47d7be89;5b279175,1999
+f06f2a9f,evolutionary biology,5a02dcca;6e110634;2b00017d;5008fd35,1990
+c8a1e760,digital humanities,5567d1c3;09f4940e,2001
+d6c7e505,quantum computing,3aa8ac51;275c4c6f;ddee0093;6103bcbc;ee264175,2003
+124f3919,quantum computing,f0cb81e6;d0d0efb1,2007
+49606bf2,evolutionary biology,07d78359;e1d1ca20;4304ea38;f6e2ef4d,2000
+97865c43,cryptography,af6c54d7;e1d1ca20;efce38ff;535b22c9,2020
+8ea8eb2c,planetary geology,c50b13d9;8d3d4618;22b1fb93;dfdd65fc;5008fd35,1998
+ca303472,planetary geology,447a7b61;6ee28216;3fed0579;f7a7a0e2;ea195df7,2021
+f24ca746,bioinformatics,7a612e7f;4d93544c;608490f2,1995
+13fabc74,neural networks,3242218c;5d8be6d7;368ac66d,2021
+dfcc01a3,planetary geology,975b7b24;d2474297;b1b216d3;2e55d6ba;734c4b99,2001
+9c1b2516,cryptography,e74724a2;f6e2ef4d;dde45ab6,2019
+fe00397d,cryptography,a14f0437;fb852b19;9c1b2516;64c417f5,2004
+949e0235,evolutionary biology,aafd58b2;f9bae397;3f29e956;7d94f236,1996
+38833db1,photonic crystals,730115e8,2006
+46aa5797,computational linguistics,5d8be6d7,2011
+b995126a,graph theory,1a458d0a,2000
+0c208289,graph theory,5008fd35;1943f507;923a657b;1a772ce9,2002
+39394a28,computational linguistics,f7775a13;5008fd35;cad19a60,2018
+2bd31928,cryptography,786e789d;247de265,2016
+f26d9918,photonic crystals,651fb3c1;7cd56830;3fed0579;bb6b4abd,1990
+aee4af89,graph theory,eb95d640;dcde54cb,2023
+b705749d,evolutionary biology,ce43f5d4;8ae9a043,2016
+4092b252,photonic crystals,1a458d0a;65899cd9;b995126a,2019
+e6f0c66b,digital humanities,74fab387;e74724a2;b982ad22;275c4c6f,2007
+f8786906,environmental modeling,406ed93b,1992
+9229b952,planetary geology,77ee2089;4dc3e5f9,2000
+1f84dac1,environmental modeling,b705749d;a98b80b6;8b8f64ec;4e2f76d1;6d50784a,2000
+5fccc521,computational linguistics,d6b80b7d;4a876ca6;474a9e99;952afec9,2016
+3d2a8f12,material science,aa271a6f,1999
+650337c1,digital humanities,e28deab4;13fabc74;310e8c90;923a657b;d7cca12a,2015
+e672c982,digital humanities,9940a7f1;275c4c6f;ca650906;73bfd4c3,2020
+d42f20b2,quantum computing,22db8254,1992
+ce28bdf6,environmental modeling,f18d3b3b,2021
+cd33670c,environmental modeling,942c77c4;5f70623f;d7f082bd;3ea92530,2008
+e0f18b9a,environmental modeling,22db8254;730115e8,2004
+97d2b82a,graph theory,071c8df1,1996
+07fb3646,quantum computing,fc53f8f9;756be6f5,2009
+ecf7575e,bioinformatics,f8786906;13fabc74;5008fd35;f3bceb62;406ed93b,2012
+8d8f3f2e,cryptography,5a02dcca;786e789d;07d78359,2013
+cd9f8e74,environmental modeling,51d6ece3;1abcc1d4;7e5fe95f;5838d62b;b1b216d3,2021
+0625cae5,neural networks,3ea92530;34dafa5e;3d2a8f12;efabbdcf,2013
+3cc3a695,planetary geology,c3c07ffc;de774324;dde45ab6,2006
+521285ab,cryptography,4443162d,1995
+97bf605c,evolutionary biology,81c489f3;36f2b513;2c3f1492;3cc3a695;0ddd3bf7,2012
+cc2ee3a9,graph theory,430de0e2;897c0dd5,2006
+7900cdf4,graph theory,1bae4da8;bd131f6b;ca303472,1994
+d06c8e5a,bioinformatics,a81784a6;479f7627;c8835004,2023
+f2850fcb,computational linguistics,7e5a2168;e3c74bb4;901f7c77;cd33670c,2003
+fd692724,planetary geology,8cedd540;4dc3e5f9;de446ce8;4b9f4f7c,2005
+0551b4f6,quantum computing,3ea92530;d13f4e24;036f4bcf,2018
+03642f12,quantum computing,b60db20f;9c1b2516;ce28bdf6;2bd13217,1995
+5c54a86d,graph theory,6c902c70;56740307;fb852b19;dfa5b06d;1a458d0a,2006
+076b154e,evolutionary biology,5c2f2a9f;dbe91834;b2d9df6e,2005
+ad89785a,environmental modeling,34792c7d;dd16ad5d;13fabc74;905bc7c2;e39b8bc7,1994
+d99cb38e,neural networks,cad19a60,2011
+afb47c2d,neural networks,da4dc5b3;97865c43;24f3f1dc;12d531a5,2001
+38ca74e5,cryptography,94ae86f6;5c2f2a9f;a926da26;da4dc5b3;1bae4da8,2012
+22a48a69,environmental modeling,dfdd65fc;9c8da83f,2014
+fb2dd69d,graph theory,1131ecec;507b5b48;f26d9918,1998
+b0c33574,neural networks,6bb5ffac;f06f2a9f;1b716149,1996
+f4abbbb6,bioinformatics,4dc3e5f9,1997
+c8814381,photonic crystals,2e24eb17;0bbe226b;3f29e956,2018
+a62b0b03,environmental modeling,b0c33574;ee56d4a3,2017
+aa4d50bb,material science,275c4c6f;1131ecec;e1d1ca20;650337c1;507b5b48,2021
+290bae2f,digital humanities,076b154e,2020
+4ebc7c47,planetary geology,de61d9c5;24f3f1dc;ee56d4a3,1996
+c6c8bce6,evolutionary biology,5a02dcca;4d03d335;c9ff5a1c;9940a7f1,2022
+53e469e9,material science,760ab120;c9ff5a1c;51d6ece3;04d6af4e;08b87aa6,2010
+61448fc7,computational linguistics,e74724a2;dde45ab6;49a82f3d;b982ad22,2009
+af378720,bioinformatics,22a48a69;d97c38c2,2011
+39c50451,bioinformatics,0f9a0c8c;4c87db57;90b12253,1996
+eaff58d3,bioinformatics,3fed0579;e7eec0bd;de61d9c5;ecf7575e,2018
+3481a4b1,material science,efabbdcf;4b8d0784;97bf605c,2007
+617c8acf,material science,da4dc5b3;2e53c9d5;b2040ca8;05bf7e33;158b43a5,1991
+b93c658c,material science,071c8df1;eaff58d3;87ddfc42,2016
+5500861c,bioinformatics,ae140900;f06f2a9f;4d3064f0;8f513786,1998
+51ed5850,photonic crystals,c8a1e760,2008
+0272ebe2,photonic crystals,3aa8ac51,1994
+0ac8a49c,neural networks,124f3919;51ed5850;e9a780c4;f8786906,2009
+eb357618,planetary geology,09f4940e,2001
+0f4aeccb,neural networks,5cfec4af;c8814381;756be6f5,1993
+b9f7b9d5,neural networks,ee264175;8d3d4618;837eda2e;8ae9a043,1996
+31a7a82c,graph theory,3e1a0857;14ac8cc3;805077b4,2019
+3cbed8b4,evolutionary biology,47d7be89;2bdf6f2e;8f513786;b60db20f;9229b952,2012
+7eabd67d,graph theory,0d07eeb5;348620df,2006
+d1daa702,photonic crystals,b1b216d3;13fabc74;9c1b2516;310e8c90;fa691a07,1997
+278d3936,graph theory,dde6cb66;09f4940e;430de0e2;bd131f6b;fe00397d,2022
+3ed729ff,material science,7900cdf4;554f04a9,2021
+59f02313,environmental modeling,32ae08fa;6bb5ffac;f24ca746,2008
+90bfba94,digital humanities,ff3b173d;38833db1;f9ce8fa9,2000
+0147f85e,quantum computing,430de0e2;1a458d0a,1992
+e7b6a9b2,environmental modeling,1131ecec,1994
+a506665a,neural networks,d42f20b2,2017
+59323a45,quantum computing,13fabc74;c8814381;fb852b19,2018
+f639d86a,photonic crystals,ca867708;38ca74e5,1999
+2d43b44c,digital humanities,2b280cb9;158b43a5,1990
+6c47c05f,photonic crystals,fe00397d;f7f34809,2009
+ff4e3422,quantum computing,ddee0093;51d6ece3;f84e4d97,2023
+476d0c66,neural networks,e9a780c4;7e3348c0;ad89785a,2009
+3d1024bb,bioinformatics,04482ed9,2008
+9cdf5c77,bioinformatics,fd692724;ed820df6,2007
+d50749c7,graph theory,4dc3e5f9;151b2eda;10a161cb,2007
+5631cd8f,evolutionary biology,fe0a8d23,1998
+85c7de99,quantum computing,a2fcb390;ed9c963d;b79e0c39;f9bae397;97bf605c,1993
+bd17e8c1,environmental modeling,01347ea4;6c09848c;4da531d3;d06c8e5a,2014
+827b4322,neural networks,d2474297;d6c7e505,2018
+b1e8e6f5,quantum computing,479f7627;a6d9167d;8cedd540,1992
+e47a9188,evolutionary biology,85f7fcd0;0575e8a2;d99cb38e;447a7b61;97865c43,2011
+515e194a,evolutionary biology,98c4550a;4dd834ae,1990
+f4b33f60,cryptography,2fdc5672,2001
+7875dca3,photonic crystals,d863ff28;975b7b24;b9343198,1998
+02e5e209,evolutionary biology,036f4bcf;837eda2e;dbba747c;2d9c1b27,2019
+f01fe9d5,digital humanities,734c4b99;e1d1ca20;51ed5850,1997
+9d2a9fb7,bioinformatics,4313cb4d;ad89785a;f26d9918;5aa05050,1994
+49a54cec,quantum computing,2ad397ab;2bd31928;25f0d107;f4abbbb6;036f4bcf,1996
+3607dddb,digital humanities,0625cae5;98b83b14;6d50784a;dfa5b06d;3b5e1a1c,2006
+0be513c8,environmental modeling,da731080;4d03d335;aa4d50bb;927f7f21,2023
+03fe9991,computational linguistics,b995126a;5026bee9;4304ea38,2004
+66e5b194,digital humanities,01d738ae;97d796b9;9c8da83f;8b8f64ec,2000
+cb85cb10,environmental modeling,1b716149,2019
+ae743ef4,evolutionary biology,49428ac6,2009
+285cb3b9,graph theory,36f2b513;f24ca746;74fab387;071c8df1;4d147e49,2008
+6e29cb4d,photonic crystals,1943f507;c8835004;158b43a5;285cb3b9,2008
+c58f8f70,bioinformatics,b79e0c39;5026bee9;7d8a9e08,2017
+4cb84bde,graph theory,81921601,2000
+ce57a5d0,environmental modeling,f3c8217d;ca303472;eb357618;266d7c79;f6e2ef4d,2013
+0e426c86,digital humanities,0be513c8;b79e0c39,2018
+49e4d481,photonic crystals,1b61e1ee;6792de87;1131ecec;831936d1,1999
+cdab69a3,digital humanities,0625cae5;32ae08fa;56e28d2b,1994
+8c2e7646,planetary geology,98b83b14;8c2eb87a;515e194a,2020
+eeae9bbd,photonic crystals,5f70623f;65899cd9;451a6c58;e6f0c66b,2002
+dbabd724,material science,77ee2089;58c92211,2019
+ba37b2f9,planetary geology,4ebca397;ee264175,2004
+d0bd6133,neural networks,ca867708;1131ecec,2015
+70eb2ff2,bioinformatics,ca650906,2012
+fccd3a78,digital humanities,ecf7575e;90b12253;af6c54d7,2021
+7caa4af5,bioinformatics,554f04a9;0ddd3bf7;c372cb5e,2012
+531d9909,photonic crystals,ee264175;8d8f3f2e;5008fd35,2018
+5eeb228b,neural networks,4d60d90e;80125941;fa691a07;e47a9188,1992
+40683d5e,digital humanities,cb85cb10;cad19a60,2006
+15e8f6d4,computational linguistics,0be513c8;74fab387;c6c8bce6;9302c5d3;3b5e1a1c,2009
+0e7fa6c3,bioinformatics,b60db20f;20e96ae0;4b17c2cc;3f29e956,1995
+b20ebd19,environmental modeling,dbe91834;2ad397ab,1997
+014b8d0f,planetary geology,2d9c1b27;c372cb5e;d99cb38e;5d8be6d7;827b4322,1992
+fbbe92c3,environmental modeling,451a6c58,1992
+b39ce61b,photonic crystals,b2d9df6e,2002
+7872ca62,neural networks,430de0e2;b39ce61b;ed9c963d;e74724a2;afb47c2d,2017
+347040a5,material science,8c2eb87a;98c4550a;e6f0c66b,1999
+9de67d22,cryptography,8c2eb87a;d7cca12a;4d3064f0;baf3d99d;6103bcbc,1993
+01fb19fb,quantum computing,622a741c;0ddd3bf7;94ae86f6;734c4b99;8d3d4618,2007
+1350a597,digital humanities,a14f0437;2a177449;da731080,2007
+3ffc0780,planetary geology,10a161cb;2ed68e59,2016
+3fe43866,cryptography,b08dbef0;fbbe92c3,1993
+67341aa8,quantum computing,ed820df6;756be6f5;d7f082bd;f639d86a,2009
+a2d0046f,digital humanities,0575e8a2,2019
+de070069,photonic crystals,f6a821dd,1990
+515eb949,photonic crystals,271d7f7b;40683d5e;f8786906,2008
+5e6b5dd4,quantum computing,31af81b5;650337c1;81921601;dbabd724;ca303472,1997
+13ad25c9,graph theory,d99cb38e;7084879c;6449bc70;7c8de759,2020
+07db0bea,digital humanities,f6773e87;447a7b61,2017
+d018d708,quantum computing,24f3f1dc,1998
+4c1fbf9d,cryptography,827b4322;bb57f330;4b9f4f7c,1995
+57700c90,neural networks,8c2eb87a,2010
+83e59651,computational linguistics,4a876ca6,2013
+8e2fed8f,quantum computing,623ec2ec;3481a4b1;a97fa40e;e7eec0bd,2007
+6139bbc9,material science,f26d9918;dcde54cb;6e110634;700736fd,2000
+2e9b99d5,digital humanities,f18d3b3b;d6c7e505;f2850fcb;08b87aa6,2020
+7ea75825,digital humanities,f6773e87;cdab69a3;eb95d640;c58f8f70;a97fa40e,1995
+598404f2,quantum computing,afb47c2d,2010
+32845647,bioinformatics,1943f507;7f977e91,2016
+fef38c51,quantum computing,7e5a2168;5631cd8f,1996
+a282389d,environmental modeling,38ca74e5;f2850fcb;8fea2105;b705749d,2016
+7d7be764,neural networks,615167de;4c87db57,2016
+cf680e13,photonic crystals,9302c5d3;e16438f0,2005
+c5f5863e,cryptography,1a772ce9;3b5e1a1c;de070069;f06f2a9f;293be96e,2022
+0aafd8a5,graph theory,6c902c70;5aa05050;97d796b9;cde5b9d2;0b8b67d0,2006
+74c0e8fe,evolutionary biology,8d3d4618;7f1a0b84;f4abbbb6;de070069,2008
+4e047777,graph theory,4092b252;0575e8a2;f4abbbb6,2017
+ff21c8ad,bioinformatics,61448fc7;39c50451;1943f507,2009
+7b2d0e1a,graph theory,65899cd9,2018
+a0b5f912,environmental modeling,01931073,2015
+d321e5f5,evolutionary biology,4a876ca6;55aa11e0;6dbd40df;3b5e1a1c;923a657b,1999
+9acd0cc8,planetary geology,f4abbbb6;8db05c21;4313cb4d;dde6cb66,2012
+34caa59f,cryptography,897c0dd5;bd131f6b,1993
+a6abf489,environmental modeling,ba37b2f9,2002
+2aca9456,environmental modeling,837eda2e;a4233a07;e9dc1055,1991
+63b60a2c,bioinformatics,13fabc74;cc2ee3a9;5838d62b,1999
+13a8cb00,planetary geology,3ea92530;67341aa8;5aa05050,2006
+ec0d21f9,cryptography,8f513786;ba37b2f9;14ac8cc3;952afec9,2000
+e7ef3a02,neural networks,275c4c6f;4d60d90e;f8786906,1990
+46fa28b2,quantum computing,310e8c90;0ed9aaf4;dbabd724;2aca9456;f06f2a9f,2000
+e93067c7,cryptography,fe0a8d23;f01fe9d5;54cd77ec;a4233a07,2016
+814ec0e6,environmental modeling,09f4940e;d6b80b7d,2021
+16c6c8e2,digital humanities,7d7be764;897c0dd5;4e2f76d1;730115e8,2016
+5c84fb61,cryptography,dcde54cb;8bfbcf9d;ed820df6,2001
+00efe146,material science,975b7b24,1997
+08f92242,computational linguistics,3d2a8f12;a4233a07,2001
+77b78d8a,neural networks,02e5e209;b79e0c39,1995
+b360b714,bioinformatics,3d1024bb;81921601;ce43f5d4;4092b252,1999
+2edf3f86,graph theory,5f15f574;4dc9b8d5;430de0e2;1943f507,1997
+35f22e70,cryptography,68df0b72;3242218c;6dbd40df;bae9b666,1997
+3207837d,bioinformatics,d6659df1;a98b80b6,2010
+1f4071aa,environmental modeling,50fc55f3;9ccf0f05;a98b80b6;35a28adc;fccd3a78,2018
+3ca034c0,evolutionary biology,b982ad22;2edf3f86;b9f7b9d5;0189e962;81c489f3,2006
+a15dde82,digital humanities,4304ea38,2000
+ca22e496,quantum computing,151b2eda;285cb3b9;80125941;368ac66d;4d93544c,2017
+ea025302,computational linguistics,9927da90;07fb3646;91555020;3e1a0857;a0b13ed3,2015
+f41c45fb,bioinformatics,22db8254,2009
+d45c43ee,material science,3d1024bb,2010
+4160aab1,computational linguistics,a6abf489;ff4e3422;39c50451;f4abbbb6;95be610f,1990
+875f6fdb,computational linguistics,61448fc7;07d78359;56e28d2b;f18d3b3b;d6c7e505,2009
+1dd028c0,photonic crystals,94ae86f6;57700c90;e0f18b9a;d2474297,2016
+2785c5a1,computational linguistics,5eeb228b;3d1024bb;c5f5863e;34caa59f,2005
+174e8579,material science,f9ce8fa9;5026bee9;814ec0e6;53e469e9,1996
+a2400c9a,bioinformatics,63b60a2c;1adf50fe;a4233a07;7ea75825;4160aab1,2003
+e18a794f,environmental modeling,d06c8e5a;f9ce8fa9;fe0a8d23;9748884f;4b8d0784,2022
+e8a73632,quantum computing,071c8df1;ce57a5d0,2022
+ca5349e6,bioinformatics,dcde54cb;aa4d50bb,2010
+dcfe4910,graph theory,f7775a13;1131ecec;b705749d;a6abf489,2000
+4a03c7cc,planetary geology,d7cca12a;7329d33f;dbabd724;994136ca;5d01df9d,2019
+d42c8a59,planetary geology,5fccc521;00e9c157;31a7a82c;430de0e2,2013
+d91c5ac7,photonic crystals,dc062385;7cd56830;3a4eedd5;5814a929;4dc3e5f9,2023
+dab6c718,graph theory,7329d33f;31af81b5;a15dde82;124f3919;501b81c6,2007
+12e58f1b,graph theory,5fccc521;615167de;071c8df1;5c84fb61;0f9a0c8c,2022
+a7b58cf4,computational linguistics,3242218c;8ea8eb2c;634c798e;b2040ca8,2023
+e4a205db,digital humanities,2785c5a1,2005
+d4b1f308,neural networks,174e8579;b79e0c39;12d531a5;39c50451,2004
+52b51505,graph theory,e7eec0bd;0f9a0c8c,1991
+7a8df4b5,cryptography,de381482,2022
+520f6e7a,neural networks,2a177449,2015
+6e68a400,planetary geology,32ae08fa;50fc55f3,2014
+8c63d3fb,computational linguistics,9748884f;0b8b67d0;a926da26,2004
+86254633,digital humanities,c8814381;98b83b14;4d60d90e;d5adee5d;8c63d3fb,2023
+5be34767,material science,9c8da83f;77ee2089;275c4c6f,2015
+2c108746,material science,35f22e70,1992
+d9858c60,neural networks,a6d9167d,2015
+b11e42ce,graph theory,521285ab;124f3919;d50749c7;5fccc521;347040a5,2013
+6f08dcef,quantum computing,3cc3a695;476d0c66;ed9c963d,2023
+cb6e6e49,material science,fb852b19;ddee0093;650337c1,2014
+05d997c9,graph theory,86254633;3ed729ff;63b8ad0c;271d7f7b,2018
+c1ea5251,cryptography,f9ce8fa9;6c09848c;8cedd540;83e59651;3242218c,2022
+fb4c7f14,environmental modeling,6d50784a;285cb3b9;2ad397ab;d7f082bd;abe04455,1990
+cfbac04d,neural networks,cc2ee3a9;9940a7f1;d7f082bd,2004
+63040d7c,neural networks,38bc3565;5c84fb61;d863ff28;52b51505,1999
+9a535d60,cryptography,f7a7a0e2;b0257079;a3995b22;3ffc0780,1997
+8eb83d27,digital humanities,eb95d640;87ddfc42;4dd834ae;d0d0efb1;b0257079,1992
+31b005d6,neural networks,85c7de99;81921601;2c3f1492;1bae4da8,2019
+71be44e9,computational linguistics,afb47c2d,1997
+be7a3390,environmental modeling,943e0b6c,2016
+76602e25,environmental modeling,3fed0579;5b279175;e9dc1055;ff3b173d,1997
+13a461b0,digital humanities,7e3348c0;bae9b666;9748884f,1998
+46944422,computational linguistics,0b3f7860;8eb83d27,2000
+cf71f0e1,bioinformatics,2bdf6f2e;447a7b61;ee56d4a3;7c8de759,1995
+1d783411,bioinformatics,ad89785a;8ae9a043;7ea75825,2016
+a4cbe7ff,graph theory,406ed93b;e7b6a9b2;38bc3565,1994
+031f3830,bioinformatics,87ddfc42;d91c5ac7;39c50451;01347ea4,2014
+abbab5ec,computational linguistics,bb6b4abd;ba37b2f9;10a161cb,1990
+0bfeeb43,environmental modeling,d321e5f5;a98b80b6;f639d86a,2002
+63b0f766,material science,a2d0046f;014b8d0f;c2ff2559;03fe9991,2000
+0b5017fd,planetary geology,ce28bdf6,2004
+637f83d3,computational linguistics,0c208289;1801c3ef,2014
+397eb702,computational linguistics,b79e0c39;b39ce61b;3ed729ff;1b61e1ee,2011
+e5b8863d,quantum computing,f01fe9d5;38833db1,2008
+d975af1c,graph theory,c2ff2559;77b78d8a;b99307ef;6103bcbc;58c92211,1998
+b36dee0f,graph theory,b0257079,2012
+af5c8f15,neural networks,336a7498;f24ca746;e7b6a9b2;4d03d335;4ddc57b5,2004
+9baf16e7,computational linguistics,474a9e99;04d6af4e,2017
+31243a1c,photonic crystals,86254633;731f38f9;8cedd540,2019
+9dbef1eb,environmental modeling,ed820df6;9927da90;46aa5797;b1b216d3;cf71f0e1,1996
+c25c0f92,planetary geology,de070069;9302c5d3;831936d1;4e047777,1999
+c3c12fe7,graph theory,5814a929;7900cdf4,2010
+0f9076ab,bioinformatics,2e24eb17,2001
+3ca4ec3c,bioinformatics,3fed0579,2020
+ac29908d,planetary geology,a15dde82;4d03d335;81921601;ce43f5d4;a0b5f912,2004
+72b63b70,neural networks,4d147e49;cd33670c;65899cd9;ca22e496,2020
+8058c3a5,computational linguistics,4ebc7c47;ae743ef4;51d6ece3;da4dc5b3;f24ca746,2009
+57f8628b,planetary geology,01347ea4;b1b216d3;d13f4e24;01d738ae,2007
+5d5f1c61,graph theory,827b4322,1997
+97b9b251,digital humanities,d91c5ac7;7e3348c0,2005
+edfdda00,environmental modeling,98ccbe27;b11e42ce;97b9b251,1992
+e5892ce7,planetary geology,a97805ae;49e4d481;d42f20b2;90b12253,2006
+4e499c81,quantum computing,9de67d22;39394a28;5c84fb61;4b17c2cc,2006
+b88c29e9,material science,3ed729ff;634c798e;ee56d4a3;53f1ad03;32845647,2016
+cfd413e0,bioinformatics,fb4c7f14;63b60a2c,1990
+228c8d6b,planetary geology,c99d0d5b;38ca74e5,2011
+a57badac,material science,f4abbbb6;01d738ae;2bd13217;5fccc521,2011
+d37189a2,environmental modeling,5500861c,2009
+642ffaf8,digital humanities,4ebc7c47;d27f7535;734c4b99,1999
+3049e0e4,computational linguistics,535b22c9;2aca9456;623ec2ec;d5adee5d,1996
+720fee12,material science,d42f20b2;09f4940e;fe0a8d23,2000
+d651619e,planetary geology,4160aab1;24d1db9e;dfdd65fc;7875dca3,2008
+15d05f71,cryptography,ee56d4a3;46944422;831936d1;1bae4da8;397eb702,2002
+55f9ba69,computational linguistics,01931073;a5e81404,2022
+cf6c202d,evolutionary biology,943e0b6c;8d3d4618;bce5ecd2;fa691a07;e4a205db,1991
+46de499e,photonic crystals,04d6af4e;bd131f6b;5500861c;a0b13ed3;cf6c202d,2000
+7b45b2dd,graph theory,c50b13d9;e74724a2;d4b1f308;9d2a9fb7,2020
+766f88b8,evolutionary biology,d018d708;eaff58d3;07db0bea;d321e5f5,2010
+fb1fbc0b,graph theory,1943f507;97b9b251;9d2a9fb7;a5e81404,2004
+bcb42631,quantum computing,2bdf6f2e;6792de87,1992
+6f4066e2,cryptography,22a48a69;2bdf6f2e;c118699b;65100158;ebfc1887,2010
+28c16709,computational linguistics,786e789d,1993
+1b7eb74b,bioinformatics,24f3f1dc,2003
+e804675d,graph theory,36f2b513;1f84dac1,2004
+b35bcfc6,environmental modeling,dbba747c;d975af1c;c7ddbce8;608490f2,2005
+274c9d9e,digital humanities,0ddd3bf7,1999
+df283ea2,cryptography,b0c33574;de61d9c5,2020
+15b65310,bioinformatics,d45c43ee;de446ce8,2018
+fb2dd989,photonic crystals,1abcc1d4;77b78d8a;3ca4ec3c;3242218c,1991
+66757e93,computational linguistics,5be34767;26b49673;7900cdf4;4d147e49,2012
+4e34edae,computational linguistics,3d1024bb;32e4320c;46de499e;4304ea38,2023
+06971029,bioinformatics,476d0c66;ff4e3422;0f9a0c8c;eb357618;95be610f,2000
+cc16eb1a,cryptography,52b51505;72b63b70;ca22e496;9baf16e7;e74724a2,2016
+54a17e5f,bioinformatics,3242218c;d1daa702;479f7627,2007
+37c20363,material science,20e96ae0;c6c8bce6;01347ea4;a81784a6,2021
+1bd04ee1,cryptography,b1b216d3,2005
+5895c6ab,planetary geology,4cb84bde;5814a929;8cedd540;de070069,2023
+5125cbaa,environmental modeling,c0788731;6f08dcef;12d531a5;09f4940e,2009
+a4af1e06,material science,d99cb38e;b36dee0f;39394a28;8058c3a5;1b716149,2015
+0e46fb76,neural networks,da4dc5b3,2023
+54a3fab6,planetary geology,3481a4b1;c3c12fe7;b79e0c39;ce57a5d0;477038e9,1997
+19bdbe4f,graph theory,dbabd724;1f4071aa,1990
+67819ecb,cryptography,228c8d6b;c3c07ffc;b705749d;de774324,2008
+095c0acc,computational linguistics,12aece99;26b49673;98ccbe27,2003
+7fa487fe,planetary geology,4b8d0784;d4b1f308,1995
+eaae4cb4,bioinformatics,54a17e5f;fe0a8d23;90bfba94;814ec0e6;8db05c21,2015
+d713fc05,evolutionary biology,81c489f3;310e8c90;01931073;36f2b513,2006
+86702143,computational linguistics,285cb3b9;5c54a86d;74c0e8fe;a4cbe7ff;5f15f574,1999
+251d8cbb,cryptography,de774324;8cedd540;03642f12;b93c658c;01d738ae,2010
+c7055615,evolutionary biology,a6abf489,2018
+e659f364,material science,5e6b5dd4,2021
+bf9c82d3,environmental modeling,38833db1;e74724a2;0f4aeccb;b2040ca8;766f88b8,2002
+c7392ddc,material science,d97c38c2;521285ab;0bbe226b;3242218c,1993
+3fddf4cc,cryptography,eaff58d3;0ddd3bf7,1996
+ee1df264,photonic crystals,293be96e;06971029;952afec9,2023
+b3add5d9,bioinformatics,5814a929;2ed68e59;b982ad22;9dd14f4f;c7392ddc,2000
+a6b904fe,environmental modeling,1f4071aa;285cb3b9,2021
+6fee6bb4,quantum computing,397eb702;0f9a0c8c;d2474297;08f92242;5756fca1,2009
+f7819893,photonic crystals,f7775a13;2bd31928,2007
+d6d1d221,quantum computing,4b8d0784,2000
+83a675da,environmental modeling,22db8254;52b51505;650337c1;f01fe9d5;605fa80e,2004
+fd0c3209,photonic crystals,4d60d90e;d1daa702;4c87db57;cde5b9d2,2013
+637571ab,material science,014b8d0f;cb6e6e49,2000
+e1b9349c,environmental modeling,1131ecec;03642f12;6c47c05f,1996
+cd517a00,cryptography,2d9c1b27,1998
+c31f2f00,bioinformatics,97b9b251;e3c74bb4,1992
+6f47482c,neural networks,26b49673;e1b9349c,2011
+b4ca8fed,planetary geology,3ea92530,2003
+a719d33a,graph theory,46944422;942c77c4;9940a7f1;66757e93,1996
+ab1e8c54,computational linguistics,5631cd8f;a3995b22;7caa4af5,2021
+22bd73d7,neural networks,73bfd4c3;8ea8eb2c;720fee12,2020
+49e5c0ba,neural networks,4313cb4d;4da531d3;0bfeeb43;f6551253,2017
+4813f4c8,digital humanities,64c417f5;53e469e9;4e499c81,2018
+179b0838,bioinformatics,994136ca;4e499c81;0272ebe2;36f2b513;e47a9188,1999
+4a8e09e1,cryptography,036f4bcf;d6c7e505;21e5a8b6;dbba747c;34caa59f,2010
+0ac40fe6,computational linguistics,e659f364,2003
+f90205c0,neural networks,554f04a9;3ca4ec3c;fe0a8d23;923a657b,2023
+045cf1fc,bioinformatics,5838d62b;ed9c963d;8fea2105;3d2a8f12;336a7498,2007
+adc93fc0,computational linguistics,2bdf6f2e;b79e0c39,2003
+3f6ff6d0,planetary geology,be7a3390;54a3fab6;9baf16e7;d018d708;de446ce8,2005
+51a8149e,planetary geology,0f9076ab;fd692724;de774324;0b8b67d0,2020
+b74c89f2,graph theory,eaff58d3;8c63d3fb;7084879c;d0d0efb1,2002
+d7744d4b,cryptography,31b005d6;3fe43866,1990
+01d5b531,computational linguistics,a97fa40e,2001
+ccfce02c,graph theory,03fe9991,1996
+c7791f76,photonic crystals,24f3f1dc;c73a0541;c7ddbce8,2009
+17651f9d,planetary geology,37c20363;ad89785a;ea195df7;285cb3b9;0bbe226b,2010
+f7f36a2c,bioinformatics,2d9c1b27;7cd56830;36f2b513;15e8f6d4,2005
+f467fe8a,bioinformatics,285cb3b9,1991
+09a79f33,planetary geology,61448fc7;507b5b48;1b716149;d6c7e505;5c54a86d,1990
+e30cb998,computational linguistics,cf680e13;0f4aeccb,2018
+ae439740,graph theory,91555020;0ac8a49c;78f10c96;4e2f76d1,2016
+91086de4,graph theory,4d03d335;9c1b2516,1993
+7df8911f,material science,d999d268,2022
+d8446e4f,photonic crystals,b74c89f2;622a741c,2019
+8cd603fe,digital humanities,71be44e9;8c2e7646;8cedd540;cc16eb1a,2002
+937fffc9,neural networks,3cc3a695;014b8d0f;7c1f7f2e;e16438f0;78f10c96,1993
+7fde6c9d,graph theory,dcde54cb;f6e2ef4d;e1b9349c;d5adee5d,1993
+92264cfd,photonic crystals,58c92211,2003
+19d01cf2,planetary geology,5814a929;0b3f7860;8c2e7646;9dbef1eb;26b49673,1999
+36250b24,evolutionary biology,0147f85e,2011
+d7e1e1bc,material science,54cd77ec;3f29e956,2008
+6f889e7e,environmental modeling,031f3830;bd131f6b,2011
+3daf85f7,graph theory,63b8ad0c;be7a3390;59323a45,1992
+fc2cb2b9,evolutionary biology,ea025302;3d1024bb;00efe146;55f9ba69;0147f85e,1993
+059f9450,photonic crystals,21e5a8b6;0336415d,1992
+c753b642,neural networks,a282389d;634c798e;53f1ad03,1991
+5281f1c1,planetary geology,7900cdf4;b9343198;fb852b19;d93ac61b,1994
+5c69431e,environmental modeling,cdab69a3;a3995b22;9ccf0f05,2023
+70aabc8f,environmental modeling,c73a0541;9302c5d3,1992
+f80bfa06,computational linguistics,0d07eeb5;97b9b251,2001
+99120667,environmental modeling,81921601;535b22c9;0189e962;4b9f4f7c;1f84dac1,2022
+0cb1f249,digital humanities,61448fc7;80125941,2022
+2d44230e,evolutionary biology,85f7fcd0;372f1993;98ccbe27,2016
+cba3eb2b,environmental modeling,63b0f766;6c47c05f;0d07eeb5,2012
+177e7869,photonic crystals,2bd13217;ccfce02c;f7819893;f80bfa06;a14f0437,1997
+cfff22c6,photonic crystals,2b280cb9,2022
+89c75d96,bioinformatics,c99d0d5b;0f9076ab,1996
+00141faa,photonic crystals,e74724a2,1992
+2ea576c1,photonic crystals,c25c0f92;a282389d;36250b24,2011
+7da47d82,environmental modeling,7fa487fe,1992
+f1cbcc61,computational linguistics,c58f8f70,1993
+bfec0491,digital humanities,f41c45fb;3fed0579;31a7a82c,2010
+6be42d19,environmental modeling,e7ef3a02;901f7c77;99120667;5631cd8f,2001
+e10ed12c,cryptography,53c8a183,1999
+47c605e8,quantum computing,515e194a;bf9c82d3;8d8f3f2e,2014
+e0f275e9,quantum computing,651fb3c1,2015
+2ef41734,photonic crystals,507b5b48;e4a205db,2010
+f9a32c2e,cryptography,4ebc7c47,1997
+5fcd9240,planetary geology,dcde54cb;63b60a2c;55aa11e0;13ad25c9,2000
+6700571f,computational linguistics,b2d9df6e,1996
+54646e0b,material science,5a02dcca;7900cdf4;a62b0b03,2010
+f746f5a7,photonic crystals,01d738ae,1995
+58474261,material science,aa271a6f;d2c9bcae;c2ff2559,2005
+a1df5c2c,neural networks,5d5f1c61,2014
+0677b0d3,planetary geology,8886624a;80125941;b35bcfc6;3b5e1a1c;dcfe4910,1997
+d0283e0d,environmental modeling,c3c07ffc;fef38c51;9c8da83f,2010
+7b2ccab5,photonic crystals,7b2d0e1a,1994
+dec2f71b,cryptography,5eeb228b;f18d3b3b;b360b714;eaae4cb4,2013
+28a3e2bc,cryptography,1801c3ef,2013
+f65d95be,digital humanities,49606bf2;5fcd9240;a97fa40e;4b9f4f7c,2017
+9eb8f481,evolutionary biology,16c6c8e2,2004
+13f13a49,planetary geology,dbe91834;e4a205db;eb357618;49428ac6,2014
+c7a605a8,graph theory,a506665a;d91c5ac7,1997
+42e89b11,cryptography,c0788731;aee4af89,1992
+f3320613,digital humanities,be7a3390;df283ea2;177e7869,2003
+79a86a4c,photonic crystals,81921601;cfd413e0,2008
+336cb2f9,evolutionary biology,8058c3a5,1992
+e7ad81d1,computational linguistics,637571ab;d321e5f5;e30cb998;0625cae5;451a6c58,1999
+8a6255bd,bioinformatics,6f08dcef;4a8e09e1;eead67d1;6e110634;66757e93,2000
+d5bda319,planetary geology,3481a4b1;2edf3f86;87b4f827,2013
+ba1cb9f0,planetary geology,6f08dcef;2b280cb9,2017
+d01787b8,environmental modeling,fb2dd989;ca867708;fbbe92c3;0677b0d3,1999
+6a1dbf1f,neural networks,7900cdf4;634c798e;247de265;9baf16e7,2002
+5e392e11,environmental modeling,e3c74bb4;15b65310;49e4d481,2005
+e6e81fc6,digital humanities,6449bc70;86254633;0f9076ab;0f9a0c8c,2012
+c9766c3e,material science,08f92242,2022
+88066aa6,evolutionary biology,952afec9;07fb3646;1bd04ee1;8a6255bd;73bfd4c3,2013
+86f81958,material science,02e5e209;53e469e9,2018
+1a93b9b2,computational linguistics,eb357618;b35bcfc6;515eb949;076b154e;f24ca746,1997
+4a30fbb9,cryptography,937fffc9;3f29e956;d6b80b7d,1996
+aedb1e2b,computational linguistics,8a6255bd;9229b952;ca5349e6;5f15f574,2006
+7cf1c763,planetary geology,1b7eb74b;05bf7e33;7084879c;f80bfa06;7872ca62,2010
+094e51bd,graph theory,397eb702;ff21c8ad,2023
+677a8893,photonic crystals,97865c43;0625cae5;6139bbc9,2019
+86d35c15,planetary geology,97865c43;e7ad81d1;b1b216d3;720fee12,2005
+17d5ce58,evolutionary biology,3ed729ff;942c77c4;6e68a400;a97fa40e;827b4322,1993
+77280a99,planetary geology,a2fcb390;8c2eb87a,2014
+aeb3adac,evolutionary biology,f2850fcb;681cb8cb;d5bda319;71675cd6;3ea92530,2017
+f16199a8,planetary geology,7b45b2dd;39c50451;7cf1c763;6700571f;5aa05050,2018
+c3779346,quantum computing,6fee6bb4;4ebca397;681cb8cb,2022
+fb1619ce,computational linguistics,eb357618,2023
+800f0875,environmental modeling,a2d0046f;cc16eb1a;b0257079,2004
+4a6b6dee,material science,7da47d82;278d3936,2007
+911cdf56,material science,901f7c77,2012
+7dcf9a71,digital humanities,4dc3e5f9;63b8ad0c,2004
+dd2ef46c,environmental modeling,c9766c3e,2021
+0575027a,material science,720fee12;d2474297,2010
+866a2984,evolutionary biology,7a8df4b5;3207837d;1f4071aa,2008
+23d8aeac,bioinformatics,6dbd40df;014b8d0f;35f22e70;e93067c7,2007
+9d1f5c02,computational linguistics,aafd58b2;923a657b;50fc55f3,2011
+b4ecde3d,graph theory,7b4f84bc,2006
+bdd2e902,computational linguistics,d0d0efb1;0e7fa6c3;aa4d50bb,2015
+31af52c6,cryptography,4dd834ae;dbba747c;54cd77ec;bb57f330,2021
+3f0123c0,quantum computing,98ccbe27;7d8a9e08,1993
+4095326f,material science,d27f7535;7329d33f,1994
+aff65b24,environmental modeling,f90205c0;67341aa8;608490f2;12b9a750;ae743ef4,2003
+c7491767,neural networks,766f88b8;afb47c2d;65899cd9;4095326f,2007
+2b5b392a,computational linguistics,e7ef3a02;285cb3b9,2020
+2da21703,material science,22bd73d7;85f7fcd0,1997
+39a12856,photonic crystals,c7491767,2015
+4129a08a,material science,55f9ba69,2019
+a0e71d12,bioinformatics,16c6c8e2;d321e5f5;3ed729ff;1350a597,2006
+815d7c6e,environmental modeling,7c883580;0147f85e,2018
+8e5d7f5b,digital humanities,ae140900;4a30fbb9;89c75d96,2023
+3af3490b,cryptography,1943f507,2012
+635756a1,computational linguistics,622a741c;4dc3e5f9;97865c43;f9ce8fa9,2019
+81e031ff,photonic crystals,35a28adc;2e24eb17;fb4c7f14,1995
+84df947b,planetary geology,2d9c1b27,1993
+c4bff64b,graph theory,31b005d6;036f4bcf,2017
+09fdc805,graph theory,ca303472;3fed0579;adc93fc0;5fcd9240,2004
+9d6ff4eb,graph theory,d9881a74;fd0c3209;07fb3646;34caa59f;88066aa6,1996
+70718813,neural networks,cf6c202d;01347ea4;814ec0e6;4ebca397;b995126a,1992
+77ee8e35,environmental modeling,97d2b82a;16c6c8e2;397eb702;97b9b251,2022
+2fa218e5,material science,94ae86f6;0625cae5;cad19a60,2021
+7536c204,quantum computing,25f0d107;479f7627;866a2984;8e5d7f5b,2014
+8fd2ac19,graph theory,f7775a13;bb6b4abd;901f7c77,2022
+8d9dea56,planetary geology,b9f7b9d5,1999
+b8bfe567,evolutionary biology,2b00017d;3ca4ec3c,1991
+1f2df5c6,environmental modeling,aafd58b2;46944422;7b2d0e1a;42e89b11,2006
+2f9c7e3d,environmental modeling,9940a7f1;31243a1c,2019
+3c0d112d,planetary geology,77ee8e35;177e7869,1992
+80912626,bioinformatics,12b9a750;7f977e91,1990
+118a4ac5,quantum computing,af5c8f15,2013
+20aee1ec,neural networks,47c605e8;54a3fab6;f467fe8a;642ffaf8,1990
+72c52d35,planetary geology,eb357618;474a9e99;f6773e87,2016
+b330bba3,neural networks,3242218c,2000
+fe5b5333,photonic crystals,ba37b2f9,2002
+fba296e9,computational linguistics,88066aa6;31243a1c;5814a929,2003
+b842fad9,photonic crystals,e18a794f;2d44230e;ea195df7;b39ce61b,2003
+9f89ac4f,neural networks,0147f85e,2017
+80b89ac9,cryptography,90bfba94;efabbdcf;09fdc805,2007
+4bd5137b,evolutionary biology,4da531d3;49428ac6;f7f36a2c;6bb5ffac;c8835004,1998
+d50306e9,environmental modeling,368ac66d;38ca74e5;4160aab1;f9bae397;5c84fb61,2023
+6fffc551,computational linguistics,e9a780c4;3607dddb;d93ac61b,2020
+c574a80d,material science,5eeb228b,1992
+d6be4086,computational linguistics,32845647;b360b714;dac12876;3d1024bb,2021
+199761b6,computational linguistics,a15dde82;e9a780c4;32ae08fa,2011
+6269d5b8,evolutionary biology,70eb2ff2;2ed68e59,2019
+292ba3f7,cryptography,34caa59f;8d9dea56,2019
+8a69050c,graph theory,4dd834ae;a6d9167d,2018
+091e4714,neural networks,014b8d0f;d4b1f308,1990
+224f57f2,planetary geology,71675cd6;1abcc1d4,2021
+81b41a79,photonic crystals,4e047777;7cd56830;12aece99;19d01cf2;2e9b99d5,2002
+4f0e4ca2,quantum computing,aedb1e2b;90bfba94;eb357618;2b00017d;bce5ecd2,2013
+9b1537ea,photonic crystals,1bd04ee1,2018
+d7771180,evolutionary biology,61448fc7,2020
+4553086d,photonic crystals,f6773e87;2d44230e;430de0e2;2ed68e59;cf6c202d,1997
+7e3850aa,bioinformatics,d37189a2;ebfc1887;650337c1;677a8893,2000
+c649c4cb,material science,fe0a8d23,1994
+f85515b0,graph theory,b35bcfc6;71d60c82;1b61e1ee;6269d5b8;7329d33f,2013
+ebe60023,photonic crystals,730115e8,1994
+da0f9a65,digital humanities,28c16709;57700c90;91086de4;f41c45fb;f2850fcb,1993
+b4da4f76,computational linguistics,1bae4da8;49606bf2,2023
+485e2125,neural networks,228c8d6b;9927da90,2005
+b272be8b,computational linguistics,7c883580;5125cbaa;720fee12;f9bae397;293be96e,2008
+ebe378f2,quantum computing,3242218c;3ffc0780;0b8b67d0,2010
+3fa33720,photonic crystals,b11e42ce;c372cb5e,2021
+2cca1f8a,graph theory,ed9c963d;b4ca8fed;4092b252;13fabc74,2017
+39d41b71,graph theory,2e53c9d5,2004
+e17880b7,material science,80912626;045cf1fc,1993
+fac1958b,bioinformatics,8886624a,2010
+c5d2c1ce,evolutionary biology,be7a3390;e3c74bb4,1999
+a30005a8,environmental modeling,7b2d0e1a;ed820df6;a6b904fe,2005
+5eb1595b,neural networks,5e392e11;786e789d;85f7fcd0,1998
+4938abf0,digital humanities,a5e81404;8c63d3fb;fb852b19;0f9d8e22;e7b6a9b2,2008
+5c2694bd,quantum computing,ea195df7;2cca1f8a;f2850fcb,2003
+3fc3830a,digital humanities,406ed93b;59323a45;3f29e956;9baf16e7,2003
+c4dda09d,planetary geology,fd692724;9b1537ea;da731080,1990
+9cd080ed,photonic crystals,cf6c202d;dfdd65fc;5567d1c3,2007
+642fd482,material science,d7cca12a;949e0235,1991
+b07188d9,photonic crystals,651fb3c1;5631cd8f,2022
+9a688274,quantum computing,a97fa40e;ad89785a;49428ac6,1993
+ada9e677,environmental modeling,d97c38c2;39a12856;13fabc74;0b8b67d0;9ccf0f05,2002
+63b3331f,photonic crystals,bf9c82d3,1990
+76c580ff,evolutionary biology,bfec0491;81921601;0f9076ab,2022
+d764fe07,neural networks,b22b4f54;5ad96d46;6be42d19,2018
+95f5e232,computational linguistics,b2d9df6e;292ba3f7,2005
+1b392895,bioinformatics,2b00017d;ec0d21f9;1b61e1ee;6449bc70,2014
+615cf602,computational linguistics,86f81958;19d01cf2,1995
+f92042a0,digital humanities,12d531a5;a4af1e06;055bb072;7eabd67d;de381482,2017
+4489311d,evolutionary biology,67819ecb,2011
+8ac4d36c,photonic crystals,5d8be6d7;045cf1fc;77b78d8a,2000
+801bab0e,cryptography,4a8e09e1,1992
+ebd6e120,graph theory,756be6f5;0f9d8e22;8a6255bd;b8bfe567;23d8aeac,1994
+02d98719,computational linguistics,6449bc70;4095326f,1990
+d2c365cd,cryptography,a2d0046f;9baf16e7,2022
+2215a8aa,planetary geology,520f6e7a,2009
+5d505411,quantum computing,4e499c81;179b0838,2007
+8787bb40,evolutionary biology,4129a08a;336a7498,2007
+14aa7a50,photonic crystals,347040a5,2008
+061c0dd1,neural networks,d863ff28;53f1ad03;ee1df264;56e28d2b,2016
+35a9587a,computational linguistics,c5d2c1ce;f7819893,2008
+be0a794a,environmental modeling,0b3f7860;7536c204,2010
+7ee6d84c,cryptography,03642f12;0b8b67d0;4938abf0,2013
+9f20b5d1,quantum computing,7084879c;05bf7e33,1994
+78e75fae,digital humanities,40683d5e;57f8628b,2016
+5c6c27c5,graph theory,f7819893;d06c8e5a;32ae08fa;8a6255bd,1992
+9a2ba83a,digital humanities,dcfe4910,2002
+29fbab87,quantum computing,8e2fed8f;dd16ad5d;49e5c0ba;bae9b666;406ed93b,2004
+9c0922a1,environmental modeling,2215a8aa;6e29cb4d,1996
+2009f605,quantum computing,d6c7e505;598404f2;2bdf6f2e;abbab5ec;2d44230e,2001
+532eb3e9,neural networks,eeae9bbd;d7e1e1bc;285cb3b9;fef38c51;86702143,1991
+80fd7dfc,neural networks,ab1e8c54;2215a8aa;3cc3a695,2022
+8b1c4c7e,bioinformatics,e7ad81d1;15b65310,2018
+71434180,photonic crystals,77ee2089,1996
+4d5a1b79,digital humanities,8cedd540;507b5b48;617c8acf,2000
+6666ab87,digital humanities,348620df;80125941;a5e81404;49e5c0ba,1998
+66396616,bioinformatics,b88c29e9;17651f9d;ae439740;4f7e0fc1;5f70623f,2010
+caa63ecc,graph theory,045cf1fc;4e2f76d1;3f6ff6d0;d91c5ac7,2001
+88e4befa,material science,8f513786;7c1f7f2e;e681c1a4;1f4071aa,1992
+40e6eed6,environmental modeling,06971029;5fcd9240,2003
+60b94856,cryptography,49e5c0ba;f26d9918;13a8cb00;80125941;3ca034c0,2001
+0e2416d9,digital humanities,3481a4b1;9229b952;78f10c96,2019
+a5aee6a9,planetary geology,5895c6ab;65899cd9;7eabd67d;3f29e956;1adf50fe,1999
+e49c338c,environmental modeling,0cb1f249;e39b8bc7;3242218c,1991
+74b820be,quantum computing,a4af1e06;179b0838,2017
+12fc2a44,quantum computing,2e53c9d5;8c2eb87a,1995
+bc6bb642,planetary geology,fac1958b;d7f082bd;f90205c0;b995126a,2023
+3acbdd58,cryptography,86e265c7,1998
+297f34fe,neural networks,63040d7c;5e392e11;34dafa5e;477038e9,2008
+d457ce13,photonic crystals,98b83b14;c5f5863e;b3add5d9,1991
+7839013f,quantum computing,7d7be764;905bc7c2;d2c365cd;d6be4086,2015
+e553166d,evolutionary biology,c3c07ffc,2010
+48bb4b73,neural networks,7d8a9e08;274c9d9e;a14f0437;2e24eb17;09a79f33,1996
+bc4ebfed,evolutionary biology,58474261;12e58f1b;b0c33574;32e4320c;5ad96d46,2023
+d6b21f85,graph theory,831936d1;4d60d90e;8ea8eb2c,1991
+01d129f7,computational linguistics,5567d1c3;b4da4f76;7839013f;dde45ab6;01347ea4,2000
+c505ba9a,cryptography,397eb702;4a30fbb9;38833db1;77b78d8a,2018
+a2e1ebbe,evolutionary biology,e8a73632;031f3830;d91c5ac7;c574a80d;f84e4d97,1990
+0db1c09d,neural networks,b79e0c39;266d7c79;2aca9456;b60db20f,1995
+1beb15f5,evolutionary biology,199761b6;4cb84bde,1997
+84d10829,bioinformatics,9baf16e7;9d1f5c02;02d98719,1997
+4d8da61a,graph theory,80125941;09fdc805;f90205c0;24d1db9e,2014
+d31f1975,evolutionary biology,9cdf5c77;e5892ce7;942c77c4,2015
+975a1ed6,computational linguistics,9baf16e7,2011

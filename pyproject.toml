@@ -1,16 +1,20 @@
 [tool.poetry]
-name = "mvpnovelty"
+name = "triadic-novelty"
 version = "0.1.0"
-description = "A boilerplate for starting a modern Python package."
-authors = ["Your Name <you@example.com>"]
+description = "A Python package for triadic novelty detection"
+authors = ["Filipi N. Silva <filipinascimento@gmail.com>", "Jin Ai <ail@upenn.edu>"]
 license = "MIT"
 readme = "README.md"
 packages = [
-  { include = "mvpnovelty" }
+  { include = "triadic_novelty" }
 ]
 
 [tool.poetry.dependencies]
 python = "^3.8"
+pandas = "*"
+numpy = "*"
+python-igraph = "*"
+tqdm = "*"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

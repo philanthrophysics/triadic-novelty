@@ -1,5 +1,5 @@
 import os
-import mvpnovelty.measures as mvm
+import triadic_novelty.measures as tn
 import pandas as pd
 import numpy as np
 from tqdm.auto import tqdm
@@ -13,7 +13,7 @@ df = pd.read_csv(data_path)
 
 # instantiate and compute pioneer novelty
 # need to have columns: 'publicationID', 'references', 'subjects', 'year'
-cd = mvm.CitationData(df)
+cd = tn.CitationData(df)
 
 # calculate the novelty scores for each of the three measures
 # pioneer, maverick, and vanguard

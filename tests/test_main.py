@@ -1,5 +1,5 @@
 import unittest
-from mvpnovelty.main import main
+from triadic_novelty.main import main
 
 class TestMain(unittest.TestCase):
     def test_main(self):

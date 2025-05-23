@@ -1,4 +1,3 @@
-
 import pandas as pd
 from tqdm.auto import tqdm
 import numpy as np
@@ -11,7 +10,29 @@ epsilon = sys.float_info.epsilon
 # triadic-novelty
 
 class CitationData:
-    # baselineRange is a tuple
+    """
+    A class for analyzing citation data and computing triadic novelty measures for scholarly publications.
+
+    Parameters
+    ----------
+    data : pd.DataFrame
+        DataFrame containing publication data with columns: 'publicationID', 'references', 'subjects', 'year'.
+    baselineRange : tuple, optional
+        Tuple (start_year, end_year) for the baseline period. Defaults to (-1, -1), which auto-selects based on data.
+    analysisRange : tuple, optional
+        Tuple (start_year, end_year) for the analysis period. Defaults to (-1, -1), which auto-selects based on data.
+    attractiveness : float, optional
+        Attractiveness parameter for base model generation. If None, no model shuffling is performed.
+    showProgress : bool, optional
+        Whether to show progress bars during computation. Default is True.
+
+    Raises
+    ------
+    TypeError
+        If input data is not a pandas DataFrame or attractiveness is not a number.
+    ValueError
+        If required columns are missing, year is not numeric, publicationID is not unique, or ranges are invalid.
+    """
     def __init__(self, data: pd.DataFrame,
                  baselineRange: tuple = (-1, -1),
                  analysisRange: tuple = (-1, -1),
@@ -191,6 +212,23 @@ class CitationData:
         return analysisRange
 
     def calculatePioneerNoveltyScores(self, impactWindowSize: int = 5, returnSubjectLevel: bool = False):
+        """
+        Calculate pioneer novelty scores for each publication.
+
+        Parameters
+        ----------
+        impactWindowSize : int, optional
+            Number of years after subject introduction to consider for impact calculation. Default is 5.
+        returnSubjectLevel : bool, optional
+            If True, returns both subject-level and paper-level results. Default is False.
+
+        Returns
+        -------
+        pd.DataFrame or dict
+            DataFrame with columns: 'publicationID', 'introducedSubjects', 'pioneerNoveltyScore',
+            'pioneerNoveltyImpact', 'pioneerNoveltyImpactScores'.
+            If returnSubjectLevel is True, returns a dict with keys 'subjectPioneer' and 'paperPioneer'.
+        """
         # calculate the pioneer novelty score
         # for each subject in the baseline range, get the number of references that were introduced in the baseline range
         # and divide by the total number of references
@@ -309,6 +347,22 @@ class CitationData:
 
 
     def calculateMaverickNoveltyScores(self, backwardWindow: int = 5, forwardWindow: int = 5):
+        """
+        Calculate maverick novelty scores for each publication.
+
+        Parameters
+        ----------
+        backwardWindow : int, optional
+            Number of years before publication to consider for baseline. Default is 5.
+        forwardWindow : int, optional
+            Number of years after publication to consider for impact. Default is 5.
+
+        Returns
+        -------
+        pd.DataFrame
+            DataFrame with columns: 'publicationID', 'MaverickNoveltyAverage', 'MaverickNoveltySubjectsList',
+            'MaverickNoveltyEnhancementAverage', 'MaverickNoveltyDiminishmentAverage'.
+        """
         analysisRange = self.analysisRange
         subjectsSet = set([subject for subjects in self.data.loc[:,"subjects"] for subject in subjects])
         if "nan" in subjectsSet:
@@ -727,6 +781,19 @@ class CitationData:
 
 
     def calculateVanguardNoveltyScores(self, weightsCount: int = 4):
+        """
+        Calculate vanguard novelty scores for each publication.
+
+        Parameters
+        ----------
+        weightsCount : int, optional
+            Number of bins for edge weights in novelty calculation. Default is 4.
+
+        Returns
+        -------
+        pd.DataFrame
+            DataFrame with columns: 'publicationID', 'VanguardNovelty', 'VanguardNoveltyRank', 'VanguardNoveltyImpact'.
+        """
         analysisRange = self.analysisRange
         subjectsSet = set([subject for subjects in self.data.loc[:,"subjects"] for subject in subjects])
         if "nan" in subjectsSet:
@@ -965,6 +1032,21 @@ class CitationData:
 
     # creates a copy but with shuffled subjects
     def generateBaseModelInstance(self, attractiveness, showProgress=False):
+        """
+        Generate a base model instance with shuffled subject assignments.
+
+        Parameters
+        ----------
+        attractiveness : float
+            Attractiveness parameter for subject assignment probabilities.
+        showProgress : bool, optional
+            Whether to show progress bars during computation. Default is False.
+
+        Returns
+        -------
+        CitationData
+            A new CitationData instance with shuffled subjects.
+        """
         # create a new model
         newModel = CitationData(self.data,
                                 baselineRange=self.baselineRange,
